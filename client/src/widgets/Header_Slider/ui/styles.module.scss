@@ -21,7 +21,6 @@
         padding: 0;
         border: none;
         outline: none;
-        margin-left: 2%;
         top: 30%;
 
         &:hover {
@@ -34,10 +33,12 @@
     }
 
     &__left {
+        margin-left: 3%;
         align-self: flex-start;
     }
 
     &__right {
+        margin-right: 3%;
         align-self: flex-end;
     }
 

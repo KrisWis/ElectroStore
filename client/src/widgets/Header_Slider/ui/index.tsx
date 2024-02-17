@@ -4,6 +4,8 @@ import React from 'react';
 
 export const Header_Slider: React.FC = (): React.JSX.Element => {
 
+    /* Функционал слайдера */
+
     const [swiperItemActive, setSwiperItemActive] = React.useState(1);
 
     const onClickSwiper = (swiper: number): void => {
@@ -83,6 +85,20 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
         slideToNextItem();
         setSwiperItemActive((prev) => prev == 3 ? 1 : prev + 1);
     }
+
+    /* Функционал того, что каждые несколько секунд меняется слайд */
+
+    const slider_interval_ref = React.useRef<NodeJS.Timeout>();
+
+    React.useEffect(() => {
+        slider_interval_ref.current = setInterval(() => {
+            slideToFollowingItem();
+        }, 10000);
+
+        return () => {
+            clearInterval(slider_interval_ref.current);
+        }
+    }, [])
 
     return (
         <div className={styles.slider}>
