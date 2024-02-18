@@ -1,0 +1,91 @@
+import styles from './styles.module.scss';
+import React from 'react';
+import navBar_styles from '../../../features/NavBar/ui/styles.module.scss';
+import { AdaptiveNavBarProps } from '../model';
+
+export const Adaptive_NavBar: React.FC<AdaptiveNavBarProps> = ({ navBarIsOpen, setNavBarIsOpen }): React.JSX.Element => {
+
+    const [dropdownOpen, setDropdownOpen] = React.useState(false);
+
+    const dropdown_window = React.useRef<HTMLUListElement>(null);
+
+    const dropdown_window__text = React.useRef<HTMLDivElement>(null);
+
+    return (
+        <div className={`${styles.adaptive_navbar} ${navBarIsOpen && styles.adaptive_navbar_active}`}>
+            <div className={styles.adaptive_navbar_header}>
+                <h3 className={styles.adaptive_navbar_caption}>Menu</h3>
+                <i className={`${styles.adaptive_navbar_close} fa fa-close`} aria-hidden="true" onClick={() => setNavBarIsOpen(false)}></i>
+            </div>
+
+            <ul className={styles.navbar}>
+                <li className={styles.navbar__child}>Home</li>
+
+                <div className={navBar_styles.navbar__child_dropdown_block}>
+                    <div ref={dropdown_window__text} className={navBar_styles.navbar__child_dropdown__text} onClick={() => setDropdownOpen(!dropdownOpen)}>
+                        <li className={styles.navbar__child}>Pages</li>
+                        <i className="fa fa-arrow-down" aria-hidden="true"></i>
+                    </div>
+
+                    {dropdownOpen &&
+                        <ul ref={dropdown_window} className={navBar_styles.dropdown__window} aria-labelledby="dropdownPages" data-bs-popper="static">
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Shop <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Single Product <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Blog <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Single Post <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Single Post w/sidebar <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>About <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Cart <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Checkout <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Coming Soon <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Contact <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Error Page <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>FAQs <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>My Account <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Order Tracking <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>Wishlist <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                            <li className={navBar_styles.dropdown__window__block}>
+                                <a className={navBar_styles.dropdown__window__text}>navBar_styles <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                        </ul>}
+
+                </div>
+
+                <li className={styles.navbar__child}>Collections</li>
+                <li className={styles.navbar__child}>Sale</li>
+                <li className={`${styles.navbar__child} ${navBar_styles.navbar__child_hover}`}>Get Pro</li>
+            </ul>
+
+        </div>
+    )
+}

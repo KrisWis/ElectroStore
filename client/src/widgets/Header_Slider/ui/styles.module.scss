@@ -12,8 +12,8 @@
         position: absolute;
         z-index: 1;
         background-color: #111;
-        width: 100px;
-        height: 100px;
+        width: 7vw;
+        height: 10vh;
         cursor: pointer;
         opacity: 0.4;
         transition: opacity 0.3s ease-out;
@@ -21,7 +21,7 @@
         padding: 0;
         border: none;
         outline: none;
-        top: 30%;
+        top: 17vw;
 
         &:hover {
             opacity: .8;
@@ -69,6 +69,10 @@
             transform: rotateY(0deg) rotateZ(5deg);
             animation: rotate_anim infinite 30s linear;
 
+            @media (max-width: 1100px) {
+                padding: 0;
+            }
+
             @keyframes rotate_anim {
                 0% {
                     transform: rotateY(0deg);
@@ -107,6 +111,66 @@
                     height: 10px;
                     position: absolute;
                 }
+            }
+        }
+    }
+
+    &__content {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        z-index: 1;
+
+        &_caption,
+        &_text,
+        &_button {
+            opacity: 0;
+            transform: translate3d(0, 20px, 0);
+        }
+
+        &_caption {
+            font-size: 4vw;
+            width: 900px;
+            transition: all ease-out .3s;
+            margin: 0;
+        }
+
+        &_text {
+            font-size: 2vw;
+            transition: all ease-out .7s;
+        }
+
+        &_button {
+            background-color: rgba(0, 0, 0, 0);
+            color: #fff;
+            border: 1px solid #fff;
+            transition: opacity, transform ease-out 1s;
+            border-radius: 10px;
+            text-transform: uppercase;
+            padding: 1.5rem;
+            font-size: 2vw;
+
+            &_hover {
+                transition: all linear .3s;
+                transition-delay: 0s !important;
+            }
+
+            &:hover {
+                transition: all linear .3s;
+                border: 1px solid #fff;
+                color: #000;
+                background-color: #fff;
+            }
+        }
+
+        &_active {
+
+            .slider__content_caption,
+            .slider__content_text,
+            .slider__content_button {
+                transition-delay: .5s;
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
             }
         }
     }
