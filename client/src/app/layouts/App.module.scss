@@ -2,11 +2,13 @@ body {
     background-color: #020202;
     display: flex;
     flex-direction: column;
-    min-width: 100vw;
     overflow-x: hidden;
     font-family: "Protest Riot", sans-serif;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
 .hidden {
