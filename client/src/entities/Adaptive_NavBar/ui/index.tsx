@@ -7,15 +7,42 @@ export const Adaptive_NavBar: React.FC<AdaptiveNavBarProps> = ({ navBarIsOpen, s
 
     const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
+    const [activeNavbar, setActiveNavbar] = React.useState(false);
+
     const dropdown_window = React.useRef<HTMLUListElement>(null);
 
     const dropdown_window__text = React.useRef<HTMLDivElement>(null);
 
+    const adaptiveNavbarRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+
+        if (navBarIsOpen) {
+            adaptiveNavbarRef.current!.style.display = 'flex';
+
+            setTimeout(() => {
+                setActiveNavbar(true);
+            }, 100);
+
+        } else {
+            setTimeout(() => {
+                adaptiveNavbarRef.current!.style.display = 'none';
+                setActiveNavbar(false);
+            }, 300);
+        }
+
+    }, [navBarIsOpen])
+
+    const closeNavbar = (): void => {
+        setActiveNavbar(false);
+        setNavBarIsOpen(false);
+    }
+
     return (
-        <div className={`${styles.adaptive_navbar} ${navBarIsOpen && styles.adaptive_navbar_active}`}>
+        <div ref={adaptiveNavbarRef} className={`${styles.adaptive_navbar} ${activeNavbar && styles.adaptive_navbar_active}`}>
             <div className={styles.adaptive_navbar_header}>
                 <h3 className={styles.adaptive_navbar_caption}>Menu</h3>
-                <i className={`${styles.adaptive_navbar_close} fa fa-close`} aria-hidden="true" onClick={() => setNavBarIsOpen(false)}></i>
+                <i className={`${styles.adaptive_navbar_close} fa fa-close`} aria-hidden="true" onClick={closeNavbar}></i>
             </div>
 
             <ul className={styles.navbar}>

@@ -50,17 +50,19 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
     const [doAnim, setDoAnim] = React.useState(false);
 
     React.useEffect(() => {
+        setTimeout(() => {
+            setDoAnim(true)
+        }, 500);
+    }, [])
+
+    React.useEffect(() => {
         slider_interval_ref.current = setInterval(() => {
             slideToFollowingItem();
         }, 20000);
 
         buttonHover_timeout_ref.current = setTimeout(() => {
-            setDoAnim(true);
-
-            setTimeout(() => {
-                setButtonHover(true);
-            }, 1000);
-        }, 100);
+            setButtonHover(true);
+        }, 500);
 
         return () => {
             clearInterval(slider_interval_ref.current);
@@ -77,7 +79,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                 renderItem:
                     <div className={styles.slider__item__parallax} >
                         <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} src="images/slider_item--1.jpg" alt="Slider Item 1" />
+                            <img className={styles.slider__item__img} loading="lazy" src="images/slider_items/slider_item--1.webp" alt="Slider Item 1" />
 
                             <div className={`${styles.slider__content} ${swiperItemActive === 1 && doAnim ? styles.slider__content_active : ''}`}>
                                 <h3 className={styles.slider__content_caption}>Buy Electronic Gadgets at Affordable Prices</h3>
@@ -98,7 +100,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                 renderItem:
                     <div className={styles.slider__item__parallax}>
                         <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} src="images/slider_item--2.jpg" alt="Slider Item 2" />
+                            <img className={styles.slider__item__img} loading="lazy" src="images/slider_items/slider_item--2.webp" alt="Slider Item 2" />
 
                             <div className={`${styles.slider__content} ${swiperItemActive === 2 && doAnim ? styles.slider__content_active : ''}`}>
                                 <h3 className={styles.slider__content_caption}>Cool Tech Gadgets Collection 2023</h3>
@@ -119,7 +121,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                 renderItem:
                     <div className={styles.slider__item__parallax}>
                         <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} src="images/slider_item--3.jpg" alt="Slider Item 3" />
+                            <img className={styles.slider__item__img} loading="lazy" src="images/slider_items/slider_item--3.webp" alt="Slider Item 3" />
 
                             <div className={`${styles.slider__content} ${swiperItemActive === 3 && doAnim ? styles.slider__content_active : ''}`}>
                                 <h3 className={styles.slider__content_caption}>Sturdy and Multifnction New Gadgets</h3>
@@ -140,13 +142,13 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
 
     return (
         <div className={styles.slider}>
-            <button onClick={slideToPreviousItem} className={styles.slider__left}>
+            <button aria-label="Кнопка для перелистывания слайдера вперёд" onClick={slideToPreviousItem} className={styles.slider__left}>
                 <i className="fa fa-arrow-left" aria-hidden="true"></i>
             </button>
             <div className={styles.slider__item}>
                 {carouselFragment}
             </div>
-            <button onClick={slideToFollowingItem} className={styles.slider__right}>
+            <button aria-label="Кнопка для перелистывания слайдера назад" onClick={slideToFollowingItem} className={styles.slider__right}>
                 <i className="fa fa-arrow-right" aria-hidden="true"></i>
             </button>
         </div>

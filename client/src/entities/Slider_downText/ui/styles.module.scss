@@ -1,0 +1,36 @@
+.slider_downText {
+    min-height: 200px;
+    width: 65%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: #020202;
+    align-self: center;
+    position: absolute;
+    top: 100vh;
+    padding: 3%;
+    gap: 5%;
+    text-align: center;
+
+    @media (max-width: 1200px) {
+        width: 90%;
+        top: 15%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-bottom: 10%;
+    }
+
+    .downText__item {
+        display: flex;
+        flex-direction: column;
+
+        .downText__caption {
+            font-size: 25px;
+            white-space: nowrap;
+        }
+
+        .downText__desc {
+            font-size: 18px;
+        }
+    }
+}

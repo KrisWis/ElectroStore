@@ -6,6 +6,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
 
     &__left,
     &__right {
@@ -22,6 +23,10 @@
         border: none;
         outline: none;
         top: 17vw;
+
+        @media (max-width: 1100px) {
+            top: 35vw;
+        }
 
         &:hover {
             opacity: .8;
@@ -47,8 +52,7 @@
 
         &__parallax {
             perspective: 1px;
-            height: 100vh;
-            overflow-y: auto;
+            margin-bottom: 5%;
 
             &_layer {
                 inset: 0;
@@ -57,6 +61,15 @@
             &_image {
                 transform: translateZ(0);
                 position: relative;
+
+                @media (max-width: 1100px) {
+                    height: 100%;
+                    width: 200%;
+                }
+
+                @media (max-width: 500px) {
+                    width: 300%;
+                }
             }
         }
 
@@ -71,6 +84,8 @@
 
             @media (max-width: 1100px) {
                 padding: 0;
+                animation: none;
+                transform: none;
             }
 
             @keyframes rotate_anim {
@@ -78,8 +93,12 @@
                     transform: rotateY(0deg);
                 }
 
+                25% {
+                    transform: rotateY(20deg);
+                }
+
                 50% {
-                    transform: rotateY(50deg);
+                    transform: rotateY(-20deg);
                 }
 
                 100% {
@@ -91,11 +110,15 @@
         .slider__swiper {
             display: flex;
             position: absolute;
-            bottom: 10%;
-            left: 10%;
+            bottom: 25%;
+            left: 11%;
             gap: 100%;
             cursor: pointer;
             z-index: 1;
+
+            @media (max-width: 1100px) {
+                bottom: 15%;
+            }
 
             &_item__active {
                 background: red;
@@ -117,9 +140,14 @@
 
     &__content {
         position: absolute;
-        top: 20%;
+        top: 5%;
         left: 10%;
         z-index: 1;
+
+        @media (max-width: 1100px) {
+            top: 25%;
+            left: 5%;
+        }
 
         &_caption,
         &_text,
@@ -133,11 +161,24 @@
             width: 900px;
             transition: all ease-out .3s;
             margin: 0;
+
+            @media (max-width: 1100px) {
+                width: 550px;
+                font-size: 7vw;
+            }
+
+            @media (max-width: 500px) {
+                width: 350px;
+            }
         }
 
         &_text {
-            font-size: 2vw;
+            font-size: 2.5vw;
             transition: all ease-out .7s;
+
+            @media (max-width: 500px) {
+                font-size: 3.5vw;
+            }
         }
 
         &_button {
@@ -148,7 +189,11 @@
             border-radius: 10px;
             text-transform: uppercase;
             padding: 1.5rem;
-            font-size: 2vw;
+            font-size: 2.5vw;
+
+            @media (max-width: 500px) {
+                font-size: 4vw;
+            }
 
             &_hover {
                 transition: all linear .3s;

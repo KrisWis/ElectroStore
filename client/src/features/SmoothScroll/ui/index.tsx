@@ -7,7 +7,7 @@ const SmoothScroll: React.FC = (): null => {
     const overscrollOptions = {
         enable: true,
         effect: 'bounce',
-        damping: 0.15,
+        damping: 1,
         maxOverscroll: 150,
         glowColor: '#fff',
     };

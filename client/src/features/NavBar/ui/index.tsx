@@ -21,9 +21,9 @@ export const NavBar: React.FC = (): React.JSX.Element => {
         <ul className={styles.navbar}>
             <li className={styles.navbar__child}>Home</li>
 
-            <div className={styles.navbar__child_dropdown_block}>
+            <li className={styles.navbar__child_dropdown_block}>
                 <div ref={dropdown_window__text} className={styles.navbar__child_dropdown__text} onClick={() => setDropdownOpen(!dropdownOpen)}>
-                    <li className={styles.navbar__child}>Pages</li>
+                    <p className={styles.navbar__child}>Pages</p>
                     <i className="fa fa-arrow-down" aria-hidden="true"></i>
                 </div>
 
@@ -79,7 +79,7 @@ export const NavBar: React.FC = (): React.JSX.Element => {
                         </li>
                     </ul>}
 
-            </div>
+            </li>
 
             <li className={styles.navbar__child}>Collections</li>
             <li className={styles.navbar__child}>Sale</li>
