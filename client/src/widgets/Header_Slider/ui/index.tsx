@@ -15,14 +15,14 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
         if (swiper > swiperItemActiveDublicate) {
             swiper -= swiperItemActiveDublicate;
             while (swiper > 0) {
-                slideToNextItem();
+                slideToFollowingItem();
                 swiper--;
             }
 
         } else {
             swiperItemActiveDublicate -= swiper;
             while (swiperItemActiveDublicate > 0) {
-                slideToPrevItem();
+                slideToPreviousItem();
                 swiperItemActiveDublicate--;
             }
         }
@@ -30,14 +30,14 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
 
     const slideToPreviousItem = (): void => {
         slideToPrevItem();
-        setSwiperItemActive((prev) => prev == 1 ? 3 : prev - 1);
         setButtonHover(false);
+        setSwiperItemActive(swiperItemActive == 1 ? 3 : swiperItemActive - 1);
     }
 
     const slideToFollowingItem = (): void => {
         slideToNextItem();
-        setSwiperItemActive((prev) => prev == 3 ? 1 : prev + 1);
         setButtonHover(false);
+        setSwiperItemActive(swiperItemActive == 3 ? 1 : swiperItemActive + 1);
     }
 
     /* Функционал того, что каждые несколько секунд меняется слайд */
@@ -86,12 +86,6 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                                 <p className={styles.slider__content_text}>Tech gadgets are all about making your life easier</p>
                                 <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
                             </div>
-
-                            <div className={styles.slider__swiper}>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 1 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(1) }} aria-hidden="true"></i>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 2 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(2) }} aria-hidden="true"></i>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 3 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(3) }} aria-hidden="true"></i>
-                            </div>
                         </div>
                     </div >,
             },
@@ -106,12 +100,6 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                                 <h3 className={styles.slider__content_caption}>Cool Tech Gadgets Collection 2023</h3>
                                 <p className={styles.slider__content_text}>Tech gadgets are all about making your life easier</p>
                                 <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
-                            </div>
-
-                            <div className={styles.slider__swiper}>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 1 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(1) }} aria-hidden="true"></i>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 2 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(2) }} aria-hidden="true"></i>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 3 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(3) }} aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>,
@@ -128,12 +116,6 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                                 <p className={styles.slider__content_text}>Tech gadgets are all about making your life easier</p>
                                 <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
                             </div>
-
-                            <div className={styles.slider__swiper}>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 1 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(1) }} aria-hidden="true"></i>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 2 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(2) }} aria-hidden="true"></i>
-                                <i className={`fa fa-circle-o ${swiperItemActive === 3 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(3) }} aria-hidden="true"></i>
-                            </div>
                         </div>
                     </div>,
             },
@@ -147,6 +129,11 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
             </button>
             <div className={styles.slider__item}>
                 {carouselFragment}
+                <div className={styles.slider__swiper}>
+                    <i className={`fa fa-circle-o ${swiperItemActive === 1 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(1) }} aria-hidden="true"></i>
+                    <i className={`fa fa-circle-o ${swiperItemActive === 2 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(2) }} aria-hidden="true"></i>
+                    <i className={`fa fa-circle-o ${swiperItemActive === 3 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(3) }} aria-hidden="true"></i>
+                </div>
             </div>
             <button aria-label="Кнопка для перелистывания слайдера назад" onClick={slideToFollowingItem} className={styles.slider__right}>
                 <i className="fa fa-arrow-right" aria-hidden="true"></i>

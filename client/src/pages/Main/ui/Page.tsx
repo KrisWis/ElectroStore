@@ -1,5 +1,5 @@
 import React from "react"
-import { Header, Header_Slider, Welcome_block } from "../../../widgets"
+import { Header, Header_Slider, Our_New_Arrivals, Welcome_block } from "../../../widgets"
 import { Slider_downText } from "../../../entities"
 
 /* Z-INDEXES:
@@ -15,6 +15,7 @@ export const Main: React.FC = (): React.JSX.Element => {
             <Header_Slider />
             <Slider_downText />
             <Welcome_block />
+            <Our_New_Arrivals />
         </>
     )
 }
