@@ -1,1 +1,0 @@
-import{j as s,c as e,L as a}from"./index-trot2G7-.js";const l=()=>s.jsxs("div",{className:e.our_new_arrivals,children:[s.jsxs("div",{className:e.header,children:[s.jsx("h3",{className:e.header_caption,children:"OUR NEW ARRIVALS"}),s.jsx(a,{to:"/",className:e.header_view_all,children:"View All Products"})]}),s.jsx("div",{className:e.products})]});export{l as default};
