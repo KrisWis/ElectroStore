@@ -1,0 +1,8 @@
+# Исключаем файлы и директории, которые не нужны в контейнере
+client/node_modules
+client/build
+server/myenv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
