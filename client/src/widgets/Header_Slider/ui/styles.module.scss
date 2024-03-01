@@ -7,6 +7,11 @@
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
+    position: relative;
+
+    @media (max-width: 1200px) {
+        bottom: 4%;
+    }
 
     &__left,
     &__right {
@@ -25,7 +30,11 @@
         top: 17vw;
 
         @media (max-width: 1100px) {
-            top: 35vw;
+            top: 55vw;
+        }
+
+        @media (max-width: 500px) {
+            top: 100vw;
         }
 
         &:hover {
@@ -110,7 +119,7 @@
         .slider__swiper {
             display: flex;
             position: absolute;
-            bottom: 25%;
+            bottom: 30%;
             left: 11%;
             gap: 100%;
             cursor: pointer;

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { WelcomeBlockItemProps } from '../model';
+import { WelcomeBlockItemProps } from '../types';
 import styles from './styles.module.scss';
 import React from 'react';
 import { checkScrollDirectionIsUp, isScrolledIntoView } from '../../../shared/utils';
+
 
 export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, title, imageURL }): React.JSX.Element => {
 
@@ -15,15 +16,16 @@ export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, ti
         if (isScrolledIntoView(welcomeBlockItem_ref.current!)) {
             if (checkScrollDirectionIsUp(event)) {
                 if (parallaxScrollY <= 250) {
-                    setParallaxScrollY(parallaxScrollY + 7);
+                    setParallaxScrollY(parallaxScrollY + 10);
                 }
             } else {
                 if (parallaxScrollY >= -250) {
-                    setParallaxScrollY(parallaxScrollY - 7);
+                    setParallaxScrollY(parallaxScrollY - 10);
                 }
             }
         }
     });
+
 
     return (
         <div className={styles.welcome_block_item} ref={welcomeBlockItem_ref}>
@@ -35,7 +37,7 @@ export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, ti
                     <img style={{ transform: `translate3d(0px, ${parallaxScrollY}px, 0px)` }} className={styles.welcome_block_item_parallax_img} src={imageURL} alt="Изображение секции" />
                 </div>
 
-                <Link className={styles.welcome_block_item_link}>Shop It Now</Link>
+                <Link to="/" aria-label="Страница покупки" className={styles.welcome_block_item_link}>Shop It Now</Link>
             </div>
         </div>
     )

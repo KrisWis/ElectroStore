@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Protest Riot';
+    src: url('../../shared/fonts/ProtestRiot-Regular.woff2') format('woff2'),
+        url('../../shared/fonts/ProtestRiot-Regular.woff') format('woff');
+    font-display: swap;
+}
+
 body {
     background-color: #020202;
     display: flex;
@@ -9,6 +16,7 @@ body {
     margin: 0;
     height: 100vh;
     width: 100vw;
+    color: #fff;
 }
 
 .hidden {

@@ -1,44 +1,13 @@
 import { useSpringCarousel } from 'react-spring-carousel';
 import styles from './styles.module.scss';
 import React from 'react';
+import { onClickSwiper, slideToFollowingItem, slideToPreviousItem } from '../helpers';
 
 export const Header_Slider: React.FC = (): React.JSX.Element => {
 
     /* Функционал слайдера */
 
     const [swiperItemActive, setSwiperItemActive] = React.useState(1);
-
-    const onClickSwiper = (swiper: number): void => {
-        setSwiperItemActive(swiper);
-        let swiperItemActiveDublicate = swiperItemActive;
-
-        if (swiper > swiperItemActiveDublicate) {
-            swiper -= swiperItemActiveDublicate;
-            while (swiper > 0) {
-                slideToFollowingItem();
-                swiper--;
-            }
-
-        } else {
-            swiperItemActiveDublicate -= swiper;
-            while (swiperItemActiveDublicate > 0) {
-                slideToPreviousItem();
-                swiperItemActiveDublicate--;
-            }
-        }
-    }
-
-    const slideToPreviousItem = (): void => {
-        slideToPrevItem();
-        setButtonHover(false);
-        setSwiperItemActive(swiperItemActive == 1 ? 3 : swiperItemActive - 1);
-    }
-
-    const slideToFollowingItem = (): void => {
-        slideToNextItem();
-        setButtonHover(false);
-        setSwiperItemActive(swiperItemActive == 3 ? 1 : swiperItemActive + 1);
-    }
 
     /* Функционал того, что каждые несколько секунд меняется слайд */
 
@@ -52,12 +21,12 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
     React.useEffect(() => {
         setTimeout(() => {
             setDoAnim(true)
-        }, 500);
+        }, 1500);
     }, [])
 
     React.useEffect(() => {
         slider_interval_ref.current = setInterval(() => {
-            slideToFollowingItem();
+            slideToFollowingItem(slideToNextItem, setButtonHover, setSwiperItemActive, swiperItemActive);
         }, 20000);
 
         buttonHover_timeout_ref.current = setTimeout(() => {
@@ -79,7 +48,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                 renderItem:
                     <div className={styles.slider__item__parallax} >
                         <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} loading="lazy" src="images/slider_items/slider_item--1.webp" alt="Slider Item 1" />
+                            <img className={styles.slider__item__img} src="images/slider_items/slider_item--1.webp" alt="Slider Item 1" />
 
                             <div className={`${styles.slider__content} ${swiperItemActive === 1 && doAnim ? styles.slider__content_active : ''}`}>
                                 <h3 className={styles.slider__content_caption}>Buy Electronic Gadgets at Affordable Prices</h3>
@@ -94,7 +63,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                 renderItem:
                     <div className={styles.slider__item__parallax}>
                         <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} loading="lazy" src="images/slider_items/slider_item--2.webp" alt="Slider Item 2" />
+                            <img className={styles.slider__item__img} src="images/slider_items/slider_item--2.webp" alt="Slider Item 2" />
 
                             <div className={`${styles.slider__content} ${swiperItemActive === 2 && doAnim ? styles.slider__content_active : ''}`}>
                                 <h3 className={styles.slider__content_caption}>Cool Tech Gadgets Collection 2023</h3>
@@ -109,7 +78,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                 renderItem:
                     <div className={styles.slider__item__parallax}>
                         <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} loading="lazy" src="images/slider_items/slider_item--3.webp" alt="Slider Item 3" />
+                            <img className={styles.slider__item__img} src="images/slider_items/slider_item--3.webp" alt="Slider Item 3" />
 
                             <div className={`${styles.slider__content} ${swiperItemActive === 3 && doAnim ? styles.slider__content_active : ''}`}>
                                 <h3 className={styles.slider__content_caption}>Sturdy and Multifnction New Gadgets</h3>
@@ -124,18 +93,18 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
 
     return (
         <div className={styles.slider}>
-            <button aria-label="Кнопка для перелистывания слайдера вперёд" onClick={slideToPreviousItem} className={styles.slider__left}>
+            <button aria-label="Кнопка для перелистывания слайдера вперёд" onClick={() => slideToPreviousItem(slideToPrevItem, setButtonHover, setSwiperItemActive, swiperItemActive)} className={styles.slider__left}>
                 <i className="fa fa-arrow-left" aria-hidden="true"></i>
             </button>
             <div className={styles.slider__item}>
                 {carouselFragment}
                 <div className={styles.slider__swiper}>
-                    <i className={`fa fa-circle-o ${swiperItemActive === 1 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(1) }} aria-hidden="true"></i>
-                    <i className={`fa fa-circle-o ${swiperItemActive === 2 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(2) }} aria-hidden="true"></i>
-                    <i className={`fa fa-circle-o ${swiperItemActive === 3 ? styles.slider__swiper_item__active : ''}`} onClick={() => { onClickSwiper(3) }} aria-hidden="true"></i>
+                    <i className={`fa fa-circle-o ${swiperItemActive === 1 ? styles.slider__swiper_item__active : ''}`} onClick={() => onClickSwiper(1, setSwiperItemActive, swiperItemActive, slideToPrevItem, slideToNextItem, setButtonHover)} aria-hidden="true"></i>
+                    <i className={`fa fa-circle-o ${swiperItemActive === 2 ? styles.slider__swiper_item__active : ''}`} onClick={() => onClickSwiper(2, setSwiperItemActive, swiperItemActive, slideToPrevItem, slideToNextItem, setButtonHover)} aria-hidden="true"></i>
+                    <i className={`fa fa-circle-o ${swiperItemActive === 3 ? styles.slider__swiper_item__active : ''}`} onClick={() => onClickSwiper(3, setSwiperItemActive, swiperItemActive, slideToPrevItem, slideToNextItem, setButtonHover)} aria-hidden="true"></i>
                 </div>
             </div>
-            <button aria-label="Кнопка для перелистывания слайдера назад" onClick={slideToFollowingItem} className={styles.slider__right}>
+            <button aria-label="Кнопка для перелистывания слайдера назад" onClick={() => slideToFollowingItem(slideToNextItem, setButtonHover, setSwiperItemActive, swiperItemActive)} className={styles.slider__right}>
                 <i className="fa fa-arrow-right" aria-hidden="true"></i>
             </button>
         </div>

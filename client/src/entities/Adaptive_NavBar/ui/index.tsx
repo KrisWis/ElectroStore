@@ -1,7 +1,9 @@
 import styles from './styles.module.scss';
 import React from 'react';
 import navBar_styles from '../../../features/NavBar/ui/styles.module.scss';
-import { AdaptiveNavBarProps } from '../model';
+import { AdaptiveNavBarProps } from '../types';
+import { closeNavbar, dropdown__window__texts } from '../helpers';
+
 
 export const Adaptive_NavBar: React.FC<AdaptiveNavBarProps> = ({ navBarIsOpen, setNavBarIsOpen }): React.JSX.Element => {
 
@@ -33,16 +35,11 @@ export const Adaptive_NavBar: React.FC<AdaptiveNavBarProps> = ({ navBarIsOpen, s
 
     }, [navBarIsOpen])
 
-    const closeNavbar = (): void => {
-        setActiveNavbar(false);
-        setNavBarIsOpen(false);
-    }
-
     return (
         <div ref={adaptiveNavbarRef} className={`${styles.adaptive_navbar} ${activeNavbar && styles.adaptive_navbar_active}`}>
             <div className={styles.adaptive_navbar_header}>
                 <h3 className={styles.adaptive_navbar_caption}>Menu</h3>
-                <i className={`${styles.adaptive_navbar_close} fa fa-close`} aria-hidden="true" onClick={closeNavbar}></i>
+                <i className={`${styles.adaptive_navbar_close} fa fa-close`} aria-hidden="true" onClick={() => closeNavbar(setActiveNavbar, setNavBarIsOpen)}></i>
             </div>
 
             <ul className={styles.navbar}>
@@ -56,54 +53,13 @@ export const Adaptive_NavBar: React.FC<AdaptiveNavBarProps> = ({ navBarIsOpen, s
 
                     {dropdownOpen &&
                         <ul ref={dropdown_window} className={navBar_styles.dropdown__window} aria-labelledby="dropdownPages" data-bs-popper="static">
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Shop <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Single Product <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Blog <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Single Post <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Single Post w/sidebar <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>About <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Cart <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Checkout <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Coming Soon <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Contact <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Error Page <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>FAQs <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>My Account <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Order Tracking <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>Wishlist <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
-                            <li className={navBar_styles.dropdown__window__block}>
-                                <a className={navBar_styles.dropdown__window__text}>navBar_styles <span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
-                            </li>
+
+                            {dropdown__window__texts.map((item) => (
+                                <li className={navBar_styles.dropdown__window__block}>
+                                    <a className={navBar_styles.dropdown__window__text}>{item}<span className={navBar_styles.dropdown__window__importance}>PRO</span></a>
+                                </li>
+                            ))}
+
                         </ul>}
 
                 </div>

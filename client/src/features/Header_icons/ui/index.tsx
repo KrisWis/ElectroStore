@@ -4,18 +4,18 @@ import { Search_Modal } from '../..';
 import React from 'react';
 import { Adaptive_NavBar } from '../../../entities';
 
+
 export const Header_icons: React.FC = (): React.JSX.Element => {
 
     /* Открытие модалки */
-
     const [modalIsOpen, setModalIsOpen] = React.useState(false);
 
     /* Открытие адаптивного попапа с навигацией */
     const [navBarIsOpen, setNavBarIsOpen] = React.useState(false);
 
+
     return (
         <>
-
             <ul className={styles.header_icons}>
 
                 <li className={`${styles.header_icons__icon} ${styles.header_icons__navicon}`} onClick={() => setNavBarIsOpen(true)}>
@@ -23,7 +23,7 @@ export const Header_icons: React.FC = (): React.JSX.Element => {
                 </li>
 
                 <li className={styles.header_icons__icon}>
-                    <Link to="/favourite">
+                    <Link aria-label='Страница Избранное' to="/favourite">
                         <i className={`${styles.header_icons__icon} fa fa-heart`} aria-hidden="true"></i>
                     </Link>
                 </li>
@@ -35,9 +35,9 @@ export const Header_icons: React.FC = (): React.JSX.Element => {
                 <li className={styles.header_icons__icon} onClick={() => setModalIsOpen((prev) => !prev)}>
                     <i className="fa fa-search" aria-hidden="true"></i>
                 </li>
-
-                <Search_Modal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
             </ul>
+
+            <Search_Modal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
 
             <Adaptive_NavBar navBarIsOpen={navBarIsOpen} setNavBarIsOpen={setNavBarIsOpen} />
         </>

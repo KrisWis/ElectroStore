@@ -1,5 +1,7 @@
 import styles from './styles.module.scss';
 import React from 'react';
+import { dropdown__window__texts } from '../../../entities/Adaptive_NavBar/helpers';
+
 
 export const NavBar: React.FC = (): React.JSX.Element => {
 
@@ -17,6 +19,7 @@ export const NavBar: React.FC = (): React.JSX.Element => {
         })
     }, [])
 
+
     return (
         <ul className={styles.navbar}>
             <li className={styles.navbar__child}>Home</li>
@@ -29,54 +32,13 @@ export const NavBar: React.FC = (): React.JSX.Element => {
 
                 {dropdownOpen &&
                     <ul ref={dropdown_window} className={styles.dropdown__window} aria-labelledby="dropdownPages" data-bs-popper="static">
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Shop <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Single Product <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Blog <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Single Post <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Single Post w/sidebar <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>About <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Cart <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Checkout <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Coming Soon <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Contact <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Error Page <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>FAQs <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>My Account <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Order Tracking <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Wishlist <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
-                        <li className={styles.dropdown__window__block}>
-                            <a className={styles.dropdown__window__text}>Styles <span className={styles.dropdown__window__importance}>PRO</span></a>
-                        </li>
+
+                        {dropdown__window__texts.map((item) => (
+                            <li key={item} className={styles.dropdown__window__block}>
+                                <a className={styles.dropdown__window__text}>{item}<span className={styles.dropdown__window__importance}>PRO</span></a>
+                            </li>
+                        ))}
+
                     </ul>}
 
             </li>

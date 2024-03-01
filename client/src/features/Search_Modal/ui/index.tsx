@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-import { SearchModalProps } from '../model';
+import { SearchModalProps } from '../types';
 import styles from './styles.module.scss';
+import { categories } from '../helpers';
+
 
 export const Search_Modal: React.FC<SearchModalProps> = ({ modalIsOpen, setModalIsOpen }): React.JSX.Element => {
+
 
     return (
         <div className={`${styles.search_modal} ${modalIsOpen ? styles.search_modal_active : ''}`} onClick={() => setModalIsOpen((prev) => !prev)}>
@@ -15,42 +18,15 @@ export const Search_Modal: React.FC<SearchModalProps> = ({ modalIsOpen, setModal
                     </div>
 
                     <p className={styles.search_modal_browse}>Browse Categories</p>
+
                     <ul className={styles.categories}>
-                        <li className={styles.categories_item}>
-                            <Link className={styles.categories_link} to="/">
-                                Jackets
-                            </Link>
-                        </li>
-                        <li className={styles.categories_item}>
-                            <Link className={styles.categories_link} to="/">
-                                T-shirts
-                            </Link>
-                        </li>
-                        <li className={styles.categories_item}>
-                            <Link className={styles.categories_link} to="/">
-                                Handbags
-                            </Link>
-                        </li>
-                        <li className={styles.categories_item}>
-                            <Link className={styles.categories_link} to="/">
-                                Accessories
-                            </Link>
-                        </li>
-                        <li className={styles.categories_item}>
-                            <Link className={styles.categories_link} to="/">
-                                Cosmetics
-                            </Link>
-                        </li>
-                        <li className={styles.categories_item}>
-                            <Link className={styles.categories_link} to="/">
-                                Dresses
-                            </Link>
-                        </li>
-                        <li className={styles.categories_item}>
-                            <Link className={styles.categories_link} to="/">
-                                Jumpsuits
-                            </Link>
-                        </li>
+                        {categories.map((item) => (
+                            <li key={item} className={styles.categories_item}>
+                                <Link aria-label="Нажатая категория" className={styles.categories_link} to="/">
+                                    {item}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

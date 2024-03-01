@@ -1,30 +1,23 @@
+import { Slider_downText__item } from '../Slider_downText__item/ui';
 import styles from './styles.module.scss';
 import React from 'react';
+import { slider_downText_items_captions } from '../helpers';
+
 
 export const Slider_downText: React.FC = (): React.JSX.Element => {
+
 
     return (
         <div className={styles.slider_downText}>
 
-            <div className={styles.downText__item}>
-                <h3 className={styles.downText__caption}>Book An Appointment</h3>
-                <p className={styles.downText__desc}>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
-            </div>
+            {slider_downText_items_captions.map((item_caption) => (
+                <Slider_downText__item
+                    key={item_caption}
+                    caption={item_caption}
+                    desc="At imperdiet dui accumsan sit amet nulla risus est ultricies quis."
+                />
+            ))}
 
-            <div className={styles.downText__item}>
-                <h3 className={styles.downText__caption}>Pick Up In Store</h3>
-                <p className={styles.downText__desc}>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
-            </div>
-
-            <div className={styles.downText__item}>
-                <h3 className={styles.downText__caption}>Special Packaging</h3>
-                <p className={styles.downText__desc}>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
-            </div>
-
-            <div className={styles.downText__item}>
-                <h3 className={styles.downText__caption}>Free Global Returns</h3>
-                <p className={styles.downText__desc}>At imperdiet dui accumsan sit amet nulla risus est ultricies quis.</p>
-            </div>
         </div>
     )
 }
