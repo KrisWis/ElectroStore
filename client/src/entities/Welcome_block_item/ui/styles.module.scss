@@ -41,7 +41,7 @@
             transform-style: preserve-3d;
             backface-visibility: hidden;
             will-change: transform, opacity;
-            transition: object-position linear .5s;
+            transition: object-position linear .7s;
 
             @media (max-width: 1200px) {
                 width: 80%;

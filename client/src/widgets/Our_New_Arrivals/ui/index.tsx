@@ -1,16 +1,29 @@
-import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 import OurNewArrivals_item from '../../../entities/OurNewArrivals_item/ui';
 import { OurNewArrivals_items_props } from '../helpers';
+import app_styles from '../../../app/layouts/App.module.scss';
+import { isScrolledIntoView } from '../../../shared/utils';
+import React from 'react';
+import ViewAllProducts_Header from '../../../entities/ViewAllProducts_Header/ui';
+
 
 const Our_New_Arrivals: React.FC = (): React.JSX.Element => {
-    return (
-        <div className={styles.our_new_arrivals}>
 
-            <div className={styles.header}>
-                <h3 className={styles.header_caption}>OUR NEW ARRIVALS</h3>
-                <Link to="/" aria-label="Посмотреть все продукты" className={styles.header_view_all}>View All Products</Link>
-            </div>
+    /* Проверка на то, что секция в области видимости */
+    const OurNewArrivals_ref = React.useRef<HTMLDivElement>(null);
+
+    const [isIntoView, setIsIntoView] = React.useState(false);
+
+    document.body.addEventListener('wheel', () => {
+        if (isScrolledIntoView(OurNewArrivals_ref.current!)) {
+            setIsIntoView(true);
+        }
+    });
+
+    return (
+        <div ref={OurNewArrivals_ref} className={`${styles.our_new_arrivals} ${!isIntoView ? app_styles.opacity_0 : ''}`}>
+
+            <ViewAllProducts_Header caption="View All Arrivals" />
 
             <div className={styles.products}>
                 {OurNewArrivals_items_props.map((item) => (

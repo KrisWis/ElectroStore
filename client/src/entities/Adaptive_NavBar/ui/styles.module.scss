@@ -11,6 +11,7 @@
     opacity: 0;
     transition: all linear .3s;
     z-index: -1;
+    padding-right: 3%;
 
     @media (max-width: 800px) {
         right: 0;
@@ -20,7 +21,7 @@
 
     @media (max-width: 800px) {
         height: 125vh;
-        width: 125vw;
+        width: 105vw;
     }
 
     &_header {
