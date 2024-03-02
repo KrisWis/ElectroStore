@@ -16,11 +16,11 @@ export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, ti
         if (isScrolledIntoView(welcomeBlockItem_ref.current!)) {
             if (checkScrollDirectionIsUp(event)) {
                 if (parallaxScrollY <= 250) {
-                    setParallaxScrollY(parallaxScrollY + 10);
+                    setParallaxScrollY(parallaxScrollY + 30);
                 }
             } else {
                 if (parallaxScrollY >= -250) {
-                    setParallaxScrollY(parallaxScrollY - 10);
+                    setParallaxScrollY(parallaxScrollY - 30);
                 }
             }
         }
@@ -34,7 +34,7 @@ export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, ti
             <div className={styles.welcome_block_item_img_block}>
 
                 <div className={styles.welcome_block_item_parallax}>
-                    <img style={{ transform: `translate3d(0px, ${parallaxScrollY}px, 0px)` }} className={styles.welcome_block_item_parallax_img} src={imageURL} alt="Изображение секции" />
+                    <img style={{ objectPosition: `50% ${parallaxScrollY}px` }} className={styles.welcome_block_item_parallax_img} src={imageURL} alt="Изображение секции" />
                 </div>
 
                 <Link to="/" aria-label="Страница покупки" className={styles.welcome_block_item_link}>Shop It Now</Link>

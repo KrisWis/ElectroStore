@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
+import OurNewArrivals_item from '../../../entities/OurNewArrivals_item/ui';
+import { OurNewArrivals_items_props } from '../helpers';
 
 const Our_New_Arrivals: React.FC = (): React.JSX.Element => {
     return (
@@ -11,7 +13,9 @@ const Our_New_Arrivals: React.FC = (): React.JSX.Element => {
             </div>
 
             <div className={styles.products}>
-
+                {OurNewArrivals_items_props.map((item) => (
+                    <OurNewArrivals_item {...item} />
+                ))}
             </div>
 
         </div>

@@ -7,7 +7,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 3%;
+        padding: 0% 3%;
 
         &_caption {
             color: #fff;
@@ -48,6 +48,22 @@
                     width: 100%;
                 }
             }
+        }
+    }
+
+    .products {
+        padding: 0% 3%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2%;
+
+        @media (max-width: 1200px) {
+            grid-template-columns: 500px;
+            justify-content: center;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
         }
     }
 }

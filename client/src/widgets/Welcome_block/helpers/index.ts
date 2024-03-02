@@ -1,6 +1,6 @@
 import { WelcomeBlockItemProps } from "../../../entities/Welcome_block_item/types";
 
-export const items_props: WelcomeBlockItemProps[] = [
+export const Welcome_block_items_props: WelcomeBlockItemProps[] = [
     {
         number: '01',
         title: "ELECTRONIC GADGETS",

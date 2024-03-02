@@ -34,15 +34,14 @@
         }
 
         &_img {
-            object-fit: cover;
-            object-position: 50% 50%;
+            object-position: 50% 0px;
             max-width: none;
             overflow: hidden;
             pointer-events: none;
             transform-style: preserve-3d;
             backface-visibility: hidden;
             will-change: transform, opacity;
-            transition: transform linear .3s;
+            transition: object-position linear .5s;
 
             @media (max-width: 1200px) {
                 width: 80%;
