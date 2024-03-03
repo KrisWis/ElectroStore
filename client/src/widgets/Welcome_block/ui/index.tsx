@@ -20,7 +20,7 @@ const Welcome_block: React.FC = (): React.JSX.Element => {
     });
 
     return (
-        <div ref={WelcomeBlock_ref} className={`${styles.welcome_block} ${!isIntoView ? app_styles.opacity_0 : ''}`}>
+        <div ref={WelcomeBlock_ref} className={`${styles.welcome_block} ${!isIntoView && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? app_styles.opacity_0 : ''}`}>
             <Welcome_block_header />
 
             <div className={styles.welcome_block_items}>

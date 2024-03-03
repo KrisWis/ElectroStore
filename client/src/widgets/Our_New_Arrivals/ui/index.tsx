@@ -21,13 +21,13 @@ const Our_New_Arrivals: React.FC = (): React.JSX.Element => {
     });
 
     return (
-        <div ref={OurNewArrivals_ref} className={`${styles.our_new_arrivals} ${!isIntoView ? app_styles.opacity_0 : ''}`}>
+        <div ref={OurNewArrivals_ref} className={`${styles.our_new_arrivals} ${!isIntoView && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? app_styles.opacity_0 : ''}`}>
 
             <ViewAllProducts_Header caption="View All Arrivals" />
 
             <div className={styles.products}>
                 {OurNewArrivals_items_props.map((item) => (
-                    <OurNewArrivals_item {...item} />
+                    <OurNewArrivals_item key={item.imageURL} {...item} />
                 ))}
             </div>
 

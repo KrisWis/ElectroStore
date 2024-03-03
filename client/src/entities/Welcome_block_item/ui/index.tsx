@@ -14,7 +14,7 @@ export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, ti
 
     document.body.addEventListener('wheel', (event: WheelEvent) => {
         if (isScrolledIntoView(welcomeBlockItem_ref.current!)) {
-            if (checkScrollDirectionIsUp(event)) {
+            if (checkScrollDirectionIsUp(event) && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
                 if (parallaxScrollY <= 50) {
                     setParallaxScrollY(parallaxScrollY + 20);
                 }

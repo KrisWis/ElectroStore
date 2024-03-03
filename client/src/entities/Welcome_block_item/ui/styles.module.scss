@@ -3,6 +3,10 @@
     flex-direction: column;
     height: 650px;
 
+    @media (max-width: 400px) {
+        height: 300px;
+    }
+
     @media (max-width: 1200px) {
         justify-content: center;
         align-items: center;
@@ -33,6 +37,10 @@
             align-items: center;
         }
 
+        @media (max-width: 400px) {
+            height: 50%;
+        }
+
         &_img {
             object-position: 50% 0px;
             max-width: none;
@@ -45,6 +53,10 @@
 
             @media (max-width: 1200px) {
                 width: 80%;
+            }
+
+            @media (max-width: 400px) {
+                width: 100%;
             }
         }
     }

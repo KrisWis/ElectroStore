@@ -1,7 +1,7 @@
 import React from "react"
 import { Header, Header_Slider } from "../../../widgets"
 import { Slider_downText } from "../../../entities"
-import { Background_animation } from "../../../features";
+import { Background_animation, Loading_animation } from "../../../features";
 
 
 /* Z-INDEXES:
@@ -23,6 +23,7 @@ export const Main: React.FC = (): React.JSX.Element => {
             <Welcome_block />
             <Our_New_Arrivals />
             <Background_animation />
+            <Loading_animation />
         </>
     )
 }
