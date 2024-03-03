@@ -1,1 +1,0 @@
-const i=t=>t.wheelDelta?t.wheelDelta>0:t.deltaY<0,n=t=>{var e=t.getBoundingClientRect();return e.top+e.height>0&&window.innerHeight-e.top>0&&e.left+e.width>0&&window.innerWidth-e.left>0};export{i as c,n as i};
