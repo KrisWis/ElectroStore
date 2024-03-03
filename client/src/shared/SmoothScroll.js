@@ -58,25 +58,6 @@
     var deltaBufferTimer;
     var isMac = /^Mac/.test(navigator.platform);
 
-    var key = {
-        left: 37, up: 38, right: 39, down: 40, spacebar: 32,
-        pageup: 33, pagedown: 34, end: 35, home: 36
-    };
-    var arrowKeys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-
-    /***********************************************
-     * INITIALIZE
-     ***********************************************/
-
-    /**
-     * Tests if smooth scrolling is allowed. Shuts down everything if not.
-     */
-    function initTest() {
-        if (options.keyboardSupport) {
-            addEvent('keydown', keydown);
-        }
-    }
-
     /**
      * Sets up scrolls array, determines if frames are involved.
      */
@@ -94,8 +75,6 @@
         // check compat mode for root element
         root = (document.compatMode.indexOf('CSS') >= 0) ? html : body;
         activeElement = body;
-
-        initTest();
 
         // Checks if this script is running in a frame
         if (top != self) {
@@ -383,114 +362,6 @@
         scheduleClearCache();
     }
 
-    /**
-     * Keydown event handler.
-     * @param {Object} event
-     */
-    function keydown(event) {
-
-        var target = event.target;
-        var modifier = event.ctrlKey || event.altKey || event.metaKey ||
-            (event.shiftKey && event.keyCode !== key.spacebar);
-
-        // our own tracked active element could've been removed from the DOM
-        if (!document.body.contains(activeElement)) {
-            activeElement = document.activeElement;
-        }
-
-        // do nothing if user is editing text
-        // or using a modifier key (except shift)
-        // or in a dropdown
-        // or inside interactive elements
-        var inputNodeNames = /^(textarea|select|embed|object)$/i;
-        var buttonTypes = /^(button|submit|radio|checkbox|file|color|image)$/i;
-        if (event.defaultPrevented ||
-            inputNodeNames.test(target.nodeName) ||
-            isNodeName(target, 'input') && !buttonTypes.test(target.type) ||
-            isNodeName(activeElement, 'video') ||
-            isInsideYoutubeVideo(event) ||
-            target.isContentEditable ||
-            modifier) {
-            return true;
-        }
-
-        // [spacebar] should trigger button press, leave it alone
-        if ((isNodeName(target, 'button') ||
-            isNodeName(target, 'input') && buttonTypes.test(target.type)) &&
-            event.keyCode === key.spacebar) {
-            return true;
-        }
-
-        // [arrwow keys] on radio buttons should be left alone
-        if (isNodeName(target, 'input') && target.type == 'radio' &&
-            arrowKeys[event.keyCode]) {
-            return true;
-        }
-
-        var shift, x = 0, y = 0;
-        var overflowing = overflowingAncestor(activeElement);
-
-        if (!overflowing) {
-            // Chrome iframes seem to eat key events, which we need to 
-            // propagate up, if the iframe has nothing overflowing to scroll
-            return (isFrame && isChrome) ? parent.keydown(event) : true;
-        }
-
-        var clientHeight = overflowing.clientHeight;
-
-        if (overflowing == document.body) {
-            clientHeight = window.innerHeight;
-        }
-
-        switch (event.keyCode) {
-            case key.up:
-                y = -options.arrowScroll;
-                break;
-            case key.down:
-                y = options.arrowScroll;
-                break;
-            case key.spacebar: // (+ shift)
-                shift = event.shiftKey ? 1 : -1;
-                y = -shift * clientHeight * 0.9;
-                break;
-            case key.pageup:
-                y = -clientHeight * 0.9;
-                break;
-            case key.pagedown:
-                y = clientHeight * 0.9;
-                break;
-            case key.home:
-                if (overflowing == document.body && document.scrollingElement)
-                    overflowing = document.scrollingElement;
-                y = -overflowing.scrollTop;
-                break;
-            case key.end:
-                var scroll = overflowing.scrollHeight - overflowing.scrollTop;
-                var scrollRemaining = scroll - clientHeight;
-                y = (scrollRemaining > 0) ? scrollRemaining + 10 : 0;
-                break;
-            case key.left:
-                x = -options.arrowScroll;
-                break;
-            case key.right:
-                x = options.arrowScroll;
-                break;
-            default:
-                return true; // a key we don't care about
-        }
-
-        scrollArray(overflowing, x, y);
-        event.preventDefault();
-        scheduleClearCache();
-    }
-
-    /**
-     * Mousedown event only for updating activeElement
-     */
-    function mousedown(event) {
-        activeElement = event.target;
-    }
-
 
     /***********************************************
      * OVERFLOW
@@ -648,19 +519,6 @@
             isDivisible(deltaBuffer[2], divisor));
     }
 
-    function isInsideYoutubeVideo(event) {
-        var elem = event.target;
-        var isControl = false;
-        if (document.URL.indexOf('www.youtube.com/watch') != -1) {
-            do {
-                isControl = (elem.classList &&
-                    elem.classList.contains('html5-video-controls'));
-                if (isControl) break;
-            } while ((elem = elem.parentNode));
-        }
-        return isControl;
-    }
-
     var requestFrame = (function () {
         return (window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
@@ -761,7 +619,6 @@
 
     if (wheelEvent && isEnabledForBrowser) {
         addEvent(wheelEvent, wheel, wheelOpt);
-        addEvent('mousedown', mousedown);
         addEvent('load', init);
     }
 

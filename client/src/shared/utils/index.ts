@@ -7,12 +7,25 @@ export const checkScrollDirectionIsUp = (event: any): boolean => {
 }
 
 // Проверка на то, что элемент в области видимости юзера
-export const isScrolledIntoView = (el: HTMLElement): boolean => {
-    var bounds = el.getBoundingClientRect();
-    return (
-        (bounds.top + bounds.height > 0) &&
-        (window.innerHeight - bounds.top > 0) &&
-        (bounds.left + bounds.width > 0) &&
-        (window.innerWidth - bounds.left > 0)
-    );
+export const isScrolledIntoView = (el: HTMLElement): boolean | void => {
+
+    if (el) {
+        let bounds = el.getBoundingClientRect();
+        return (
+            (bounds.top + bounds.height > 0) &&
+            (window.innerHeight - bounds.top > 0) &&
+            (bounds.left + bounds.width > 0) &&
+            (window.innerWidth - bounds.left > 0)
+        );
+    }
+
+}
+
+/* Проверка на то, что секция в области видимости */
+export const WidgetAppearance = (ref: React.RefObject<HTMLElement>, setAppearance: (value: React.SetStateAction<boolean>) => void) => {
+    document.body.addEventListener('wheel', () => {
+        if (isScrolledIntoView(ref.current!)) {
+            setAppearance(true);
+        }
+    });
 }

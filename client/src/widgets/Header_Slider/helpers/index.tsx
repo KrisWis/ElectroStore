@@ -23,14 +23,19 @@ export const onClickSwiper = (swiper: number, setSwiperItemActive: React.Dispatc
     setSwiperItemActive(swiper);
 }
 
-export const slideToPreviousItem = (slideToPrevItem: any, setButtonHover: React.Dispatch<React.SetStateAction<boolean>>, setSwiperItemActive: React.Dispatch<React.SetStateAction<number>>, swiperItemActive: number): void => {
+export const slideToPreviousItem = (slideToPrevItem: any, setButtonHover?: React.Dispatch<React.SetStateAction<boolean>>, setSwiperItemActive?: React.Dispatch<React.SetStateAction<number>>, swiperItemActive?: number): void => {
     slideToPrevItem();
-    setButtonHover(false);
-    setSwiperItemActive(swiperItemActive == 1 ? 3 : swiperItemActive - 1);
+
+    if (setButtonHover && setSwiperItemActive && swiperItemActive) {
+        setButtonHover(false);
+        setSwiperItemActive(swiperItemActive == 1 ? 3 : swiperItemActive - 1);
+    }
 }
 
-export const slideToFollowingItem = (slideToNextItem: any, setButtonHover: React.Dispatch<React.SetStateAction<boolean>>, setSwiperItemActive: React.Dispatch<React.SetStateAction<number>>, swiperItemActive: number): void => {
+export const slideToFollowingItem = (slideToNextItem: any, setButtonHover?: React.Dispatch<React.SetStateAction<boolean>>, setSwiperItemActive?: React.Dispatch<React.SetStateAction<number>>, swiperItemActive?: number): void => {
     slideToNextItem();
-    setButtonHover(false);
-    setSwiperItemActive(swiperItemActive == 3 ? 1 : swiperItemActive + 1);
+    if (setButtonHover && setSwiperItemActive && swiperItemActive) {
+        setButtonHover(false);
+        setSwiperItemActive(swiperItemActive == 3 ? 1 : swiperItemActive + 1);
+    }
 }

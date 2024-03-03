@@ -1,7 +1,7 @@
 import React from "react"
 import { Header, Header_Slider } from "../../../widgets"
 import { Slider_downText } from "../../../entities"
-import { Background_animation, Loading_animation } from "../../../features";
+import Loading_animation from "../../../features/Loading_animation/ui";
 
 
 /* Z-INDEXES:
@@ -12,6 +12,8 @@ import { Background_animation, Loading_animation } from "../../../features";
 
 const Welcome_block = React.lazy(() => import("../../../widgets/Welcome_block/ui/index"));
 const Our_New_Arrivals = React.lazy(() => import("../../../widgets/Our_New_Arrivals/ui/index"));
+const Best_Sellers = React.lazy(() => import("../../../widgets/Best_Sellers/ui/index"));
+const Background_animation = React.lazy(() => import("../../../features/Background_animation/ui/index"));
 
 
 export const Main: React.FC = (): React.JSX.Element => {
@@ -22,6 +24,8 @@ export const Main: React.FC = (): React.JSX.Element => {
             <Slider_downText />
             <Welcome_block />
             <Our_New_Arrivals />
+            <Best_Sellers />
+
             <Background_animation />
             <Loading_animation />
         </>

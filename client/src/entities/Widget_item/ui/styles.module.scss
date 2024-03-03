@@ -1,18 +1,16 @@
-.ourNewArrivals_item {
+.widget_item {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 450px;
 
     @media (max-width: 1300px) and (min-width: 600px) {
-        height: 600px;
+        height: 600px !important;
     }
 
     .item_image {
         display: flex;
         flex-direction: column;
         overflow-y: hidden;
-        padding-top: 60px;
 
         &:hover {
             img {
@@ -20,7 +18,7 @@
             }
 
             .item_add {
-                transform: translateY(-130%);
+                transform: translateY(-100%);
             }
         }
 
@@ -40,11 +38,15 @@
             cursor: pointer;
             background-color: #FF496A;
             border: none;
-            transform: translateY(100%);
+            transform: translateY(150%);
             color: #fff;
 
             &:hover {
                 background-color: #ff496a8c;
+            }
+
+            &:focus {
+                outline: none;
             }
 
             a {
@@ -71,6 +73,12 @@
 
         .item_price {
             font-size: 16px;
+            transition: color .3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                color: #FF496A;
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ import { Welcome_block_header, Welcome_block_item } from '../../../entities';
 import React from 'react';
 import styles from './styles.module.scss';
 import { Welcome_block_items_props } from '../helpers';
-import { isScrolledIntoView } from '../../../shared/utils';
+import { WidgetAppearance } from '../../../shared/utils';
 import app_styles from '../../../app/layouts/App.module.scss';
 
 
@@ -13,11 +13,7 @@ const Welcome_block: React.FC = (): React.JSX.Element => {
 
     const [isIntoView, setIsIntoView] = React.useState(false);
 
-    document.body.addEventListener('wheel', () => {
-        if (isScrolledIntoView(WelcomeBlock_ref.current!)) {
-            setIsIntoView(true);
-        }
-    });
+    WidgetAppearance(WelcomeBlock_ref, setIsIntoView);
 
     return (
         <div ref={WelcomeBlock_ref} className={`${styles.welcome_block} ${!isIntoView && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? app_styles.opacity_0 : ''}`}>

@@ -1,8 +1,8 @@
 import styles from './styles.module.scss';
-import OurNewArrivals_item from '../../../entities/OurNewArrivals_item/ui';
+import Widget_item from '../../../entities/Widget_item/ui/index';
 import { OurNewArrivals_items_props } from '../helpers';
 import app_styles from '../../../app/layouts/App.module.scss';
-import { isScrolledIntoView } from '../../../shared/utils';
+import { WidgetAppearance } from '../../../shared/utils';
 import React from 'react';
 import ViewAllProducts_Header from '../../../entities/ViewAllProducts_Header/ui';
 
@@ -14,11 +14,7 @@ const Our_New_Arrivals: React.FC = (): React.JSX.Element => {
 
     const [isIntoView, setIsIntoView] = React.useState(false);
 
-    document.body.addEventListener('wheel', () => {
-        if (isScrolledIntoView(OurNewArrivals_ref.current!)) {
-            setIsIntoView(true);
-        }
-    });
+    WidgetAppearance(OurNewArrivals_ref, setIsIntoView);
 
     return (
         <div ref={OurNewArrivals_ref} className={`${styles.our_new_arrivals} ${!isIntoView && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? app_styles.opacity_0 : ''}`}>
@@ -27,7 +23,7 @@ const Our_New_Arrivals: React.FC = (): React.JSX.Element => {
 
             <div className={styles.products}>
                 {OurNewArrivals_items_props.map((item) => (
-                    <OurNewArrivals_item key={item.imageURL} {...item} />
+                    <Widget_item key={item.id} padding_top={60} imageHeight={400} {...item} />
                 ))}
             </div>
 

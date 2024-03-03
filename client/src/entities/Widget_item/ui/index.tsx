@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
-import { OurNewArrivalsItemProps } from '../types';
+import { WidgetItemProps } from '../types';
 
-const OurNewArrivals_item: React.FC<OurNewArrivalsItemProps> = ({ imageURL, caption, price }): React.JSX.Element => {
+const Widget_item: React.FC<WidgetItemProps> = ({ imageURL, caption, price, imageHeight, padding_top }): React.JSX.Element => {
     return (
-        <div className={styles.ourNewArrivals_item}>
+        <div style={{ height: imageHeight }} className={styles.widget_item}>
 
-            <div className={styles.item_image}>
+            <div className={styles.item_image} style={{ paddingTop: padding_top }}>
                 <img src={imageURL} alt="Изображение предмета" />
                 <button className={styles.item_add}>
                     <Link to="/">
@@ -24,4 +24,4 @@ const OurNewArrivals_item: React.FC<OurNewArrivalsItemProps> = ({ imageURL, capt
     )
 }
 
-export default OurNewArrivals_item;
+export default Widget_item;

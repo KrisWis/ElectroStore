@@ -93,9 +93,11 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
 
     return (
         <div className={styles.slider}>
-            <button aria-label="Кнопка для перелистывания слайдера вперёд" onClick={() => slideToPreviousItem(slideToPrevItem, setButtonHover, setSwiperItemActive, swiperItemActive)} className={styles.slider__left}>
+
+            <button aria-label="Кнопка для перелистывания слайдера назад" onClick={() => slideToPreviousItem(slideToPrevItem, setButtonHover, setSwiperItemActive, swiperItemActive)} className={styles.slider__left}>
                 <i className="fa fa-arrow-left" aria-hidden="true"></i>
             </button>
+
             <div className={styles.slider__item}>
                 {carouselFragment}
                 <div className={styles.slider__swiper}>
@@ -104,7 +106,8 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
                     <i className={`fa fa-circle-o ${swiperItemActive === 3 ? styles.slider__swiper_item__active : ''}`} onClick={() => onClickSwiper(3, setSwiperItemActive, swiperItemActive, slideToPrevItem, slideToNextItem, setButtonHover)} aria-hidden="true"></i>
                 </div>
             </div>
-            <button aria-label="Кнопка для перелистывания слайдера назад" onClick={() => slideToFollowingItem(slideToNextItem, setButtonHover, setSwiperItemActive, swiperItemActive)} className={styles.slider__right}>
+
+            <button aria-label="Кнопка для перелистывания слайдера вперёд" onClick={() => slideToFollowingItem(slideToNextItem, setButtonHover, setSwiperItemActive, swiperItemActive)} className={styles.slider__right}>
                 <i className="fa fa-arrow-right" aria-hidden="true"></i>
             </button>
         </div>

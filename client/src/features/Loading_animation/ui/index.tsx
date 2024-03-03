@@ -2,14 +2,14 @@ import styles from './styles.module.scss';
 import React from 'react';
 
 
-export const Loading_animation: React.FC = (): React.JSX.Element => {
+const Loading_animation: React.FC = (): React.JSX.Element => {
 
     const [load, setLoad] = React.useState(true);
 
     React.useEffect(() => {
         setTimeout(() => {
             setLoad(false);
-        }, 500);
+        }, 300);
     }, []);
 
     return (
@@ -27,3 +27,5 @@ export const Loading_animation: React.FC = (): React.JSX.Element => {
         </div>
     )
 }
+
+export default Loading_animation;
