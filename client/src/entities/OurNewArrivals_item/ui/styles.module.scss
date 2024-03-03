@@ -4,7 +4,7 @@
     width: 100%;
     height: 450px;
 
-    @media (max-width: 1200px) and (min-width: 600px) {
+    @media (max-width: 1300px) and (min-width: 600px) {
         height: 600px;
     }
 
@@ -40,7 +40,7 @@
             cursor: pointer;
             background-color: #FF496A;
             border: none;
-            transform: translateY(20%);
+            transform: translateY(100%);
             color: #fff;
 
             &:hover {
