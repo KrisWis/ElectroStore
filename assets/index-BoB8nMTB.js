@@ -1,0 +1,1 @@
+import{j as s}from"./index-CLh_acTI.js";import{s as a}from"./styles.module-aFX48Mju.js";const r=()=>s.jsxs("div",{className:a.background_animation,children:[s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{})]});export{r as default};
