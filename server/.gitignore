@@ -1,0 +1,28 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# PostgreSQL
+*.sql
+*.dump
+*.bak
+
+# Virtual Environment
+myenv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Compiled Python files
+*.pyc
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
