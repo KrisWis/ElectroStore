@@ -17,7 +17,7 @@ const Our_New_Arrivals: React.FC = (): React.JSX.Element => {
     WidgetAppearance(OurNewArrivals_ref, setIsIntoView);
 
     return (
-        <div ref={OurNewArrivals_ref} className={`${styles.our_new_arrivals} ${!isIntoView && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent) ? app_styles.opacity_0 : ''}`}>
+        <div ref={OurNewArrivals_ref} className={`${styles.our_new_arrivals} ${!isIntoView && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : '') ? app_styles.opacity_0 : ''}`}>
 
             <ViewAllProducts_Header caption="View All Arrivals" />
 

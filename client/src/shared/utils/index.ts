@@ -23,9 +23,11 @@ export const isScrolledIntoView = (el: HTMLElement): boolean | void => {
 
 /* Проверка на то, что секция в области видимости */
 export const WidgetAppearance = (ref: React.RefObject<HTMLElement>, setAppearance: (value: React.SetStateAction<boolean>) => void) => {
-    document.body.addEventListener('wheel', () => {
-        if (isScrolledIntoView(ref.current!)) {
-            setAppearance(true);
-        }
-    });
+    if (typeof document !== 'undefined') {
+        document.body.addEventListener('wheel', () => {
+            if (isScrolledIntoView(ref.current!)) {
+                setAppearance(true);
+            }
+        });
+    }
 }

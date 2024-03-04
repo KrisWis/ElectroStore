@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { SearchModalProps } from '../types';
 import styles from './styles.module.scss';
 import { categories } from '../helpers';
@@ -22,9 +21,9 @@ export const Search_Modal: React.FC<SearchModalProps> = ({ modalIsOpen, setModal
                     <ul className={styles.categories}>
                         {categories.map((item) => (
                             <li key={item} className={styles.categories_item}>
-                                <Link aria-label="Нажатая категория" className={styles.categories_link} to="/">
+                                <a aria-label="Нажатая категория" className={styles.categories_link} href="/">
                                     {item}
-                                </Link>
+                                </a>
                             </li>
                         ))}
                     </ul>

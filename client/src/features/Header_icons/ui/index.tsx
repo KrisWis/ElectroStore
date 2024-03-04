@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { Search_Modal } from '../..';
 import React from 'react';
@@ -23,9 +22,9 @@ export const Header_icons: React.FC = (): React.JSX.Element => {
                 </li>
 
                 <li className={styles.header_icons__icon}>
-                    <Link aria-label='Страница Избранное' to="/favourite">
+                    <a aria-label='Страница Избранное' href="/favourite">
                         <i className={`${styles.header_icons__icon} fa fa-heart`} aria-hidden="true"></i>
-                    </Link>
+                    </a>
                 </li>
 
                 <li className={styles.header_icons__icon}>

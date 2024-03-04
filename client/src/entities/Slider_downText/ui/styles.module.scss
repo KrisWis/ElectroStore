@@ -10,6 +10,7 @@
     padding: 3%;
     gap: 5%;
     text-align: center;
+    transition: .3s linear opacity;
 
     @media (max-width: 1200px) {
         width: 90%;

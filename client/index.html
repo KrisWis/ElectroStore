@@ -7,12 +7,12 @@
     <meta name="description" content='Магазин ElectroStore для покупки электронного оборудования'>
     <meta name="keywords" content="html, css, js, ts, ElectroStore">
     <meta name="author" content="Некрасов Евгений">
-    <link rel="stylesheet" href="src/shared//font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" rel="preload" href="src/shared//font-awesome/css/font-awesome.min.css" as="style">
     <title content="Название сайта">Electrostore - Electronic Gadge Store</title>
   </head>
   <body itemscope itemtype="https://schema.org/WebPage">
     <div id="root"></div>
-    <script async type="module" src="src/shared/SmoothScroll.js"></script>
-    <script async type="module" src="src/app/AppEntry.tsx"></script>
+    <script defer type="module" src="src/app/AppEntry.tsx"></script>
+    <script defer type="module" src="src/shared/SmoothScroll.js"></script>
   </body>
 </html>

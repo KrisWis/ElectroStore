@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { WelcomeBlockItemProps } from '../types';
 import styles from './styles.module.scss';
 import React from 'react';
@@ -12,19 +11,23 @@ export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, ti
     /* Отслеживание направления движения скролла */
     const welcomeBlockItem_ref = React.useRef<HTMLDivElement>(null);
 
-    document.body.addEventListener('wheel', (event: WheelEvent) => {
-        if (isScrolledIntoView(welcomeBlockItem_ref.current!)) {
-            if (checkScrollDirectionIsUp(event) && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-                if (parallaxScrollY <= 50) {
-                    setParallaxScrollY(parallaxScrollY + 20);
-                }
-            } else {
-                if (parallaxScrollY >= -50) {
-                    setParallaxScrollY(parallaxScrollY - 20);
+    if (typeof document !== 'undefined') {
+
+
+        document.body.addEventListener('wheel', (event: WheelEvent) => {
+            if (isScrolledIntoView(welcomeBlockItem_ref.current!)) {
+                if (checkScrollDirectionIsUp(event) && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : '')) {
+                    if (parallaxScrollY <= 50) {
+                        setParallaxScrollY(parallaxScrollY + 20);
+                    }
+                } else {
+                    if (parallaxScrollY >= -50) {
+                        setParallaxScrollY(parallaxScrollY - 20);
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 
 
     return (
@@ -37,7 +40,7 @@ export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, ti
                     <img style={{ objectPosition: `50% ${parallaxScrollY}px` }} className={styles.welcome_block_item_parallax_img} src={imageURL} alt="Изображение секции" />
                 </div>
 
-                <Link to="/" aria-label="Страница покупки" className={styles.welcome_block_item_link}>Shop It Now</Link>
+                <a href="/" aria-label="Страница покупки" className={styles.welcome_block_item_link}>Shop It Now</a>
             </div>
         </div>
     )

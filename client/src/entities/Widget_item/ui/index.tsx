@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 import { WidgetItemProps } from '../types';
 
@@ -7,11 +6,11 @@ const Widget_item: React.FC<WidgetItemProps> = ({ imageURL, caption, price, imag
         <div style={{ height: imageHeight }} className={styles.widget_item}>
 
             <div className={styles.item_image} style={{ paddingTop: padding_top }}>
-                <img src={imageURL} alt="Изображение предмета" />
+                <img src={imageURL} srcSet={imageURL} alt="Изображение предмета" />
                 <button className={styles.item_add}>
-                    <Link to="/">
+                    <a href="/">
                         Add to Cart
-                    </Link>
+                    </a>
                 </button>
             </div>
 

@@ -1,7 +1,9 @@
 import { useSpringCarousel } from 'react-spring-carousel';
 import styles from './styles.module.scss';
 import React from 'react';
-import { onClickSwiper, slideToFollowingItem, slideToPreviousItem } from '../helpers';
+import { HeaderSlider_items_props, onClickSwiper, slideToFollowingItem, slideToPreviousItem } from '../helpers';
+import app_styles from '../../../app/layouts/App.module.scss';
+
 
 export const Header_Slider: React.FC = (): React.JSX.Element => {
 
@@ -42,57 +44,37 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
     /* Слайды карусели */
     const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
         withLoop: true,
-        items: [
-            {
-                id: 'item-1',
-                renderItem:
-                    <div className={styles.slider__item__parallax} >
-                        <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} src="images/slider_items/slider_item--1.webp" alt="Slider Item 1" />
+        items: HeaderSlider_items_props.map((item) => ({
+            id: `item-${item.id}`,
+            renderItem:
+                <div className={styles.slider__item__parallax} >
+                    <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
+                        <img className={styles.slider__item__img} srcSet={item.imageURL} src={item.imageURL} alt={`Слайд ${item.id}`} />
 
-                            <div className={`${styles.slider__content} ${swiperItemActive === 1 && doAnim ? styles.slider__content_active : ''}`}>
-                                <h3 className={styles.slider__content_caption}>Buy Electronic Gadgets at Affordable Prices</h3>
-                                <p className={styles.slider__content_text}>Tech gadgets are all about making your life easier</p>
-                                <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
-                            </div>
-                        </div>
-                    </div >,
-            },
-            {
-                id: 'item-2',
-                renderItem:
-                    <div className={styles.slider__item__parallax}>
-                        <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} src="images/slider_items/slider_item--2.webp" alt="Slider Item 2" />
+                        <div className={`${styles.slider__content} ${swiperItemActive === item.id && doAnim ? styles.slider__content_active : ''}`}>
 
-                            <div className={`${styles.slider__content} ${swiperItemActive === 2 && doAnim ? styles.slider__content_active : ''}`}>
-                                <h3 className={styles.slider__content_caption}>Cool Tech Gadgets Collection 2023</h3>
-                                <p className={styles.slider__content_text}>Tech gadgets are all about making your life easier</p>
-                                <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
-                            </div>
-                        </div>
-                    </div>,
-            },
-            {
-                id: 'item-3',
-                renderItem:
-                    <div className={styles.slider__item__parallax}>
-                        <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                            <img className={styles.slider__item__img} src="images/slider_items/slider_item--3.webp" alt="Slider Item 3" />
+                            <h3 className={styles.slider__content_caption}>{item.caption}</h3>
+                            <p className={styles.slider__content_text}>{item.text}</p>
+                            <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
 
-                            <div className={`${styles.slider__content} ${swiperItemActive === 3 && doAnim ? styles.slider__content_active : ''}`}>
-                                <h3 className={styles.slider__content_caption}>Sturdy and Multifnction New Gadgets</h3>
-                                <p className={styles.slider__content_text}>Tech gadgets are all about making your life easier</p>
-                                <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
-                            </div>
                         </div>
-                    </div>,
-            },
-        ],
-    })
+                    </div>
+                </div >
+        }))
+    });
+
+    /* Анимация появления после загрузки */
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1500);
+    }, []);
+
 
     return (
-        <div className={styles.slider}>
+        <div className={`${styles.slider} ${isLoading && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : '') ? app_styles.opacity_0 : ''}`}>
 
             <button aria-label="Кнопка для перелистывания слайдера назад" onClick={() => slideToPreviousItem(slideToPrevItem, setButtonHover, setSwiperItemActive, swiperItemActive)} className={styles.slider__left}>
                 <i className="fa fa-arrow-left" aria-hidden="true"></i>
