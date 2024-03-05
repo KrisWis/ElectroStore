@@ -1,0 +1,279 @@
+{
+  "_chunk-12b97a77.js": {
+    "file": "assets/chunks/chunk-12b97a77.js"
+  },
+  "_chunk-2dd7cd04.js": {
+    "file": "assets/chunks/chunk-2dd7cd04.js"
+  },
+  "_chunk-4d04ce61.js": {
+    "file": "assets/chunks/chunk-4d04ce61.js"
+  },
+  "_chunk-4ee65f42.js": {
+    "file": "assets/chunks/chunk-4ee65f42.js",
+    "imports": [
+      "_chunk-4d04ce61.js"
+    ]
+  },
+  "_chunk-54c5e22c.js": {
+    "file": "assets/chunks/chunk-54c5e22c.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "pages/index/index.page.tsx"
+    ]
+  },
+  "_chunk-866f9df1.js": {
+    "file": "assets/chunks/chunk-866f9df1.js"
+  },
+  "_chunk-c87c2141.js": {
+    "file": "assets/chunks/chunk-c87c2141.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "dist/client/pages/index/index.page.tsx"
+    ]
+  },
+  "_chunk-cf010ec4.js": {
+    "file": "assets/chunks/chunk-cf010ec4.js"
+  },
+  "_chunk-fc8a9f6a.js": {
+    "file": "assets/chunks/chunk-fc8a9f6a.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "_chunk-4ee65f42.js"
+    ]
+  },
+  "dist/client/pages/index/features/Background_animation/ui/index.tsx": {
+    "file": "assets/chunks/chunk-38471ec0.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "dist/client/pages/index/index.page.tsx",
+      "_chunk-cf010ec4.js",
+      "_chunk-4ee65f42.js",
+      "_chunk-fc8a9f6a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "dist/client/pages/index/features/Background_animation/ui/index.tsx"
+  },
+  "dist/client/pages/index/index.page.css": {
+    "file": "assets/static/index.page.db54bde1.css",
+    "src": "dist/client/pages/index/index.page.css"
+  },
+  "dist/client/pages/index/index.page.tsx": {
+    "assets": [
+      "assets/static/ProtestRiot-Regular.97ede7b1.woff2"
+    ],
+    "css": [
+      "assets/static/index.page.db54bde1.css"
+    ],
+    "dynamicImports": [
+      "dist/client/pages/index/widgets/Welcome_block/ui/index.tsx",
+      "dist/client/pages/index/widgets/Our_New_Arrivals/ui/index.tsx",
+      "dist/client/pages/index/widgets/Best_Sellers/ui/index.tsx",
+      "dist/client/pages/index/features/Background_animation/ui/index.tsx"
+    ],
+    "file": "assets/entries/dist_client_pages_index_index.page.4d168b84.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "_chunk-cf010ec4.js",
+      "_chunk-4ee65f42.js",
+      "_chunk-fc8a9f6a.js"
+    ],
+    "isDynamicEntry": true,
+    "isEntry": true,
+    "src": "dist/client/pages/index/index.page.tsx"
+  },
+  "dist/client/pages/index/shared/fonts/ProtestRiot-Regular.woff2": {
+    "file": "assets/static/ProtestRiot-Regular.97ede7b1.woff2",
+    "src": "dist/client/pages/index/shared/fonts/ProtestRiot-Regular.woff2"
+  },
+  "dist/client/pages/index/widgets/Best_Sellers/ui/index.tsx": {
+    "file": "assets/chunks/chunk-a8ee631a.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "_chunk-c87c2141.js",
+      "_chunk-866f9df1.js",
+      "dist/client/pages/index/index.page.tsx",
+      "_chunk-4ee65f42.js",
+      "_chunk-fc8a9f6a.js",
+      "_chunk-cf010ec4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "dist/client/pages/index/widgets/Best_Sellers/ui/index.tsx"
+  },
+  "dist/client/pages/index/widgets/Our_New_Arrivals/ui/index.tsx": {
+    "file": "assets/chunks/chunk-03e54a14.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "dist/client/pages/index/index.page.tsx",
+      "_chunk-c87c2141.js",
+      "_chunk-866f9df1.js",
+      "_chunk-4ee65f42.js",
+      "_chunk-cf010ec4.js",
+      "_chunk-fc8a9f6a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "dist/client/pages/index/widgets/Our_New_Arrivals/ui/index.tsx"
+  },
+  "dist/client/pages/index/widgets/Welcome_block/ui/index.tsx": {
+    "file": "assets/chunks/chunk-d9a2c7a4.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "dist/client/pages/index/index.page.tsx",
+      "_chunk-4ee65f42.js",
+      "_chunk-866f9df1.js",
+      "_chunk-cf010ec4.js",
+      "_chunk-fc8a9f6a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "dist/client/pages/index/widgets/Welcome_block/ui/index.tsx"
+  },
+  "node_modules/vite-plugin-ssr/dist/esm/client/client-routing-runtime/entry.js": {
+    "dynamicImports": [
+      "dist/client/pages/index/index.page.tsx",
+      "pages/index/index.page.tsx",
+      "renderer/_error.page.tsx",
+      "renderer/_default.page.client.tsx",
+      "renderer/_default.page.server.tsx?extractAssets&lang.tsx"
+    ],
+    "file": "assets/entries/entry-client-routing.21355253.js",
+    "imports": [
+      "_chunk-2dd7cd04.js",
+      "_chunk-cf010ec4.js"
+    ],
+    "isEntry": true,
+    "src": "node_modules/vite-plugin-ssr/dist/esm/client/client-routing-runtime/entry.js"
+  },
+  "node_modules/vite-plugin-ssr/dist/esm/client/server-routing-runtime/entry.js": {
+    "dynamicImports": [
+      "dist/client/pages/index/index.page.tsx",
+      "pages/index/index.page.tsx",
+      "renderer/_error.page.tsx",
+      "renderer/_default.page.client.tsx",
+      "renderer/_default.page.server.tsx?extractAssets&lang.tsx"
+    ],
+    "file": "assets/entries/entry-server-routing.3ced72a8.js",
+    "imports": [
+      "_chunk-2dd7cd04.js",
+      "_chunk-cf010ec4.js"
+    ],
+    "isEntry": true,
+    "src": "node_modules/vite-plugin-ssr/dist/esm/client/server-routing-runtime/entry.js"
+  },
+  "pages/index/features/Background_animation/ui/index.tsx": {
+    "file": "assets/chunks/chunk-9c5f47ea.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "pages/index/index.page.tsx",
+      "_chunk-cf010ec4.js",
+      "_chunk-4ee65f42.js",
+      "_chunk-fc8a9f6a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/index/features/Background_animation/ui/index.tsx"
+  },
+  "pages/index/index.page.css": {
+    "file": "assets/static/index.page.db54bde1.css",
+    "src": "dist/client/pages/index/index.page.css"
+  },
+  "pages/index/index.page.tsx": {
+    "assets": [
+      "assets/static/ProtestRiot-Regular.97ede7b1.woff2"
+    ],
+    "css": [
+      "assets/static/index.page.db54bde1.css"
+    ],
+    "dynamicImports": [
+      "pages/index/widgets/Welcome_block/ui/index.tsx",
+      "pages/index/widgets/Our_New_Arrivals/ui/index.tsx",
+      "pages/index/widgets/Best_Sellers/ui/index.tsx",
+      "pages/index/features/Background_animation/ui/index.tsx"
+    ],
+    "file": "assets/entries/pages_index_index.page.20bacdc5.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "_chunk-cf010ec4.js",
+      "_chunk-4ee65f42.js",
+      "_chunk-fc8a9f6a.js"
+    ],
+    "isDynamicEntry": true,
+    "isEntry": true,
+    "src": "pages/index/index.page.tsx"
+  },
+  "pages/index/shared/fonts/ProtestRiot-Regular.woff2": {
+    "file": "assets/static/ProtestRiot-Regular.97ede7b1.woff2",
+    "src": "dist/client/pages/index/shared/fonts/ProtestRiot-Regular.woff2"
+  },
+  "pages/index/widgets/Best_Sellers/ui/index.tsx": {
+    "file": "assets/chunks/chunk-6c3d2213.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "_chunk-54c5e22c.js",
+      "_chunk-12b97a77.js",
+      "pages/index/index.page.tsx",
+      "_chunk-4ee65f42.js",
+      "_chunk-fc8a9f6a.js",
+      "_chunk-cf010ec4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/index/widgets/Best_Sellers/ui/index.tsx"
+  },
+  "pages/index/widgets/Our_New_Arrivals/ui/index.tsx": {
+    "file": "assets/chunks/chunk-bf2a9c11.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "pages/index/index.page.tsx",
+      "_chunk-54c5e22c.js",
+      "_chunk-12b97a77.js",
+      "_chunk-4ee65f42.js",
+      "_chunk-cf010ec4.js",
+      "_chunk-fc8a9f6a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/index/widgets/Our_New_Arrivals/ui/index.tsx"
+  },
+  "pages/index/widgets/Welcome_block/ui/index.tsx": {
+    "file": "assets/chunks/chunk-ee71cf43.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "pages/index/index.page.tsx",
+      "_chunk-4ee65f42.js",
+      "_chunk-12b97a77.js",
+      "_chunk-cf010ec4.js",
+      "_chunk-fc8a9f6a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/index/widgets/Welcome_block/ui/index.tsx"
+  },
+  "renderer/_default.page.client.tsx": {
+    "file": "assets/entries/renderer_default.page.client.c58ed40e.js",
+    "imports": [
+      "_chunk-4d04ce61.js",
+      "_chunk-4ee65f42.js",
+      "renderer/_default.page.server.tsx?extractAssets&lang.tsx"
+    ],
+    "isDynamicEntry": true,
+    "isEntry": true,
+    "src": "renderer/_default.page.client.tsx"
+  },
+  "renderer/_default.page.server.tsx?extractAssets&lang.css": {
+    "file": "assets/static/default.page.server.e3b0c442.css",
+    "src": "renderer/_default.page.server.tsx?extractAssets&lang.css"
+  },
+  "renderer/_default.page.server.tsx?extractAssets&lang.tsx": {
+    "css": [
+      "assets/static/default.page.server.e3b0c442.css"
+    ],
+    "file": "assets/entries/renderer_default.page.server.extractAssets.c719d3dc.js",
+    "isDynamicEntry": true,
+    "isEntry": true,
+    "src": "renderer/_default.page.server.tsx?extractAssets&lang.tsx"
+  },
+  "renderer/_error.page.tsx": {
+    "file": "assets/entries/renderer_error.page.9b14c43c.js",
+    "imports": [
+      "_chunk-4d04ce61.js"
+    ],
+    "isDynamicEntry": true,
+    "isEntry": true,
+    "src": "renderer/_error.page.tsx"
+  }
+}
