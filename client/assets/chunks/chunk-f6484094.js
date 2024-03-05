@@ -1,0 +1,1 @@
+import{j as s}from"./chunk-4d04ce61.js";import{s as a}from"../entries/pages_index_index.page.47ea2510.js";import"./chunk-cf010ec4.js";import"./chunk-4ee65f42.js";const i=()=>s.jsxs("div",{className:a.background_animation,children:[s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{})]});export{i as default};
