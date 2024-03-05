@@ -117,7 +117,7 @@ const Adaptive_NavBar = ({ navBarIsOpen, setNavBarIsOpen }) => {
         dropdownOpen && /* @__PURE__ */ jsx("ul", { ref: dropdown_window, className: navBar_styles.dropdown__window, "aria-labelledby": "dropdownPages", "data-bs-popper": "static", children: dropdown__window__texts.map((item) => /* @__PURE__ */ jsx("li", { className: navBar_styles.dropdown__window__block, children: /* @__PURE__ */ jsxs("a", { className: navBar_styles.dropdown__window__text, children: [
           item,
           /* @__PURE__ */ jsx("span", { className: navBar_styles.dropdown__window__importance, children: "PRO" })
-        ] }) })) })
+        ] }) }, item)) })
       ] }),
       /* @__PURE__ */ jsx("li", { className: styles$e.navbar__child, children: "Collections" }),
       /* @__PURE__ */ jsx("li", { className: styles$e.navbar__child, children: "Sale" }),
@@ -305,7 +305,7 @@ const Header = () => {
     }, 1500);
   }, []);
   return /* @__PURE__ */ jsxs("div", { className: `${styles$4.header} ${isLoading && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(typeof navigator !== "undefined" ? navigator.userAgent : "") ? app_styles.opacity_0 : ""}`, children: [
-    /* @__PURE__ */ jsx("a", { "aria-label": "Главная страница", href: "/", children: /* @__PURE__ */ jsx("img", { src: "assets/logo.svg", width: "204", height: "46", alt: "logo" }) }),
+    /* @__PURE__ */ jsx("a", { "aria-label": "Главная страница", href: "/", children: /* @__PURE__ */ jsx("img", { src: "icons/logo.svg", width: "204", height: "46", alt: "logo" }) }),
     /* @__PURE__ */ jsx(NavBar, {}),
     /* @__PURE__ */ jsx(Header_icons, {})
   ] });
@@ -405,18 +405,6 @@ const Header_Slider = () => {
       setDoAnim(true);
     }, 1500);
   }, []);
-  React.useEffect(() => {
-    slider_interval_ref.current = setInterval(() => {
-      slideToFollowingItem(slideToNextItem, setButtonHover, setSwiperItemActive, swiperItemActive);
-    }, 2e4);
-    buttonHover_timeout_ref.current = setTimeout(() => {
-      setButtonHover(true);
-    }, 500);
-    return () => {
-      clearInterval(slider_interval_ref.current);
-      clearTimeout(buttonHover_timeout_ref.current);
-    };
-  }, [buttonHover]);
   const { carouselFragment, slideToPrevItem, slideToNextItem } = useSpringCarousel({
     withLoop: true,
     items: HeaderSlider_items_props.map((item) => ({
@@ -431,6 +419,18 @@ const Header_Slider = () => {
       ] }) })
     }))
   });
+  React.useEffect(() => {
+    slider_interval_ref.current = setInterval(() => {
+      slideToFollowingItem(slideToNextItem, setButtonHover, setSwiperItemActive, swiperItemActive);
+    }, 2e4);
+    buttonHover_timeout_ref.current = setTimeout(() => {
+      setButtonHover(true);
+    }, 500);
+    return () => {
+      clearInterval(slider_interval_ref.current);
+      clearTimeout(buttonHover_timeout_ref.current);
+    };
+  }, [buttonHover, slideToNextItem, swiperItemActive]);
   const [isLoading, setIsLoading] = React.useState(true);
   React.useEffect(() => {
     setTimeout(() => {
@@ -484,9 +484,9 @@ const styles = {
   bestSellers_items_thirdItem,
   bestSellers_items_lastitemIsActive
 };
-const Welcome_block = React.lazy(() => import("../chunks/chunk-a0a6512b.js"));
-const Our_New_Arrivals = React.lazy(() => import("../chunks/chunk-61bf7f70.js"));
-const Best_Sellers = React.lazy(() => import("../chunks/chunk-211f048b.js"));
+const Welcome_block = React.lazy(() => import("../chunks/chunk-2eb92110.js"));
+const Our_New_Arrivals = React.lazy(() => import("../chunks/chunk-080c9b45.js"));
+const Best_Sellers = React.lazy(() => import("../chunks/chunk-42af06fa.js"));
 const Background_animation = React.lazy(() => import("../chunks/chunk-b9424693.js"));
 const Main = () => {
   return /* @__PURE__ */ jsxs(Fragment, { children: [

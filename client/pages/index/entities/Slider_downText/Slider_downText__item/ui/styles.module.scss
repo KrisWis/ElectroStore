@@ -1,0 +1,14 @@
+.downText__item {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+
+    .downText__caption {
+        font-size: 25px;
+        white-space: nowrap;
+    }
+
+    .downText__desc {
+        font-size: 18px;
+    }
+}

@@ -22,22 +22,20 @@ async function render(pageContext) {
   const pageHtml = ReactDOMServer.renderToString(
     /* @__PURE__ */ jsx(PageShell, { pageContext, children: /* @__PURE__ */ jsx(Page, { ...pageProps }) })
   );
-  const { documentProps } = pageContext.exports;
-  documentProps && documentProps.title || "Vite SSR app";
-  documentProps && documentProps.description || "App using Vite + vite-plugin-ssr";
   const documentHtml = escapeInject(_a || (_a = __template([`<!doctype html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" >
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-      <meta name="description" content='Магазин ElectroStore для покупки электронного оборудования'>
-      <meta name="keywords" content="html, css, js, ts, ElectroStore">
-      <meta name="author" content="Некрасов Евгений">
-      <link rel="stylesheet" rel="preload" href="../pages/index/shared/font-awesome/css/font-awesome.min.css" as="style">
-      <title content="Название сайта">Electrostore - Electronic Gadge Store</title>
-    </head>
-    <body itemscope itemtype="https://schema.org/WebPage">
-      <div id="root">`, '</div>\n      <script defer type="module" src="../pages/index/app/AppEntry.tsx"><\/script>\n      <script defer type="module" src="../pages/index/shared/SmoothScroll.js"><\/script>\n    </body>\n  </html>\n  '])), dangerouslySkipEscape(pageHtml));
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" >
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+          <meta name="description" content='Магазин ElectroStore для покупки электронного оборудования'>
+          <meta name="keywords" content="html, css, js, ts, ElectroStore">
+          <meta name="author" content="Некрасов Евгений">
+          <link rel="stylesheet" rel="preload" href="../pages/index/shared/font-awesome/css/font-awesome.min.css" as="style">
+          <link rel="stylesheet" rel="preload" href="../pages/index/shared/index.scss" as="style">
+          <title content="Название сайта">Electrostore - Electronic Gadge Store</title>
+        </head>
+        <body itemscope itemtype="https://schema.org/WebPage">
+          <div id="root">`, '</div>\n          <script defer type="module" src="../pages/index/shared/SmoothScroll.js"><\/script>\n        </body>\n      </html>\n      '])), dangerouslySkipEscape(pageHtml));
   return {
     documentHtml,
     pageContext: {

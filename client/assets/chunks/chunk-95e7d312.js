@@ -1,1 +1,0 @@
-const i=e=>e.wheelDelta?e.wheelDelta>0:e.deltaY<0,n=e=>{if(e){let t=e.getBoundingClientRect();return t.top+t.height>0&&window.innerHeight-t.top>0&&t.left+t.width>0&&window.innerWidth-t.left>0}},o=(e,t)=>{typeof document<"u"&&document.body.addEventListener("wheel",()=>{n(e.current)&&t(!0)})};export{o as W,i as c,n as i};

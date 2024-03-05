@@ -1,0 +1,48 @@
+.ViewAllProducts_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0% 3%;
+
+    &_caption {
+        color: #fff;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+
+    &_view_all {
+        font-size: 1.5rem;
+        color: rgba(204, 204, 204, 1);
+        position: relative;
+        transition: color linear .3s;
+
+        &::after,
+        &::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            color: red;
+            position: absolute;
+            bottom: 0;
+        }
+
+        &::before {
+            background-color: gray;
+            width: 100%;
+        }
+
+        &::after {
+            background-color: #fff;
+            transition: width .3s linear;
+        }
+
+        &:hover {
+            color: #FF496A;
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}

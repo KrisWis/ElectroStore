@@ -15,7 +15,7 @@ const pageConfigGlobal = {
   ["onBeforeRoute"]: null,
   ["onPrerenderStart"]: null
 };
-const pageFilesLazyIsomorph1 = /* @__PURE__ */ Object.assign({ "/pages/about/index.page.tsx": () => import("./entries/pages_about_index-page.mjs"), "/pages/index/index.page.tsx": () => import("./entries/pages_index_index-page.mjs").then((n) => n.i), "/renderer/_error.page.tsx": () => import("./entries/renderer_error-page.mjs") });
+const pageFilesLazyIsomorph1 = /* @__PURE__ */ Object.assign({ "/pages/index/index.page.tsx": () => import("./entries/pages_index_index-page.mjs").then((n) => n.i), "/renderer/_error.page.tsx": () => import("./entries/renderer_error-page.mjs") });
 const pageFilesLazyIsomorph = { ...pageFilesLazyIsomorph1 };
 pageFilesLazy[".page"] = pageFilesLazyIsomorph;
 const pageFilesLazyServer1 = /* @__PURE__ */ Object.assign({ "/renderer/_default.page.server.tsx": () => import("./entries/renderer_default-page-server.mjs") });

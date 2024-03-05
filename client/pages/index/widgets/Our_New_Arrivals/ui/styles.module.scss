@@ -1,0 +1,22 @@
+.our_new_arrivals {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    transition: 1s opacity linear;
+
+    .products {
+        padding: 0% 3%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2%;
+
+        @media (max-width: 1200px) {
+            grid-template-columns: 500px;
+            justify-content: center;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
