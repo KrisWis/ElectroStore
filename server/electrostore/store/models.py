@@ -7,12 +7,12 @@ class User(models.Model):
 
 
 class NewGoods(models.Model):
-    photo = models.CharField(("Photo"), max_length=50)
-    title = CharField()
+    photo = models.CharField(("Photo"))
+    title = CharField(max_length=60)
     price = models.DecimalField()
 
 
 class BestSellsGoods(models.Model):
-    photo = models.CharField(("Photo"), max_length=50)
-    title = CharField()
+    photo = models.CharField(("Photo"))
+    title = CharField(max_length=60)
     price = models.DecimalField()

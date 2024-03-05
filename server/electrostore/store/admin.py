@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import NewGoods, BestSellsGoods
 
-# Register your models here.
+admin.site.register(NewGoods)
+admin.site.register(BestSellsGoods)
