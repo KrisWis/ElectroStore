@@ -17,10 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from store.views import index_page
-from rest_framework import routers
+from rest_framework.routers import SimpleRouter
+from store.serializer import OurNewArrivalsView
 
+
+router = SimpleRouter()
+router.register("api/goods", OurNewArrivalsView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_page)
 ]
+
+urlpatterns += router.urls
