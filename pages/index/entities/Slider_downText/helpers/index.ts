@@ -1,1 +1,0 @@
-export const slider_downText_items_captions: string[] = ["Book An Appointment", "Pick Up In Store", "Special Packaging", "Free Global Returns"];
