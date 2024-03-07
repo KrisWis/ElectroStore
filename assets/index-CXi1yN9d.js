@@ -1,0 +1,1 @@
+const n=t=>{if(t){let e=t.getBoundingClientRect();return e.top+e.height>0&&window.innerHeight-e.top>0&&e.left+e.width>0&&window.innerWidth-e.left>0}},i=(t,e)=>{typeof document<"u"&&document.body.addEventListener("wheel",()=>{n(t.current)&&e(!0)})};export{i as W};
