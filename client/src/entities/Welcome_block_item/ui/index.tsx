@@ -1,46 +1,24 @@
 import { WelcomeBlockItemProps } from '../types';
 import styles from './styles.module.scss';
 import React from 'react';
-import { checkScrollDirectionIsUp, isScrolledIntoView } from '../../../shared/utils';
+import { Parallax } from 'react-parallax';
 
 
 export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, title, imageURL }): React.JSX.Element => {
 
-    const [parallaxScrollY, setParallaxScrollY] = React.useState(0);
-
-    /* Отслеживание направления движения скролла */
-    const welcomeBlockItem_ref = React.useRef<HTMLDivElement>(null);
-
-    if (typeof document !== 'undefined') {
-
-
-        document.body.addEventListener('wheel', (event: WheelEvent) => {
-            if (isScrolledIntoView(welcomeBlockItem_ref.current!)) {
-                if (checkScrollDirectionIsUp(event) && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : '')) {
-                    if (parallaxScrollY <= 50) {
-                        setParallaxScrollY(parallaxScrollY + 20);
-                    }
-                } else {
-                    if (parallaxScrollY >= -50) {
-                        setParallaxScrollY(parallaxScrollY - 20);
-                    }
-                }
-            }
-        });
-    }
-
 
     return (
-        <div className={styles.welcome_block_item} ref={welcomeBlockItem_ref}>
+        <div className={styles.welcome_block_item}>
             <h5 className={styles.welcome_block_item_title}>{number}. {title}</h5>
 
             <div className={styles.welcome_block_item_img_block}>
 
-                <div className={styles.welcome_block_item_parallax}>
-                    <img style={{ objectPosition: `50% ${parallaxScrollY}px` }} className={styles.welcome_block_item_parallax_img} src={imageURL} alt="Изображение секции" />
-                </div>
+                <Parallax bgImage={imageURL} strength={250}>
+                    <div style={{ height: '500px' }}>
+                        <a href="/" aria-label="Страница покупки" className={styles.welcome_block_item_link}>Shop It Now</a>
+                    </div>
+                </Parallax>
 
-                <a href="/" aria-label="Страница покупки" className={styles.welcome_block_item_link}>Shop It Now</a>
             </div>
         </div>
     )

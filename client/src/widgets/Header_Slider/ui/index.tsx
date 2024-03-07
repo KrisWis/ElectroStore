@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import React from 'react';
 import { HeaderSlider_items_props, onClickSwiper, slideToFollowingItem, slideToPreviousItem } from '../helpers';
 import app_styles from '../../../app/layouts/App.module.scss';
+import { Parallax } from 'react-parallax';
 
 
 export const Header_Slider: React.FC = (): React.JSX.Element => {
@@ -47,18 +48,20 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
         items: HeaderSlider_items_props.map((item) => ({
             id: `item-${item.id}`,
             renderItem:
+
                 <div className={styles.slider__item__parallax} >
-                    <div className={`${styles.slider__item__parallax_image} ${styles.slider__item__parallax_layer}`}>
-                        <img className={styles.slider__item__img} srcSet={item.imageURL} src={item.imageURL} alt={`Слайд ${item.id}`} />
 
-                        <div className={`${styles.slider__content} ${swiperItemActive === item.id && doAnim ? styles.slider__content_active : ''}`}>
+                    <Parallax className={styles.slider__item__img} bgImage={item.imageURL} strength={250}>
+                        <div style={{ height: '700px' }}>
+                            <div className={`${styles.slider__content} ${swiperItemActive === item.id && doAnim ? styles.slider__content_active : ''}`}>
 
-                            <h3 className={styles.slider__content_caption}>{item.caption}</h3>
-                            <p className={styles.slider__content_text}>{item.text}</p>
-                            <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
-
+                                <h3 className={styles.slider__content_caption}>{item.caption}</h3>
+                                <p className={styles.slider__content_text}>{item.text}</p>
+                                <button className={`${styles.slider__content_button} ${buttonHover ? styles.slider__content_button_hover : ''}`}>Show now</button>
+                            </div>
                         </div>
-                    </div>
+                    </Parallax>
+
                 </div >
         }))
     });
@@ -83,9 +86,9 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
             <div className={styles.slider__item}>
                 {carouselFragment}
                 <div className={styles.slider__swiper}>
-                    <i className={`fa fa-circle-o ${swiperItemActive === 1 ? styles.slider__swiper_item__active : ''}`} onClick={() => onClickSwiper(1, setSwiperItemActive, swiperItemActive, slideToPrevItem, slideToNextItem, setButtonHover)} aria-hidden="true"></i>
-                    <i className={`fa fa-circle-o ${swiperItemActive === 2 ? styles.slider__swiper_item__active : ''}`} onClick={() => onClickSwiper(2, setSwiperItemActive, swiperItemActive, slideToPrevItem, slideToNextItem, setButtonHover)} aria-hidden="true"></i>
-                    <i className={`fa fa-circle-o ${swiperItemActive === 3 ? styles.slider__swiper_item__active : ''}`} onClick={() => onClickSwiper(3, setSwiperItemActive, swiperItemActive, slideToPrevItem, slideToNextItem, setButtonHover)} aria-hidden="true"></i>
+                    {[1, 2, 3].map((item) => (
+                        <i key={item} className={`fa fa-circle-o ${swiperItemActive === item ? styles.slider__swiper_item__active : ''}`} onClick={() => onClickSwiper(item, setSwiperItemActive, swiperItemActive, slideToPrevItem, slideToNextItem, setButtonHover)} aria-hidden="true"></i>
+                    ))}
                 </div>
             </div>
 

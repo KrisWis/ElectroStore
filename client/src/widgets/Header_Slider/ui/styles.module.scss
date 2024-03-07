@@ -62,6 +62,7 @@
         width: 100%;
 
         &__parallax {
+            position: relative;
             margin-bottom: 5%;
 
             &_layer {
@@ -87,7 +88,9 @@
             padding-right: 2%;
             padding-left: 2%;
             box-sizing: border-box;
-            width: 100%;
+            left: 50%;
+            width: 1550%;
+            min-width: 110px;
             height: 100%;
             transform: rotateY(0deg) rotateZ(5deg);
             animation: rotate_anim infinite 30s linear;
@@ -120,8 +123,8 @@
         .slider__swiper {
             display: flex;
             position: absolute;
-            bottom: 30%;
-            left: 11%;
+            bottom: 20%;
+            left: 15%;
             gap: 100%;
             cursor: pointer;
             z-index: 1;
