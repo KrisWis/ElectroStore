@@ -15,6 +15,7 @@ const Our_New_Arrivals = React.lazy(() => import("../../../widgets/Our_New_Arriv
 const Best_Sellers = React.lazy(() => import("../../../widgets/Best_Sellers/ui/index"));
 const Background_animation = React.lazy(() => import("../../../features/Background_animation/ui/index"));
 const OurNewsletter = React.lazy(() => import("../../../widgets/OurNewsletter/ui/index"));
+const Footer = React.lazy(() => import("../../../widgets/Footer/ui/index"));
 
 
 export const Main: React.FC = (): React.JSX.Element => {
@@ -27,6 +28,7 @@ export const Main: React.FC = (): React.JSX.Element => {
             <Our_New_Arrivals />
             <Best_Sellers />
             <OurNewsletter />
+            <Footer />
 
             <Background_animation />
             <Loading_animation />

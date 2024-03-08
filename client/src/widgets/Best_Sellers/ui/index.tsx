@@ -23,7 +23,9 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
 
     const carousel_items: CarouselItems[] = [];
 
-    for (let index = 0; index < BestSellers_items_props.length; index += 3) {
+    const mediaQuery = window.matchMedia('(max-width: 700px)')
+
+    for (let index = 0; index < BestSellers_items_props.length; mediaQuery.matches ? index += 1 : index += 3) {
         carousel_items.push({
             id: `item-${BestSellers_items_props[index].id}`,
             renderItem:

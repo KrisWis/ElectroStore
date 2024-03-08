@@ -48,11 +48,6 @@
 
             @media (max-width: 1200px) {
                 font-size: 20px;
-                top: 40%;
-            }
-
-            @media (max-width: 1200px) {
-                font-size: 10px;
                 top: 30%;
             }
 
@@ -94,6 +89,11 @@
             &_lastitemIsActive {
                 left: 0vw;
             }
+        }
+
+        @media (max-width: 700px) {
+            grid-template-columns: 1fr;
+            left: 10vw;
         }
     }
 }

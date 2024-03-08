@@ -17,12 +17,12 @@ export const Header: React.FC = (): React.JSX.Element => {
 
 
     return (
-        <div className={`${styles.header} ${isLoading && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : '') ? app_styles.opacity_0 : ''}`}>
+        <header className={`${styles.header} ${isLoading && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : '') ? app_styles.opacity_0 : ''}`}>
             <a aria-label="Главная страница" href="/">
                 <img src="assets/logo.svg" width="204" height="46" alt="logo" />
             </a>
             <NavBar />
             <Header_icons />
-        </div>
+        </header>
     )
 }

@@ -61,6 +61,10 @@
     &__item {
         width: 100%;
 
+        @media (max-width: 1800px) {
+            width: 130%;
+        }
+
         &__parallax {
             position: relative;
             margin-bottom: 5%;

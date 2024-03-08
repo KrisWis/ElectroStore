@@ -2,18 +2,17 @@
     margin-top: 20%;
     height: 500px;
     background-size: cover;
-    width: 95%;
+    width: 100%;
     align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 20%;
     position: relative;
     transition: .3s linear opacity;
 
     &_wrapper {
-        width: 1750px;
+        width: 100%;
     }
 
     &_parallax {
@@ -27,7 +26,10 @@
         display: flex;
         align-items: center;
         gap: 5%;
-        position: absolute;
+
+        @media (max-width: 500px) {
+            flex-direction: column;
+        }
     }
 
     &_caption {
@@ -35,12 +37,18 @@
         font-size: 3.5rem;
         width: 50%;
         text-align: right;
+        margin: 0;
     }
 
     &_desc {
         width: 30%;
         font-weight: 0;
         font-size: 1rem;
+
+        @media (max-width: 500px) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &_form {
@@ -50,6 +58,10 @@
         justify-content: center;
         height: 70px;
         bottom: 10%;
+
+        @media (max-width: 500px) {
+            width: 50%;
+        }
     }
 
     &_input {

@@ -4,6 +4,10 @@
     margin-top: 20%;
     transition: 1s opacity linear;
 
+    @media (max-width: 700px) {
+        margin-top: 70%;
+    }
+
     .products {
         padding: 0% 3%;
         display: grid;
@@ -13,6 +17,8 @@
         @media (max-width: 1200px) {
             grid-template-columns: 500px;
             justify-content: center;
+            align-items: center;
+            margin-left: 10%;
         }
 
         @media (max-width: 600px) {
