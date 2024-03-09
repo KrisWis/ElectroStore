@@ -1,5 +1,4 @@
 import styles from './styles.module.scss';
-import React from 'react';
 
 const Footer_ContactUs: React.FC = (): React.JSX.Element => {
 
@@ -10,7 +9,7 @@ const Footer_ContactUs: React.FC = (): React.JSX.Element => {
             <p className={styles.footer_ContactUs_desc}>
                 Do you have any questions or suggestions?
                 <span className={styles.footer_ContactUs_info}>contact@yourcompany.com</span>
-                <p>Do you need support? Give us a call. <span className={styles.footer_ContactUs_info}>+43 720 11 52 78</span></p>
+                Do you need support? Give us a call. <span className={styles.footer_ContactUs_info}>+43 720 11 52 78</span>
             </p>
         </div>
     )

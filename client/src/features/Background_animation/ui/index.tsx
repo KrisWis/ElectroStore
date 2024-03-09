@@ -1,6 +1,4 @@
 import styles from './styles.module.scss';
-import React from 'react';
-
 
 const Background_animation: React.FC = (): React.JSX.Element => {
 

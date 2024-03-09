@@ -1,5 +1,4 @@
 import styles from './styles.module.scss';
-import React from 'react';
 import { ViewAllProducts_Header_Props } from '../types';
 
 

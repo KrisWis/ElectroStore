@@ -1,16 +1,16 @@
 import { Slider_downText__item } from '../Slider_downText__item/ui';
 import styles from './styles.module.scss';
-import React from 'react';
 import { slider_downText_items_captions } from '../helpers';
 import app_styles from '../../../app/layouts/App.module.scss';
+import { useState, useEffect } from 'react';
 
 
 export const Slider_downText: React.FC = (): React.JSX.Element => {
 
     /* Анимация появления после загрузки */
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1500);

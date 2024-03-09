@@ -1,25 +1,25 @@
 import ViewAllProducts_Header from '../../../entities/ViewAllProducts_Header/ui';
 import Widget_item from '../../../entities/Widget_item/ui';
-import { WidgetAppearance } from '../../../shared/utils';
+import { WidgetAppearance, is_touch_enabled } from '../../../shared/utils';
 import styles from './styles.module.scss';
 import app_styles from '../../../app/layouts/App.module.scss';
-import React from 'react';
 import { BestSellers_items_props } from '../helpers';
 import { useSpringCarousel } from 'react-spring-carousel';
 import { CarouselItems } from '../types';
+import { useEffect, useRef, useState } from 'react';
 
 
 const Best_Sellers: React.FC = (): React.JSX.Element => {
 
     /* Проверка на то, что секция в области видимости */
-    const BestSellers_ref = React.useRef<HTMLDivElement>(null);
+    const BestSellers_ref = useRef<HTMLDivElement>(null);
 
-    const [isIntoView, setIsIntoView] = React.useState(false);
+    const [isIntoView, setIsIntoView] = useState(false);
 
     WidgetAppearance(BestSellers_ref, setIsIntoView);
 
     /* Слайды карусели */
-    const [ActiveSlide, setActiveSlide] = React.useState(1);
+    const [ActiveSlide, setActiveSlide] = useState(1);
 
     const carousel_items: CarouselItems[] = [];
 
@@ -53,8 +53,17 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
         setActiveSlide(ActiveSlide == 3 ? 1 : ActiveSlide + 1)
     }
 
+    /* На смартфонах компонент появляется через несколько секунд */
+    useEffect(() => {
+        if (is_touch_enabled()) {
+            setTimeout(() => {
+                setIsIntoView(true);
+            }, 6000);
+        }
+    }, [])
+
     return (
-        <div ref={BestSellers_ref} className={`${styles.bestSellers} ${!isIntoView && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : '') ? app_styles.opacity_0 : ''}`}>
+        <div ref={BestSellers_ref} className={`${styles.bestSellers} ${!isIntoView ? app_styles.opacity_0 : ''}`}>
             <ViewAllProducts_Header caption="Best Sellers" />
 
             <div className={styles.bestSellers_slider}>

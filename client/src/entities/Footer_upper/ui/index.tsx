@@ -2,10 +2,8 @@ import Footer_ContactUs from '../Footer_ContactUs/ui';
 import Footer_Electrostore from '../Footer_Electrostore/ui';
 import Footer_Section from '../Footer_Section/ui';
 import styles from './styles.module.scss';
-import React from 'react';
 
 const Footer_upper: React.FC = (): React.JSX.Element => {
-
 
     return (
         <div className={styles.footer_upper}>

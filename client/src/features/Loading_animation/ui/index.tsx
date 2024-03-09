@@ -1,12 +1,12 @@
+import { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
-import React from 'react';
 
 
 const Loading_animation: React.FC = (): React.JSX.Element => {
 
-    const [load, setLoad] = React.useState(true);
+    const [load, setLoad] = useState(true);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setTimeout(() => {
             setLoad(false);
         }, 300);

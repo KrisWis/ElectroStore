@@ -1,27 +1,27 @@
 import { useSpringCarousel } from 'react-spring-carousel';
 import styles from './styles.module.scss';
-import React from 'react';
 import { HeaderSlider_items_props, onClickSwiper, slideToFollowingItem, slideToPreviousItem } from '../helpers';
 import app_styles from '../../../app/layouts/App.module.scss';
 import { Parallax } from 'react-parallax';
+import React, { useState, useRef, useEffect } from 'react';
 
 
 export const Header_Slider: React.FC = (): React.JSX.Element => {
 
     /* Функционал слайдера */
 
-    const [swiperItemActive, setSwiperItemActive] = React.useState(1);
+    const [swiperItemActive, setSwiperItemActive] = useState(1);
 
     /* Функционал того, что каждые несколько секунд меняется слайд */
 
-    const slider_interval_ref = React.useRef<NodeJS.Timeout>();
+    const slider_interval_ref = useRef<NodeJS.Timeout>();
 
     /* Функционал анимации появления кнопки и текста */
-    const [buttonHover, setButtonHover] = React.useState(false);
-    const buttonHover_timeout_ref = React.useRef<NodeJS.Timeout>();
-    const [doAnim, setDoAnim] = React.useState(false);
+    const [buttonHover, setButtonHover] = useState(false);
+    const buttonHover_timeout_ref = useRef<NodeJS.Timeout>();
+    const [doAnim, setDoAnim] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setTimeout(() => {
             setDoAnim(true)
         }, 1500);

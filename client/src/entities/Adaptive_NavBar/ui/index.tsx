@@ -1,36 +1,38 @@
 import styles from './styles.module.scss';
-import React from 'react';
 import navBar_styles from '../../../features/NavBar/ui/styles.module.scss';
 import { AdaptiveNavBarProps } from '../types';
 import { closeNavbar, dropdown__window__texts } from '../helpers';
+import { useEffect, useRef, useState } from 'react';
 
 
 export const Adaptive_NavBar: React.FC<AdaptiveNavBarProps> = ({ navBarIsOpen, setNavBarIsOpen }): React.JSX.Element => {
 
-    const [dropdownOpen, setDropdownOpen] = React.useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const [activeNavbar, setActiveNavbar] = React.useState(false);
+    const [activeNavbar, setActiveNavbar] = useState(false);
 
-    const dropdown_window = React.useRef<HTMLUListElement>(null);
+    const dropdown_window = useRef<HTMLUListElement>(null);
 
-    const dropdown_window__text = React.useRef<HTMLDivElement>(null);
+    const dropdown_window__text = useRef<HTMLDivElement>(null);
 
-    const adaptiveNavbarRef = React.useRef<HTMLDivElement>(null);
+    const adaptiveNavbarRef = useRef<HTMLDivElement>(null);
 
-    React.useEffect(() => {
+    useEffect(() => {
 
-        if (navBarIsOpen) {
-            adaptiveNavbarRef.current!.style.display = 'flex';
+        if (adaptiveNavbarRef.current) {
+            if (navBarIsOpen) {
+                adaptiveNavbarRef.current.style.display = 'flex';
 
-            setTimeout(() => {
-                setActiveNavbar(true);
-            }, 100);
+                setTimeout(() => {
+                    setActiveNavbar(true);
+                }, 100);
 
-        } else {
-            setTimeout(() => {
-                adaptiveNavbarRef.current!.style.display = 'none';
-                setActiveNavbar(false);
-            }, 300);
+            } else {
+                setTimeout(() => {
+                    adaptiveNavbarRef.current ? adaptiveNavbarRef.current.style.display = 'none' : '';
+                    setActiveNavbar(false);
+                }, 300);
+            }
         }
 
     }, [navBarIsOpen])

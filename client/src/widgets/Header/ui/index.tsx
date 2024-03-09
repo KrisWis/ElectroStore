@@ -1,15 +1,15 @@
 import { Header_icons, NavBar } from '../../../features';
 import styles from './styles.module.scss';
-import React from 'react';
 import app_styles from '../../../app/layouts/App.module.scss';
+import { useState, useEffect } from 'react';
 
 
 export const Header: React.FC = (): React.JSX.Element => {
 
     /* Анимация появления после загрузки */
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1500);

@@ -1,17 +1,17 @@
 import styles from './styles.module.scss';
-import React from 'react';
 import { dropdown__window__texts } from '../../../entities/Adaptive_NavBar/helpers';
+import { useState, useRef, useEffect } from 'react';
 
 
 export const NavBar: React.FC = (): React.JSX.Element => {
 
-    const [dropdownOpen, setDropdownOpen] = React.useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const dropdown_window = React.useRef<HTMLUListElement>(null);
+    const dropdown_window = useRef<HTMLUListElement>(null);
 
-    const dropdown_window__text = React.useRef<HTMLDivElement>(null);
+    const dropdown_window__text = useRef<HTMLDivElement>(null);
 
-    React.useEffect(() => {
+    useEffect(() => {
         document.body.addEventListener("click", (e: MouseEvent): void => {
             if (!dropdown_window.current?.contains(e.target as Node) && !dropdown_window__text.current?.contains(e.target as Node)) {
                 setDropdownOpen(false);

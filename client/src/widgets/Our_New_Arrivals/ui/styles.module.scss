@@ -13,6 +13,7 @@
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 2%;
+        align-items: last baseline;
 
         @media (max-width: 1200px) {
             grid-template-columns: 500px;

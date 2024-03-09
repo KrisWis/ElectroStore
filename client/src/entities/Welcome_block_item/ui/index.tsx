@@ -1,11 +1,9 @@
 import { WelcomeBlockItemProps } from '../types';
 import styles from './styles.module.scss';
-import React from 'react';
 import { Parallax } from 'react-parallax';
 
 
 export const Welcome_block_item: React.FC<WelcomeBlockItemProps> = ({ number, title, imageURL }): React.JSX.Element => {
-
 
     return (
         <div className={styles.welcome_block_item}>

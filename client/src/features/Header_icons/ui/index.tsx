@@ -1,16 +1,16 @@
 import styles from './styles.module.scss';
 import { Search_Modal } from '../..';
-import React from 'react';
 import { Adaptive_NavBar } from '../../../entities';
+import { useState } from 'react';
 
 
 export const Header_icons: React.FC = (): React.JSX.Element => {
 
     /* Открытие модалки */
-    const [modalIsOpen, setModalIsOpen] = React.useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     /* Открытие адаптивного попапа с навигацией */
-    const [navBarIsOpen, setNavBarIsOpen] = React.useState(false);
+    const [navBarIsOpen, setNavBarIsOpen] = useState(false);
 
 
     return (

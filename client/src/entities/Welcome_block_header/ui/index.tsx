@@ -1,5 +1,4 @@
 import styles from './styles.module.scss';
-import React from 'react';
 
 export const Welcome_block_header: React.FC = (): React.JSX.Element => {
 

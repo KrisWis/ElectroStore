@@ -24,6 +24,7 @@ export const Main: React.FC = (): React.JSX.Element => {
             <Header />
             <Header_Slider />
             <Slider_downText />
+
             <Welcome_block />
             <Our_New_Arrivals />
             <Best_Sellers />

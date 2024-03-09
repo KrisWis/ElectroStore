@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
-import React from 'react';
 import { FooterSectionProps } from '../types';
 
 const Footer_Section: React.FC<FooterSectionProps> = ({ caption, links }): React.JSX.Element => {
-
 
     return (
         <div className={styles.footer_section}>

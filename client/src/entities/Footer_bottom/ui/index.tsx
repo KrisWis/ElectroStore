@@ -1,5 +1,4 @@
 import styles from './styles.module.scss';
-import React from 'react';
 
 const Footer_bottom: React.FC = (): React.JSX.Element => {
 

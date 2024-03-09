@@ -31,3 +31,8 @@ export const WidgetAppearance = (ref: React.RefObject<HTMLElement>, setAppearanc
         });
     }
 }
+
+/* Проверка на то, что у пользователя смартфон */
+export const is_touch_enabled = (): boolean => {
+    return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+}

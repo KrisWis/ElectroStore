@@ -5,4 +5,9 @@
     width: 100%;
     min-height: 100vh;
     justify-content: center;
+    transition: .3s linear opacity;
+}
+
+.footer_wrapper {
+    min-height: 900px;
 }
