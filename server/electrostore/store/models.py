@@ -9,10 +9,17 @@ class User(models.Model):
 class NewGoods(models.Model):
     photo = models.CharField(("Photo"))
     title = CharField(max_length=60)
-    price = models.DecimalField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self) -> str:
+        return self.title
 
 
 class BestSellsGoods(models.Model):
     photo = models.CharField(("Photo"))
     title = CharField(max_length=60)
-    price = models.DecimalField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self) -> str:
+        return self.title
+    
