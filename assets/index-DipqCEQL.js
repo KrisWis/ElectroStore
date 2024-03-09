@@ -1,0 +1,1 @@
+import{j as s,h as a}from"./index-CcKgoPmp.js";const t=()=>s.jsxs("div",{className:a.background_animation,children:[s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{})]});export{t as default};
