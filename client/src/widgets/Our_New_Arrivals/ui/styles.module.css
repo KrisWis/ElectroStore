@@ -1,0 +1,31 @@
+.our_new_arrivals {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20%;
+  transition: 1s opacity linear;
+}
+@media (max-width: 700px) {
+  .our_new_arrivals {
+    margin-top: 70%;
+  }
+}
+.our_new_arrivals .products {
+  padding: 0% 3%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2%;
+  align-items: last baseline;
+}
+@media (max-width: 1200px) {
+  .our_new_arrivals .products {
+    grid-template-columns: 500px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+  }
+}
+@media (max-width: 600px) {
+  .our_new_arrivals .products {
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

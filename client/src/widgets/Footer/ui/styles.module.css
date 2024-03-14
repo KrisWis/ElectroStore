@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background: rgb(2, 2, 2);
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  transition: 0.3s linear opacity;
+}
+
+.footer_wrapper {
+  min-height: 900px;
+}/*# sourceMappingURL=styles.module.css.map */

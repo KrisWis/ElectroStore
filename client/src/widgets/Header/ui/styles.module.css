@@ -1,0 +1,21 @@
+.header {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 0.3fr 0.5fr 0.3fr;
+  padding: 3%;
+  align-items: center;
+  transition: 0.3s opacity linear;
+}
+@media (max-width: 1100px) {
+  .header {
+    grid-template-columns: 0.3fr 0.6fr;
+  }
+}
+@media (max-width: 700px) {
+  .header {
+    grid-template-columns: 0.3fr 0.9fr;
+  }
+}
+.header li {
+  list-style: none;
+}/*# sourceMappingURL=styles.module.css.map */

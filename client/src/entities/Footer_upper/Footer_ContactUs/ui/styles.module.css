@@ -1,0 +1,41 @@
+.footer_ContactUs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer_ContactUs_caption {
+  font-size: 35px;
+  margin: 0;
+}
+.footer_ContactUs_desc {
+  display: flex;
+  flex-direction: column;
+  color: rgba(231, 230, 230, 0.702);
+  font-size: 20px;
+}
+.footer_ContactUs_info {
+  display: inline-block;
+  transition: 0.3s linear all;
+  position: relative;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.footer_ContactUs_info:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  left: 0;
+  height: 1px;
+  background-color: rgba(231, 230, 230, 0.702);
+  transition: width 0.3s linear;
+  overflow: hidden;
+}
+.footer_ContactUs_info:hover {
+  color: rgb(255, 73, 106);
+}
+.footer_ContactUs_info:hover:after {
+  width: 100%;
+}/*# sourceMappingURL=styles.module.css.map */

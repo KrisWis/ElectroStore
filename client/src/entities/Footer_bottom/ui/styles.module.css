@@ -1,0 +1,36 @@
+.footer_bottom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30%;
+  padding: 3% 1%;
+}
+@media (max-width: 1200px) {
+  .footer_bottom {
+    gap: 0;
+  }
+}
+@media (max-width: 600px) {
+  .footer_bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.footer_bottom_firstCol, .footer_bottom_secondCol {
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  width: 100%;
+}
+@media (max-width: 300px) {
+  .footer_bottom_firstCol {
+    flex-direction: column;
+  }
+}
+.footer_bottom_author {
+  cursor: pointer;
+  transition: 0.2s linear color;
+}
+.footer_bottom_author:hover {
+  color: rgb(255, 73, 106);
+}/*# sourceMappingURL=styles.module.css.map */

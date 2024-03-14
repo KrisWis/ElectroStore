@@ -1,0 +1,40 @@
+.ViewAllProducts_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0% 3%;
+}
+.ViewAllProducts_header_caption {
+  color: #fff;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.ViewAllProducts_header_view_all {
+  font-size: 1.5rem;
+  color: rgb(204, 204, 204);
+  position: relative;
+  transition: color linear 0.3s;
+}
+.ViewAllProducts_header_view_all::after, .ViewAllProducts_header_view_all::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  color: red;
+  position: absolute;
+  bottom: 0;
+}
+.ViewAllProducts_header_view_all::before {
+  background-color: gray;
+  width: 100%;
+}
+.ViewAllProducts_header_view_all::after {
+  background-color: #fff;
+  transition: width 0.3s linear;
+}
+.ViewAllProducts_header_view_all:hover {
+  color: #FF496A;
+}
+.ViewAllProducts_header_view_all:hover::after {
+  width: 100%;
+}/*# sourceMappingURL=styles.module.css.map */
