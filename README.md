@@ -1,6 +1,6 @@
 # ElectroStore
 ### Данный пет проект создан для развития hard-навыков и представляет собой копию [сайта](https://demo.templatesjungle.com/electrostore/) c различными дополнениями от авторов.
-![screencapture-kriswis-github-io-ElectroStore-2024-04-19-17_54_40](https://github.com/KrisWis/ElectroStore/assets/94256853/96637693-8903-469c-8afc-81239bb30c2b)
+![324273031-96637693-8903-469c-8afc-81239bb30c2b](https://github.com/KrisWis/Electrostore/assets/94256853/d071456a-cbaf-469d-9012-e60dcb274d04)
 
 
 ### Проект ещё находится в стадии разработки ⚠️
