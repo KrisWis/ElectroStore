@@ -1,0 +1,27 @@
+.cart__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart__item__name {
+  display: flex;
+  flex-direction: column;
+}
+.cart__item__name__title {
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.24;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.cart__item__name__description {
+  font-size: 1rem;
+  color: rgba(173, 181, 189, 0.75);
+  line-height: 1.25;
+  margin: 0;
+}
+.cart__item__price {
+  color: rgba(173, 181, 189, 0.75);
+  line-height: 1.25;
+  font-size: 1.1rem;
+}/*# sourceMappingURL=styles.module.css.map */

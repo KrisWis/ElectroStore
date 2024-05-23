@@ -1,0 +1,116 @@
+.ourNewsletter {
+  margin-top: 20%;
+  height: 500px;
+  background-size: cover;
+  width: 100%;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  transition: 0.3s linear opacity;
+}
+.ourNewsletter img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ourNewsletter_wrapper {
+  width: 100%;
+}
+.ourNewsletter_parallax {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ourNewsletter_header {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+@media (max-width: 600px) {
+  .ourNewsletter_header {
+    flex-direction: column;
+  }
+}
+.ourNewsletter_caption {
+  font-weight: 500;
+  font-size: 3.5rem;
+  width: 50%;
+  text-align: right;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .ourNewsletter_caption {
+    width: 60%;
+  }
+}
+.ourNewsletter_desc {
+  width: 30%;
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  .ourNewsletter_desc {
+    width: 80%;
+    text-align: center;
+  }
+}
+.ourNewsletter_form {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 70px;
+  bottom: 10%;
+}
+@media (max-width: 600px) {
+  .ourNewsletter_form {
+    width: 80%;
+  }
+}
+.ourNewsletter_input {
+  background: rgba(255, 255, 255, 0.9137254902);
+  border: none;
+  width: 30%;
+  border-radius: 10px 0 0 10px;
+  padding: 1%;
+  outline: none;
+  box-shadow: 0 0 0 0 rgba(200, 200, 200, 0.25);
+  transition: box-shadow 0.1s ease-in;
+}
+@media (max-width: 600px) {
+  .ourNewsletter_input {
+    width: 100%;
+  }
+}
+.ourNewsletter_input:focus {
+  background: #000;
+  box-shadow: 0 0 0 0.25rem rgba(200, 200, 200, 0.25);
+}
+.ourNewsletter_input::-moz-placeholder {
+  color: gray;
+  opacity: 0.6;
+}
+.ourNewsletter_input::placeholder {
+  color: gray;
+  opacity: 0.6;
+}
+.ourNewsletter_sign {
+  background-color: rgb(255, 73, 106);
+  color: #fff;
+  border-radius: 0 10px 10px 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  transition: background-color 0.3s linear;
+}
+.ourNewsletter_sign:focus {
+  outline: none;
+}
+.ourNewsletter_sign:hover {
+  background-color: rgba(255, 73, 106, 0.487);
+}/*# sourceMappingURL=styles.module.css.map */

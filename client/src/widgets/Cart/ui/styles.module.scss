@@ -1,0 +1,102 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    transform: translateX(100%);
+    background-color: #020202;
+    transition: transform .3s linear;
+    z-index: 2;
+    color: #d1d1d1;
+    padding: 15px;
+
+    &__is_active {
+        transform: translateX(0%);
+    }
+
+    &__close {
+        font-size: 35px;
+        align-self: flex-end;
+        cursor: pointer;
+        transition: .25s linear all;
+
+        &:hover {
+            color: rgb(255, 73, 106);
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+
+        &__caption {
+            color: rgba(255, 73, 106, 1);
+            font-weight: 500;
+            line-height: 1.24;
+            font-size: 1.5rem;
+        }
+
+        &__goods_count {
+            display: inline-flex;
+            border-radius: 50rem;
+            background-color: rgba(255, 73, 106, 1);
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            flex-direction: column;
+            overflow-y: hidden;
+            max-height: 19px;
+            position: relative;
+        }
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    &__price_text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2rem;
+    }
+
+    &__price_number {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+
+    &__continue {
+        cursor: pointer;
+        color: #fff;
+        background-color: rgb(255, 73, 106, 1);
+        border-radius: 15px;
+        height: 30px;
+        border: solid 1px rgb(255, 73, 106, 1);
+        font-size: 1.5rem;
+        transition: all .3s linear;
+
+        &:hover {
+            border: solid 1px rgb(255, 73, 106, .8);
+            background-color: rgb(255, 73, 106, .8);
+        }
+
+        &:focus {
+            background-color: #6c757d;
+            border: 1px solid #6c757d;
+            outline: none;
+        }
+    }
+}

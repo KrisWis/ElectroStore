@@ -1,0 +1,49 @@
+@font-face {
+  font-family: "Protest Riot";
+  src: url("../../shared/fonts/ProtestRiot-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+body {
+  background-color: #020202;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+.opacity_0 {
+  opacity: 0;
+}
+
+.loading_height {
+  height: 200vh;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background: #101124;
+}
+
+::-webkit-scrollbar-track {
+  border: 5px solid #020202;
+  box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, rgba(140, 0, 255, 0.3215686275), rgba(140, 0, 255, 0.1333333333));
+  border-radius: 15px;
+}
+
+.widget_wrapper {
+  height: 100%;
+}/*# sourceMappingURL=App.module.css.map */

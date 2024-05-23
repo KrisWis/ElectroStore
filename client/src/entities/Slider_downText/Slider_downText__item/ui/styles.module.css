@@ -1,0 +1,12 @@
+.downText__item {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.downText__item .downText__caption {
+  font-size: 25px;
+  white-space: nowrap;
+}
+.downText__item .downText__desc {
+  font-size: 18px;
+}/*# sourceMappingURL=styles.module.css.map */

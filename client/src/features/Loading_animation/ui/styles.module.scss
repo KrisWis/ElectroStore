@@ -1,0 +1,48 @@
+$teal: #000000;
+
+.loading_animation_overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 105vw;
+
+    &.show {
+        position: absolute;
+
+        .loading_animation_bar {
+            transform: scale(1, 1) translate3d(0, 0, 0);
+            transform-origin: 0 0;
+        }
+    }
+
+    .loading_animation_bar {
+        position: absolute;
+        width: 10.5vw;
+        background: $teal;
+        top: 0;
+        bottom: 0;
+        transform: scale(0, 1) translate3d(0, 0, 0);
+        transform-origin: 100% 100%;
+        transition: transform 0.5s ease-in-out;
+
+        &:first-of-type {
+            border-left: none;
+        }
+
+        $light: $teal;
+        $dark: mix(black, $teal, 5%);
+
+        @for $x from 1 through 10 {
+            &:nth-of-type(#{$x}) {
+                left: ($x - 1) * 10vw;
+                background: linear-gradient(to right, $light 0%, $dark 100%);
+                transition-delay: 0.05s * $x;
+            }
+
+            $light: $dark;
+            $dark: mix(black, $teal, ($x * 5%));
+        }
+    }
+}

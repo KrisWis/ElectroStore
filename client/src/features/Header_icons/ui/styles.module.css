@@ -1,0 +1,27 @@
+.header_icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  font-size: 20px;
+}
+.header_icons__icon {
+  cursor: pointer;
+  transition: 0.3s linear all;
+  color: #fff;
+}
+.header_icons__icon:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 3px 3px 30px #fff;
+}
+.header_icons__navicon {
+  display: none;
+}
+@media (max-width: 1100px) {
+  .header_icons {
+    justify-content: flex-end;
+  }
+  .header_icons__navicon {
+    display: block;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

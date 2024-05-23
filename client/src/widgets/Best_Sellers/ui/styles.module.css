@@ -1,0 +1,116 @@
+.bestSellers {
+  margin-top: 10%;
+  transition: 0.3s linear opacity;
+}
+@media (max-width: 600px) {
+  .bestSellers {
+    margin-top: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 400px) {
+  .bestSellers {
+    margin-top: 50%;
+  }
+}
+.bestSellers_slider {
+  display: flex;
+  align-items: center;
+  position: relative;
+  transform: rotateZ(-15deg);
+  margin-top: 10%;
+}
+@media (max-width: 1100px) {
+  .bestSellers_slider {
+    transform: rotateZ(0deg);
+  }
+}
+.bestSellers_items {
+  padding: 0 3%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 5%;
+  height: 600px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 0;
+  position: relative;
+}
+@media (max-width: 1600px) {
+  .bestSellers_items {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+@media (max-width: 1300px) {
+  .bestSellers_items {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+}
+@media (max-width: 1000px) {
+  .bestSellers_items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .bestSellers_items {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 500px) {
+  .bestSellers_items {
+    padding: 5%;
+  }
+}
+.bestSellers_items_arrow {
+  position: absolute;
+  font-size: 30px;
+  top: 40%;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  border: none;
+  color: #fff;
+  z-index: 1;
+  background-color: #1a1a1a;
+}
+@media (max-width: 1600px) {
+  .bestSellers_items_arrow {
+    display: none;
+  }
+}
+@media (max-width: 1100px) {
+  .bestSellers_items_arrow {
+    font-size: 20px;
+    top: 30%;
+  }
+}
+.bestSellers_items_arrow:hover {
+  color: #FF496A;
+}
+.bestSellers_items_arrow:focus {
+  outline: none;
+}
+.bestSellers_items_arrow_left {
+  left: 0;
+}
+.bestSellers_items_arrow_right {
+  right: 0;
+}
+.bestSellers_items_firstItem {
+  left: 15vw;
+}
+.bestSellers_items_secondItem {
+  left: 20vw;
+}
+.bestSellers_items_thirdItem, .bestSellers_items_lastitemIsActive {
+  left: 25vw;
+}
+@media (max-width: 1100px) {
+  .bestSellers_items_firstItem, .bestSellers_items_secondItem, .bestSellers_items_thirdItem, .bestSellers_items_lastitemIsActive {
+    left: 0vw;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

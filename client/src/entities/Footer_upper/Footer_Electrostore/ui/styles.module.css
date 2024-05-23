@@ -1,0 +1,22 @@
+.footer_electrostore {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.footer_electrostore_desc {
+  color: rgba(231, 230, 230, 0.702);
+  font-size: 20px;
+}
+.footer_electrostore_socials {
+  display: flex;
+  font-size: 30px;
+  gap: 10%;
+  justify-content: center;
+}
+.footer_electrostore_socials i {
+  color: #fff;
+  transition: 0.3s linear color;
+}
+.footer_electrostore_socials i:hover {
+  color: rgb(255, 73, 106);
+}/*# sourceMappingURL=styles.module.css.map */

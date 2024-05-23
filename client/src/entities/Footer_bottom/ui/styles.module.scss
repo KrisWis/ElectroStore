@@ -1,0 +1,40 @@
+.footer_bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30%;
+    padding: 3% 1%;
+
+    @media (max-width: 1200px) {
+        gap: 0;
+    }
+
+    @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    &_firstCol,
+    &_secondCol {
+        display: flex;
+        align-items: center;
+        gap: 1%;
+        width: 100%;
+    }
+
+    &_firstCol {
+        @media (max-width: 300px) {
+            flex-direction: column;
+        }
+    }
+
+    &_author {
+        cursor: pointer;
+        transition: .2s linear color;
+
+        &:hover {
+            color: rgb(255, 73, 106);
+        }
+    }
+}

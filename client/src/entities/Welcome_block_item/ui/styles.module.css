@@ -1,0 +1,53 @@
+.welcome_block_item {
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+}
+.welcome_block_item .react-parallax {
+  min-width: none;
+}
+@media (max-width: 1200px) {
+  .welcome_block_item {
+    justify-content: center;
+    align-items: center;
+  }
+}
+.welcome_block_item_title {
+  font-size: 20px;
+}
+.welcome_block_item_img_block {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.welcome_block_item_link {
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #fff;
+  position: absolute;
+  top: 80%;
+  left: 20%;
+}
+.welcome_block_item_link::after, .welcome_block_item_link::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  color: red;
+  position: absolute;
+  bottom: 0;
+}
+.welcome_block_item_link::before {
+  background-color: gray;
+  width: 100%;
+}
+.welcome_block_item_link::after {
+  background-color: #fff;
+  transition: width 0.3s linear;
+}
+.welcome_block_item_link:hover {
+  color: #fff;
+}
+.welcome_block_item_link:hover::after {
+  width: 100%;
+}/*# sourceMappingURL=styles.module.css.map */

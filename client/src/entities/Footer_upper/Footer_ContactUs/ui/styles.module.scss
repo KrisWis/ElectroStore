@@ -1,0 +1,46 @@
+.footer_ContactUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_caption {
+        font-size: 35px;
+        margin: 0;
+    }
+
+    &_desc {
+        display: flex;
+        flex-direction: column;
+        color: rgba(231, 230, 230, 0.702);
+        font-size: 20px;
+    }
+
+    &_info {
+        display: inline-block;
+        transition: .3s linear all;
+        position: relative;
+        cursor: pointer;
+        width: fit-content;
+
+        &:after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            left: 0;
+            height: 1px;
+            background-color: rgba(231, 230, 230, 0.702);
+            transition: width .3s linear;
+            overflow: hidden;
+        }
+
+        &:hover {
+            color: rgb(255, 73, 106);
+
+            &:after {
+                width: 100%;
+            }
+        }
+    }
+}

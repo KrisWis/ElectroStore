@@ -1,0 +1,123 @@
+.bestSellers {
+    margin-top: 10%;
+    transition: .3s linear opacity;
+
+    @media (max-width: 600px) {
+        margin-top: 30%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media (max-width: 400px) {
+        margin-top: 50%;
+    }
+
+    &_slider {
+        display: flex;
+        align-items: center;
+        position: relative;
+        transform: rotateZ(-15deg);
+        margin-top: 10%;
+
+        @media (max-width: 1100px) {
+            transform: rotateZ(0deg);
+        }
+
+    }
+
+    &_items {
+        padding: 0 3%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        gap: 5%;
+        height: 600px;
+        margin-left: 10%;
+        margin-right: 10%;
+        padding: 0;
+        position: relative;
+
+        @media (max-width: 1600px) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        @media (max-width: 1300px) {
+            margin-right: 5%;
+            margin-left: 5%;
+        }
+
+        @media (max-width: 1000px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 700px) {
+            grid-template-columns: 1fr;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 500px) {
+            padding: 5%;
+        }
+
+        &_arrow {
+            position: absolute;
+            font-size: 30px;
+            top: 40%;
+            cursor: pointer;
+            transition: color .3s ease-in-out;
+            border: none;
+            color: #fff;
+            z-index: 1;
+            background-color: #1a1a1a;
+
+            @media (max-width: 1600px) {
+                display: none;
+            }
+
+            @media (max-width: 1100px) {
+                font-size: 20px;
+                top: 30%;
+            }
+
+            &:hover {
+                color: #FF496A;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &_left {
+                left: 0;
+            }
+
+            &_right {
+                right: 0;
+            }
+        }
+
+        &_firstItem {
+            left: 15vw;
+        }
+
+        &_secondItem {
+            left: 20vw;
+        }
+
+        &_thirdItem,
+        &_lastitemIsActive {
+            left: 25vw;
+        }
+
+        @media (max-width: 1100px) {
+
+            &_firstItem,
+            &_secondItem,
+            &_thirdItem,
+            &_lastitemIsActive {
+                left: 0vw;
+            }
+        }
+    }
+}

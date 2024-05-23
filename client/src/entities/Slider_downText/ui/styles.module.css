@@ -1,0 +1,27 @@
+.slider_downText {
+  min-height: 200px;
+  width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #020202;
+  align-self: center;
+  padding: 3%;
+  gap: 5%;
+  text-align: center;
+  transition: 0.3s linear opacity;
+}
+@media (max-width: 1200px) {
+  .slider_downText {
+    width: 90%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 100vw;
+  }
+}
+@media (max-width: 450px) {
+  .slider_downText {
+    margin-bottom: 300vw;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,30 @@
+.header_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    font-size: 20px;
+
+    &__icon {
+        cursor: pointer;
+        transition: .3s linear all;
+        color: #fff;
+
+        &:hover {
+            color: rgb(255, 255, 255);
+            text-shadow: 3px 3px 30px #fff;
+        }
+    }
+
+    &__navicon {
+        display: none;
+    }
+
+    @media (max-width: 1100px) {
+        justify-content: flex-end;
+
+        &__navicon {
+            display: block;
+        }
+    }
+}

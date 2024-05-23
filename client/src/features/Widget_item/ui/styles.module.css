@@ -1,0 +1,63 @@
+.widget_item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.widget_item .item_image {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+.widget_item .item_image:hover img {
+  transform: translateY(-20%);
+}
+.widget_item .item_image:hover .item_add {
+  transform: translateY(-100%);
+}
+.widget_item .item_image img {
+  width: 100%;
+  height: 100%;
+  transition: transform linear 0.3s;
+  cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.widget_item .item_image img:hover {
+  transform: translateY(-20%);
+}
+.widget_item .item_image .item_add {
+  transition: all linear 0.3s;
+  cursor: pointer;
+  background-color: #FF496A;
+  border: none;
+  transform: translateY(150%);
+  color: #fff;
+}
+.widget_item .item_image .item_add:hover {
+  background-color: rgba(255, 73, 106, 0.5490196078);
+}
+.widget_item .item_image .item_add:focus {
+  outline: none;
+}
+.widget_item .item_desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5%;
+}
+.widget_item .item_desc .item_caption {
+  font-size: 20px;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.widget_item .item_desc .item_caption:hover {
+  color: #FF496A;
+}
+.widget_item .item_desc .item_price {
+  font-size: 16px;
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.widget_item .item_desc .item_price:hover {
+  color: #FF496A;
+}/*# sourceMappingURL=styles.module.css.map */

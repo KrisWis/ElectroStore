@@ -1,0 +1,120 @@
+.ourNewsletter {
+    margin-top: 20%;
+    height: 500px;
+    background-size: cover;
+    width: 100%;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    transition: .3s linear opacity;
+
+    img {
+        object-fit: cover;
+    }
+
+    &_wrapper {
+        width: 100%;
+    }
+
+    &_parallax {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &_header {
+        display: flex;
+        align-items: center;
+        gap: 5%;
+
+        @media (max-width: 600px) {
+            flex-direction: column;
+        }
+    }
+
+    &_caption {
+        font-weight: 500;
+        font-size: 3.5rem;
+        width: 50%;
+        text-align: right;
+        margin: 0;
+
+        @media (max-width: 600px) {
+            width: 60%;
+        }
+    }
+
+    &_desc {
+        width: 30%;
+        font-size: 1rem;
+
+        @media (max-width: 600px) {
+            width: 80%;
+            text-align: center;
+        }
+    }
+
+    &_form {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        height: 70px;
+        bottom: 10%;
+
+        @media (max-width: 600px) {
+            width: 80%;
+        }
+    }
+
+    &_input {
+        background: #ffffffe9;
+        border: none;
+        width: 30%;
+        border-radius: 10px 0 0 10px;
+        padding: 1%;
+        outline: none;
+        box-shadow: 0 0 0 0 rgba(200, 200, 200, .25);
+        transition: box-shadow .1s ease-in;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+
+
+        &:focus {
+            background: #000;
+            box-shadow: 0 0 0 0.25rem rgba(200, 200, 200, .25);
+        }
+
+        &::placeholder {
+            color: gray;
+            opacity: 0.6;
+        }
+    }
+
+    &_sign {
+        background-color: rgba(255, 73, 106);
+        color: #fff;
+        border-radius: 0 10px 10px 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        transition: background-color .3s linear;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:hover {
+            background-color: rgba(255, 73, 106, 0.487);
+        }
+    }
+}

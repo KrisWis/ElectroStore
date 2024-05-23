@@ -1,0 +1,20 @@
+.footer_upper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0 5%;
+  gap: 5%;
+  min-height: 50vh;
+  align-items: baseline;
+  border-bottom: 1px solid gray;
+}
+@media (max-width: 1200px) {
+  .footer_upper {
+    grid-template-columns: 1fr;
+    min-height: 170vh;
+  }
+}
+@media (max-width: 700px) {
+  .footer_upper {
+    min-height: 250vh;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,9 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    background: rgba(2, 2, 2, 1);
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    transition: .3s linear opacity;
+}

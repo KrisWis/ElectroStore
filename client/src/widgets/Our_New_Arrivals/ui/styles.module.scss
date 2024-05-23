@@ -1,0 +1,35 @@
+.our_new_arrivals {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    transition: 1s opacity linear;
+
+    @media (max-width: 700px) {
+        margin-top: 70%;
+    }
+
+    .products {
+        padding: 0% 3%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2%;
+        padding-top: 60px;
+        height: 100%;
+
+        @media (max-width: 1400px) {
+            grid-template-columns: .3fr .3fr .3fr;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 1000px) {
+            grid-template-columns: .49fr .49fr;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+            align-self: center;
+            width: 80%;
+        }
+
+    }
+}
