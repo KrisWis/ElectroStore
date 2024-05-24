@@ -1,18 +1,24 @@
 import styles from './styles.module.scss';
 import { WidgetItemProps } from '../types';
-import { useAppDispatch } from '../../../app/AppStore';
-import { add_CartItem, increase_CartTotalPrice } from '../../../app/slices/CartSlice/CartSlice';
+import { useAppDispatch, useAppSelector } from '../../../app/AppStore';
+import { add_CartItem, increase_CartItemAmount, increase_CartTotalPrice } from '../../../app/slices/CartSlice/CartSlice';
 import { CartItemProps } from '../../../widgets/Cart/types';
+import { getCartItemById } from '../../../app/slices/CartSlice/selectors';
 
 const Widget_item: React.FC<WidgetItemProps> = ({ imageURL, id, description, caption, price, imageHeight, padding_top }): React.JSX.Element => {
 
     const dispatch = useAppDispatch();
 
-    const item: CartItemProps = { id: id, title: caption, description: description, price: price };
+    const CartItem: CartItemProps = useAppSelector((state) => getCartItemById(state, id));
 
     const addToCart = () => {
-        dispatch(add_CartItem(item))
-        dispatch(increase_CartTotalPrice(price))
+        dispatch(increase_CartTotalPrice(price));
+        if (CartItem) {
+            dispatch(increase_CartItemAmount(id));
+        } else {
+            const item: CartItemProps = { id: id, title: caption, description: description, price: price, amount: 1 };
+            dispatch(add_CartItem(item));
+        }
     }
 
 

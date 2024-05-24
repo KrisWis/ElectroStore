@@ -2,7 +2,8 @@ export interface CartItemProps {
     id: number,
     title: string,
     description: string,
-    price: number
+    price: number,
+    amount: number,
 }
 
 export interface CartProps {

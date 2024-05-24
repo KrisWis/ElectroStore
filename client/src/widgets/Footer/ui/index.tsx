@@ -33,7 +33,7 @@ const Footer: React.FC = (): React.JSX.Element => {
     }, [])
 
     return (
-        <footer className={!isAnim ? app_styles.loading_height : ''} ref={footer_ref}>
+        <footer className={`${!isAnim ? app_styles.loading_height : ''} ${styles.footer_wrapper}`} ref={footer_ref}>
             {isIntoView && <div className={`${styles.footer} ${!isAnim ? app_styles.opacity_0 : ''}`}>
                 <Footer_upper />
                 <Footer_bottom />

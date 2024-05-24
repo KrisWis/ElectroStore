@@ -47,6 +47,6 @@
 }
 
 .dropdown__window__active {
-  max-height: 10%;
+  max-height: 100vh;
   padding-bottom: 10px;
 }/*# sourceMappingURL=styles.module.css.map */

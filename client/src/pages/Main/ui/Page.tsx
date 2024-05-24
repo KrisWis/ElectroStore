@@ -17,9 +17,6 @@ const Background_animation = React.lazy(() => import("../../../features/Backgrou
 const OurNewsletter = React.lazy(() => import("../../../widgets/OurNewsletter/ui/index"));
 const Footer = React.lazy(() => import("../../../widgets/Footer/ui/index"));
 
-// Не отображать анимацию загрузки на смартфонах
-const mediaQuery_mobile = window.matchMedia('(max-width: 1000px)')
-
 export const Main: React.FC = (): React.JSX.Element => {
     return (
         <>
@@ -27,14 +24,16 @@ export const Main: React.FC = (): React.JSX.Element => {
             <Header_Slider />
             <Slider_downText />
 
-            <Welcome_block />
-            <Our_New_Arrivals />
-            <Best_Sellers />
-            <OurNewsletter />
-            <Footer />
+            <React.Suspense>
+                <Welcome_block />
+                <Our_New_Arrivals />
+                <Best_Sellers />
+                <OurNewsletter />
+                <Footer />
+            </React.Suspense>
 
             <Background_animation />
-            {!mediaQuery_mobile.matches && <Loading_animation />}
+            <Loading_animation />
         </>
     )
 }

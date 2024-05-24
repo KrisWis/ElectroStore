@@ -19,11 +19,14 @@
   flex-direction: column;
 }
 .cart__item__name__title {
+  display: flex;
+  align-items: center;
   font-weight: 500;
   color: #fff;
   line-height: 1.24;
   font-size: 1.2rem;
   margin: 0;
+  gap: 5px;
 }
 .cart__item__name__description {
   font-size: 1rem;
@@ -35,4 +38,16 @@
   color: rgba(173, 181, 189, 0.75);
   line-height: 1.25;
   font-size: 1.1rem;
+}
+.cart__item__count {
+  display: inline-flex;
+  border-radius: 50rem;
+  background-color: rgb(244, 37, 75);
+  color: #fff;
+  padding: 1px 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
 }/*# sourceMappingURL=styles.module.css.map */
