@@ -2,6 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: cartItemAppearance ease-out 0.3s;
+}
+@keyframes cartItemAppearance {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 2;
+    transform: translateY(0);
+  }
 }
 .cart__item__name {
   display: flex;

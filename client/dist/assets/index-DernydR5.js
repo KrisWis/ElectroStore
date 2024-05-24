@@ -1,1 +1,0 @@
-import{j as n}from"./index-CDuLtTF3.js";const a="_background_animation_3tuvo_6",s="_move_3tuvo_1",o={background_animation:a,move:s},i=()=>n.jsxs("div",{className:o.background_animation,children:[n.jsx("span",{}),n.jsx("span",{}),n.jsx("span",{}),n.jsx("span",{}),n.jsx("span",{})]});export{i as default};

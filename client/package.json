@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "install": "npm install vite axios react-redux react-router-dom @reduxjs/toolkit graphql graphql-tag react-spring"
+    "install": "npm install vite axios react-redux react-router-dom @reduxjs/toolkit graphql graphql-tag react-spring react-animated-numbers"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -28,6 +28,7 @@
     "react": "^18.2.0",
     "react-animated-numbers": "^0.18.0",
     "react-content-loader": "^7.0.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.0",
     "react-intersection-observer": "^9.8.1",

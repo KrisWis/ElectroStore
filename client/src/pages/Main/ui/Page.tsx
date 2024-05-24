@@ -18,7 +18,7 @@ const OurNewsletter = React.lazy(() => import("../../../widgets/OurNewsletter/ui
 const Footer = React.lazy(() => import("../../../widgets/Footer/ui/index"));
 
 // Не отображать анимацию загрузки на смартфонах
-const mediaQuery_mobile = window.matchMedia('(max-width: 600px)')
+const mediaQuery_mobile = window.matchMedia('(max-width: 1000px)')
 
 export const Main: React.FC = (): React.JSX.Element => {
     return (

@@ -1,15 +1,25 @@
+import { useEffect } from 'react';
 import { useAppSelector } from '../../../app/AppStore';
 import { Cart__item } from '../child_components/Cart__item/ui';
 import { CartItemProps, CartProps } from '../types';
 import styles from './styles.module.scss';
+import AnimatedNumbers from "react-animated-numbers";
 
 export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.Element => {
 
-    /* TODO: сделать добавление в корзину и изменение цены с анимашками какими нибудь, сделать у элемента в корзине счётчик его количества, 
-    добавить кнопку удаления из корзины, анимированную иконку, анимацию перед заходом на сайт на канвасе */
+    /* TODO: проверить оптимизацию, сделать у элемента в корзине счётчик его количества, 
+    добавить кнопку удаления из корзины, анимированную иконку, анимацию перед заходом на сайт на канвасе, проверить оптимизацию */
 
     const CartItems: CartItemProps[] = useAppSelector((state) => state.cart.CartItemProps);
     const totalPrice: number = useAppSelector((state) => state.cart.CartTotalPrice);
+
+    useEffect(() => {
+        if (CartItems.length == 1) {
+            setTimeout(() => {
+                document.querySelector("#cart__header__goods_count div div div")!.textContent = "1";
+            }, 0);
+        }
+    }, [CartItems])
 
 
     return (
@@ -18,8 +28,14 @@ export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.
 
             <div className={styles.cart__header}>
                 <h3 className={styles.cart__header__caption}>Your Cart</h3>
-                <span className={styles.cart__header__goods_count}>
-                    <span>{CartItems.length}</span>
+                <span className={styles.cart__header__goods_count} id="cart__header__goods_count">
+                    <AnimatedNumbers
+                        transitions={(index) => ({
+                            type: "spring",
+                            duration: index + 0.1,
+                        })}
+                        animateToNumber={CartItems.length}
+                    />
                 </span>
             </div>
 

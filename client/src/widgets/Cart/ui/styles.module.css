@@ -4,7 +4,8 @@
   position: fixed;
   right: 0;
   top: 0;
-  height: 100%;
+  max-height: 100vh;
+  height: 100vh;
   width: 400px;
   border-left: 1px solid rgba(255, 255, 255, 0.15);
   transform: translateX(100%);
@@ -13,6 +14,7 @@
   z-index: 2;
   color: #d1d1d1;
   padding: 15px;
+  overflow-y: scroll;
 }
 .cart__is_active {
   transform: translateX(0%);
@@ -39,7 +41,7 @@
   font-size: 1.5rem;
 }
 .cart__header__goods_count {
-  display: inline-block;
+  display: inline-flex;
   border-radius: 50rem;
   background-color: rgb(255, 73, 106);
   color: #fff;
@@ -49,6 +51,10 @@
   line-height: 1;
   text-align: center;
   white-space: nowrap;
+  flex-direction: column;
+  overflow-y: hidden;
+  max-height: 19px;
+  position: relative;
 }
 .cart__items {
   display: flex;
@@ -73,6 +79,7 @@
   height: 30px;
   border: solid 1px rgb(255, 73, 106);
   font-size: 1.5rem;
+  margin-bottom: 30px;
   transition: all 0.3s linear;
 }
 .cart__continue:hover {
