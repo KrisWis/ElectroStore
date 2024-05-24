@@ -1,4 +1,4 @@
-import{j as e,g as w,b as g,r as s,a as c}from"./index-HBY6B7o_.js";import{W as h,i as f}from"./index-Ck_1pGje.js";import{C as v,V as A,W as x}from"./index-CaK6ANaO.js";const N=r=>e.jsxs(v,{speed:1,width:265,height:400,viewBox:"0 0 265 400",backgroundColor:"#f3f3f3",foregroundColor:"#bfbfbf",...r,children:[e.jsx("rect",{x:"0",y:"0",rx:"10",ry:"10",width:"265",height:"256"}),e.jsx("rect",{x:"0",y:"280",rx:"10",ry:"10",width:"265",height:"40"})]}),O="_our_new_arrivals_jbe7r_1",b="_products_jbe7r_12",p={our_new_arrivals:O,products:b},j=(r,t)=>{const a=w`
+import{j as e,g as w,b as g,r as s,a as c}from"./index-BH0JobF1.js";import{W as h,i as f}from"./index-Ck_1pGje.js";import{C as v,V as A,W as x}from"./index-CeyzTTWr.js";const N=r=>e.jsxs(v,{speed:1,width:265,height:400,viewBox:"0 0 265 400",backgroundColor:"#f3f3f3",foregroundColor:"#bfbfbf",...r,children:[e.jsx("rect",{x:"0",y:"0",rx:"10",ry:"10",width:"265",height:"256"}),e.jsx("rect",{x:"0",y:"280",rx:"10",ry:"10",width:"265",height:"40"})]}),O="_our_new_arrivals_jbe7r_1",b="_products_jbe7r_12",p={our_new_arrivals:O,products:b},j=(r,t)=>{const a=w`
         query {
             goods {
             id
