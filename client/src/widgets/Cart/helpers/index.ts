@@ -40,7 +40,7 @@ export const Cart_fetch = (dispatch: any, set_CartItemProps: React.Dispatch<Reac
     }
     ).finally(() => {
         dispatch(increase_CartTotalPrice(CartItemProps.reduce(function (sum: number, item) {
-            return sum + item.price;
+            return sum + item.price!;
         }, 0)));
     })
 }

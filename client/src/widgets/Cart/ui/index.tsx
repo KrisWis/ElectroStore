@@ -7,9 +7,12 @@ import AnimatedNumbers from "react-animated-numbers";
 
 export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.Element => {
 
-    /* TODO: добавить кнопку удаления из корзины, анимированную иконку, анимацию перед заходом на сайт на канвасе, глянуть проблемы со скроллом, проверить оптимизацию */
+    /* TODO: добавить кнопку для увеличения и уменьшения количества, анимированную иконку, глянуть проблемы со скроллом,
+    сделать меньше расстояния в адаптиве, сделать адаптив корзины лучше, настроить слайдер лучше в Best Sellers, проверить оптимизацию, добавить функционал поиска,
+    анимацию перед заходом на сайт на канвасе (на след.странице) */
 
     const CartItems: CartItemProps[] = useAppSelector((state) => state.cart.CartItemProps);
+    const DetailedCartItems: CartItemProps[] = useAppSelector((state) => state.cart.DetailedCartItemProps);
     const totalPrice: number = useAppSelector((state) => state.cart.CartTotalPrice);
 
     useEffect(() => {
@@ -33,14 +36,14 @@ export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.
                             type: "spring",
                             duration: index + 0.1,
                         })}
-                        animateToNumber={CartItems.reduce((sum, item) => (sum += item.amount), 0)}
+                        animateToNumber={DetailedCartItems.reduce((sum, item) => (sum += item.amount!), 0)}
                     />
                 </span>
             </div>
 
             <div className={styles.cart__items}>
                 {CartItems.map((item) => (
-                    <Cart__item key={item.id} amount={item.amount} id={item.id} title={item.title} description={item.description} price={item.price} />
+                    <Cart__item key={item.id} id={item.id} />
                 ))}
             </div>
 
