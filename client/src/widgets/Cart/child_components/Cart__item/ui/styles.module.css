@@ -40,6 +40,10 @@
   line-height: 1.25;
   margin: 0;
 }
+.cart__item__nameWrapper {
+  display: flex;
+  gap: 10px;
+}
 .cart__item__price {
   color: rgba(173, 181, 189, 0.75);
   line-height: 1.25;
@@ -59,10 +63,10 @@
 }
 .cart__item__delete {
   height: 80%;
-  width: 80%;
+  width: 90%;
   background-color: rgba(245, 21, 62, 0.9);
   color: #fff;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 700;
   border-radius: 0 5px 5px 0;
   transition: all 0.35s linear;
@@ -83,10 +87,22 @@
   transition: 0.3s ease-out all;
 }
 .cart__itemWrapper:hover {
-  grid-template-columns: 70% 20%;
+  grid-template-columns: 75% 15%;
   gap: 15px;
 }
 .cart__itemWrapper:hover .cart__item__delete {
   margin-left: 0;
   margin-right: 100px;
+}
+.cart__item__increase_and_shrink {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cart__item__increase, .cart__item__shrink {
+  cursor: pointer;
+  transition: 0.25s linear all;
+}
+.cart__item__increase:hover, .cart__item__shrink:hover {
+  color: rgb(255, 73, 106);
 }/*# sourceMappingURL=styles.module.css.map */

@@ -44,6 +44,11 @@
             line-height: 1.25;
             margin: 0;
         }
+
+        &Wrapper {
+            display: flex;
+            gap: 10px;
+        }
     }
 
     &__price {
@@ -67,10 +72,10 @@
 
     &__delete {
         height: 80%;
-        width: 80%;
+        width: 90%;
         background-color: rgba(245, 21, 62, 0.9);
         color: #fff;
-        font-size: 22px;
+        font-size: 18px;
         font-weight: 700;
         border-radius: 0 5px 5px 0;
         transition: all .35s linear;
@@ -94,13 +99,29 @@
         transition: .3s ease-out all;
 
         &:hover {
-            grid-template-columns: 70% 20%;
+            grid-template-columns: 75% 15%;
             gap: 15px;
 
             .cart__item__delete {
                 margin-left: 0;
                 margin-right: 100px;
             }
+        }
+    }
+
+    &__increase_and_shrink {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__increase,
+    &__shrink {
+        cursor: pointer;
+        transition: .25s linear all;
+
+        &:hover {
+            color: rgb(255, 73, 106);
         }
     }
 }

@@ -1,7 +1,7 @@
 import styles from './styles.module.scss';
 import { WidgetItemProps } from '../types';
 import { useAppDispatch, useAppSelector } from '../../../app/AppStore';
-import { add_CartItem, increase_CartItemAmount, increase_CartTotalPrice } from '../../../app/slices/CartSlice/CartSlice';
+import { add_CartItem, increase_CartItemAmount } from '../../../app/slices/CartSlice/CartSlice';
 import { CartItemProps } from '../../../widgets/Cart/types';
 import { getCartItemById } from '../../../app/slices/CartSlice/selectors';
 
@@ -12,7 +12,6 @@ const Widget_item: React.FC<WidgetItemProps> = ({ imageURL, id, description, cap
     const CartItem: CartItemProps = useAppSelector((state) => getCartItemById(state, id));
 
     const addToCart = () => {
-        dispatch(increase_CartTotalPrice(price));
         if (CartItem) {
             dispatch(increase_CartItemAmount(id));
         } else {

@@ -21,6 +21,7 @@ export const CartSlice = createSlice({ // Делаем слайс, которы�
         add_CartItem: (state, action) => {
             state.CartItemProps.push(action.payload);
             state.DetailedCartItemProps.push(action.payload);
+            state.CartTotalPrice += action.payload.price;
         },
 
         increase_CartTotalPrice: (state, action) => {
@@ -29,9 +30,18 @@ export const CartSlice = createSlice({ // Делаем слайс, которы�
 
         increase_CartItemAmount: (state, action) => {
             const CartItem: CartItemProps = state.DetailedCartItemProps.find((item: CartItemProps) => item.id === action.payload)!;
-            CartItem.amount! += 1;
             state.DetailedCartItemProps = state.DetailedCartItemProps.filter((item) => item !== CartItem);
+            CartItem.amount! += 1;
             state.DetailedCartItemProps = [...state.DetailedCartItemProps, CartItem];
+            state.CartTotalPrice += CartItem.price!;
+        },
+
+        shrink_CartItemAmount: (state, action) => {
+            const CartItem: CartItemProps = state.DetailedCartItemProps.find((item: CartItemProps) => item.id === action.payload)!;
+            state.DetailedCartItemProps = state.DetailedCartItemProps.filter((item) => item !== CartItem);
+            CartItem.amount! -= 1;
+            state.DetailedCartItemProps = [...state.DetailedCartItemProps, CartItem];
+            state.CartTotalPrice -= CartItem.price!;
         },
 
         delete_CartItem: (state, action) => {
@@ -43,7 +53,7 @@ export const CartSlice = createSlice({ // Делаем слайс, которы�
 })
 
 // Объявляем все действия нашего слайса. Actions хранит в себе все функции слайса. Вытаксиваем все функции, чтобы эскпортировать их.
-export const { set_CartItemProps, increase_CartTotalPrice, add_CartItem, increase_CartItemAmount, delete_CartItem } = CartSlice.actions
+export const { set_CartItemProps, increase_CartTotalPrice, add_CartItem, increase_CartItemAmount, delete_CartItem, shrink_CartItemAmount } = CartSlice.actions
 
 // Редюсер как бы обрабатывает весь наш слайс. Он меняет хранилище и взаимодействует с ним.
 export default CartSlice.reducer // Экспортируем редюсер, чтобы потом указать его в store.js:

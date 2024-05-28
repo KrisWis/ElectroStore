@@ -17,6 +17,8 @@ const Background_animation = React.lazy(() => import("../../../features/Backgrou
 const OurNewsletter = React.lazy(() => import("../../../widgets/OurNewsletter/ui/index"));
 const Footer = React.lazy(() => import("../../../widgets/Footer/ui/index"));
 
+// TODO: Сделать анимацию перед заходом на сайт на канвасе (на след.странице)
+
 export const Main: React.FC = (): React.JSX.Element => {
     return (
         <>
