@@ -2,7 +2,7 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
 
-from .config import DBURL
+from server.config import settings
 
 
 class Base1(DeclarativeBase):
@@ -19,6 +19,6 @@ class Base1(DeclarativeBase):
         return f"<{self.__class__.__name__} {', '.join(cols)}>"
 
 
-engine = create_async_engine(url=DBURL, echo=True)
+engine = create_async_engine(url=settings.DB_URL, echo=True)
 
 async_session = async_sessionmaker(engine)
