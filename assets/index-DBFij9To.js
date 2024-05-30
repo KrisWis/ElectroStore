@@ -1,0 +1,10 @@
+import{j as e,g as w,b as g,r as s,W as h,i as v,a as c}from"./index-BRRPow-N.js";import{C as A,V as f,W as x}from"./index-BNZxxGTU.js";const N=r=>e.jsxs(A,{speed:1,width:265,height:400,viewBox:"0 0 265 400",backgroundColor:"#f3f3f3",foregroundColor:"#bfbfbf",...r,children:[e.jsx("rect",{x:"0",y:"0",rx:"10",ry:"10",width:"265",height:"256"}),e.jsx("rect",{x:"0",y:"280",rx:"10",ry:"10",width:"265",height:"40"})]}),O="_our_new_arrivals_jbe7r_1",b="_products_jbe7r_12",p={our_new_arrivals:O,products:b},j=(r,t)=>{const a=w`
+        query {
+            goods {
+            id
+            name
+            price
+            imageURL
+            }
+        }
+    `;g({url:"http://127.0.0.1:8000/ElectroStore/api/goods",method:"post",data:{query:a}}).then(i=>{r(i.data),t(!1)}).catch(()=>{r([{id:1,imageURL:"images/OurNewArrivals_items/OurNewArrivals_item--1.webp",caption:"Phone Cover 5.6 inches",price:95,description:"test"},{id:2,imageURL:"images/OurNewArrivals_items/OurNewArrivals_item--2.webp",caption:"Smart Phone 128GB RAM",price:55,description:"test"},{id:3,imageURL:"images/OurNewArrivals_items/OurNewArrivals_item--3.webp",caption:"Smart Phone 128GB RAM",price:55,description:"test"},{id:4,imageURL:"images/OurNewArrivals_items/OurNewArrivals_item--4.webp",caption:"Smart Phone 128GB RAM",price:55,description:"test"},{id:5,imageURL:"images/OurNewArrivals_items/OurNewArrivals_item--5.webp",caption:"22 Inch LED Display",price:65,description:"test"}]),t(!1)})},L=()=>{const r=s.useRef(null),[t,a]=s.useState([]),[i,n]=s.useState(!1),[l,u]=s.useState(!1),[d,m]=s.useState(!0);return h(r,n),s.useEffect(()=>{i&&setTimeout(()=>{u(!0)},100)},[i]),s.useEffect(()=>{v()&&setTimeout(()=>{n(!0)},3e3),j(a,m)},[]),e.jsx("div",{className:`${c.widget_wrapper} ${l?"":c.loading_height}`,ref:r,children:i&&e.jsxs("div",{className:`${p.our_new_arrivals} ${l?"":c.opacity_0}`,children:[e.jsx(f,{caption:"View All Arrivals"}),e.jsx("div",{className:p.products,children:d?[...new Array(5)].map((o,_)=>e.jsx(N,{},_)):t.map(o=>e.jsx(x,{imageHeight:300,...o},o.id))})]})})};export{L as default};
