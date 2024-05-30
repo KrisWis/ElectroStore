@@ -36,3 +36,21 @@ export const WidgetAppearance = (ref: React.RefObject<HTMLElement>, setAppearanc
 export const is_touch_enabled = (): boolean => {
     return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 }
+
+/* Функционал анимированной иконки */
+const favicon: any = document.getElementById("favicon");
+const favicons_hrefs = ["images/favicons/favicon_1.png", "images/favicons/favicon_2.png", "images/favicons/favicon_1.png", "images/favicons/favicon_3.png",
+    "images/favicons/favicon_4.png", "images/favicons/favicon_5.png", "images/favicons/favicon_6.png", "images/favicons/favicon_7.png", "images/favicons/favicon_8.png",
+    "images/favicons/favicon_9.png", "images/favicons/favicon_10.png", "images/favicons/favicon_11.png"];
+let favicon_count = 0;
+
+setTimeout(() => {
+    setInterval(() => {
+        favicon.href = favicons_hrefs[favicon_count];
+        favicon_count++;
+
+        if (favicon_count == favicons_hrefs.length) {
+            favicon_count = 0;
+        }
+    }, 1000);
+}, 1000);
