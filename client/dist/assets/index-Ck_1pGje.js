@@ -1,1 +1,0 @@
-const n=e=>{if(e){let t=e.getBoundingClientRect();return t.top+t.height>0&&window.innerHeight-t.top>0&&t.left+t.width>0&&window.innerWidth-t.left>0}},i=(e,t)=>{typeof document<"u"&&document.body.addEventListener("wheel",()=>{n(e.current)&&t(!0)})},o=()=>"ontouchstart"in window||navigator.maxTouchPoints>0;export{i as W,o as i};
