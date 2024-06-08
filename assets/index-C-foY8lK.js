@@ -1,4 +1,4 @@
-import{j as e,g as w,b as g,r as s,W as h,i as v,a as c}from"./index-H6RPkqjY.js";import{C as A,V as f,W as x}from"./index-CeDHyT8B.js";const N=r=>e.jsxs(A,{speed:1,width:265,height:400,viewBox:"0 0 265 400",backgroundColor:"#f3f3f3",foregroundColor:"#bfbfbf",...r,children:[e.jsx("rect",{x:"0",y:"0",rx:"10",ry:"10",width:"265",height:"256"}),e.jsx("rect",{x:"0",y:"280",rx:"10",ry:"10",width:"265",height:"40"})]}),O="_our_new_arrivals_jbe7r_1",b="_products_jbe7r_12",p={our_new_arrivals:O,products:b},j=(r,t)=>{const a=w`
+import{j as e,g as w,b as g,r as s,W as h,i as v,a as c}from"./index-DDpmjj9r.js";import{C as A,V as f,W as x}from"./index-DUenJStC.js";const N=r=>e.jsxs(A,{speed:1,width:265,height:400,viewBox:"0 0 265 400",backgroundColor:"#f3f3f3",foregroundColor:"#bfbfbf",...r,children:[e.jsx("rect",{x:"0",y:"0",rx:"10",ry:"10",width:"265",height:"256"}),e.jsx("rect",{x:"0",y:"280",rx:"10",ry:"10",width:"265",height:"40"})]}),O="_our_new_arrivals_jbe7r_1",b="_products_jbe7r_12",p={our_new_arrivals:O,products:b},j=(r,t)=>{const a=w`
         query {
             goods {
             id
