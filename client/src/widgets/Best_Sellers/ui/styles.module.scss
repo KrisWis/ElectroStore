@@ -16,13 +16,8 @@
         display: flex;
         align-items: center;
         position: relative;
-        transform: rotateZ(-15deg);
         margin-top: 10%;
-
-        @media (max-width: 1100px) {
-            transform: rotateZ(0deg);
-        }
-
+        overflow-x: hidden;
     }
 
     &_items {
@@ -31,7 +26,6 @@
         grid-template-columns: repeat(3, 1fr);
         justify-content: center;
         gap: 5%;
-        height: 600px;
         margin-left: 10%;
         margin-right: 10%;
         padding: 0;
@@ -94,29 +88,6 @@
 
             &_right {
                 right: 0;
-            }
-        }
-
-        &_firstItem {
-            left: 15vw;
-        }
-
-        &_secondItem {
-            left: 20vw;
-        }
-
-        &_thirdItem,
-        &_lastitemIsActive {
-            left: 25vw;
-        }
-
-        @media (max-width: 1100px) {
-
-            &_firstItem,
-            &_secondItem,
-            &_thirdItem,
-            &_lastitemIsActive {
-                left: 0vw;
             }
         }
     }

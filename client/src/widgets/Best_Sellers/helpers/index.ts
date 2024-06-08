@@ -84,6 +84,41 @@ export const Best_Sellers_fetch = (setBestSellers_items_props: React.Dispatch<Re
                 price: 65.00,
                 description: "ewe1221w",
             },
+            {
+                id: 9,
+                imageURL: 'images/BestSellers_items/BestSellers_item--6.webp',
+                caption: 'Smart Phone 128GB RAM',
+                price: 55.00,
+                description: "ewe1221w",
+            },
+            {
+                id: 10,
+                imageURL: 'images/BestSellers_items/BestSellers_item--7.webp',
+                caption: 'Smart Phone 128GB RAM',
+                price: 55.00,
+                description: "ewe1221w",
+            },
+            {
+                id: 11,
+                imageURL: 'images/BestSellers_items/BestSellers_item--8.webp',
+                caption: '22 Inch LED Display',
+                price: 65.00,
+                description: "ewe1221w",
+            },
+            {
+                id: 12,
+                imageURL: 'images/BestSellers_items/BestSellers_item--7.webp',
+                caption: 'Smart Phone 128GB RAM',
+                price: 55.00,
+                description: "ewe1221w",
+            },
+            {
+                id: 13,
+                imageURL: 'images/BestSellers_items/BestSellers_item--8.webp',
+                caption: '22 Inch LED Display',
+                price: 65.00,
+                description: "ewe1221w",
+            },
         ]);
 
         setIsLoading(false);

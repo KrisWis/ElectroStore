@@ -7,8 +7,7 @@ import AnimatedNumbers from "react-animated-numbers";
 
 export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.Element => {
 
-    /* TODO: глянуть проблемы со скроллом,
-    сделать меньше расстояния в адаптиве, сделать адаптив корзины лучше, настроить слайдер лучше в Best Sellers, проверить оптимизацию, добавить функционал поиска */
+    /* TODO: сделать меньше расстояния в адаптиве, сделать адаптив корзины лучше, настроить слайдер лучше в Best Sellers, проверить оптимизацию, добавить функционал поиска */
 
     const CartItems: CartItemProps[] = useAppSelector((state) => state.cart.CartItemProps);
     const DetailedCartItems: CartItemProps[] = useAppSelector((state) => state.cart.DetailedCartItemProps);

@@ -35,7 +35,7 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
             carousel_items.push({
                 id: `item-${BestSellers_items_props[index].id}`,
                 renderItem:
-                    <div className={`${styles.bestSellers_items} ${ActiveSlide == 3 ? styles.bestSellers_items_lastitemIsActive : index == 0 ? styles.bestSellers_items_firstItem : index == 3 ? styles.bestSellers_items_secondItem : index == 6 ? styles.bestSellers_items_thirdItem : ''}`}>
+                    <div className={`${styles.bestSellers_items}`}>
                         <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index]} />
                         {!mediaQuery_tablet.matches && BestSellers_items_props[index + 1] && <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index + 1]} />}
                         {!mediaQuery_mobile.matches && BestSellers_items_props[index + 2] && <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index + 2]} />}
@@ -47,7 +47,7 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
             carousel_items.push({
                 id: `item-${index}`,
                 renderItem:
-                    <div className={`${styles.bestSellers_items} ${ActiveSlide == 3 ? styles.bestSellers_items_lastitemIsActive : index == 0 ? styles.bestSellers_items_firstItem : index == 3 ? styles.bestSellers_items_secondItem : index == 6 ? styles.bestSellers_items_thirdItem : ''}`}>
+                    <div className={`${styles.bestSellers_items}`}>
                         <BestSellers_Skeleton />
                         <BestSellers_Skeleton />
                         <BestSellers_Skeleton />

@@ -72,7 +72,7 @@
 
     &__delete {
         height: 80%;
-        width: 90%;
+        width: 100%;
         background-color: rgba(245, 21, 62, 0.9);
         color: #fff;
         font-size: 18px;
@@ -99,7 +99,7 @@
         transition: .3s ease-out all;
 
         &:hover {
-            grid-template-columns: 75% 15%;
+            grid-template-columns: 75% 25%;
             gap: 15px;
 
             .cart__item__delete {
