@@ -15,10 +15,5 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        margin-bottom: 100vw;
-    }
-
-    @media (max-width: 450px) {
-        margin-bottom: 300vw;
     }
 }

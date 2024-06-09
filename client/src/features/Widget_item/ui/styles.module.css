@@ -3,6 +3,9 @@
   flex-direction: column;
   width: 100%;
 }
+.widget_item:active {
+  pointer-events: none;
+}
 .widget_item .item_image {
   display: flex;
   flex-direction: column;
@@ -60,4 +63,19 @@
 }
 .widget_item .item_desc .item_price:hover {
   color: #FF496A;
+}
+
+.ourNewArrivals_widgetItem:active {
+  pointer-events: all;
+}
+
+.BestSellersWidget_item__mobile {
+  pointer-events: none;
+}
+.BestSellersWidget_item__mobile .item_image img {
+  transform: translateY(-20%);
+}
+.BestSellersWidget_item__mobile .item_image .item_add {
+  transform: translateY(-100%);
+  pointer-events: all;
 }/*# sourceMappingURL=styles.module.css.map */

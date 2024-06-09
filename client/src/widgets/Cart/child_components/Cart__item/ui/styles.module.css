@@ -80,6 +80,11 @@
 .cart__item__delete:focus {
   outline: none;
 }
+@media (max-width: 400px) {
+  .cart__item__delete {
+    margin-left: 23%;
+  }
+}
 .cart__itemWrapper {
   display: grid;
   grid-template-columns: 100% 20%;

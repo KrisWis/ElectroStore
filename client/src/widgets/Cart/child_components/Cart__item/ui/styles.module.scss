@@ -90,6 +90,10 @@
         &:focus {
             outline: none;
         }
+
+        @media (max-width: 400px) {
+            margin-left: 23%;
+        }
     }
 
     &Wrapper {

@@ -30,17 +30,23 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
     const mediaQuery_tablet = window.matchMedia('(max-width: 1000px)')
     const mediaQuery_mobile = window.matchMedia('(max-width: 700px)')
 
+
+
     if (!isLoading) {
-        for (let index = 0; index < BestSellers_items_props.length; mediaQuery_mobile.matches ? index += 1 : mediaQuery_tablet.matches ? index += 2 : index += 3) {
-            carousel_items.push({
-                id: `item-${BestSellers_items_props[index].id}`,
-                renderItem:
-                    <div className={`${styles.bestSellers_items}`}>
-                        <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index]} />
-                        {!mediaQuery_tablet.matches && BestSellers_items_props[index + 1] && <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index + 1]} />}
-                        {!mediaQuery_mobile.matches && BestSellers_items_props[index + 2] && <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index + 2]} />}
-                    </div>
-            });
+        if (carousel_items.length == 0) {
+            for (let index = 0; index < BestSellers_items_props.length; mediaQuery_mobile.matches ? index += 1 : mediaQuery_tablet.matches ? index += 2 : index += 3) {
+                if (carousel_items.length < BestSellers_items_props.length) {
+                    carousel_items.push({
+                        id: `item-${BestSellers_items_props[index].id}`,
+                        renderItem:
+                            <div className={`${styles.bestSellers_items}`}>
+                                <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index]} />
+                                {!mediaQuery_mobile.matches && BestSellers_items_props[index + 1] && <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index + 1]} />}
+                                {!mediaQuery_tablet.matches && BestSellers_items_props[index + 2] && <Widget_item padding_top={90} imageHeight={500} {...BestSellers_items_props[index + 2]} />}
+                            </div>
+                    });
+                }
+            }
         }
     } else {
         for (let index = 0; index < 8; mediaQuery_mobile.matches ? index += 1 : mediaQuery_tablet.matches ? index += 2 : index += 3) {

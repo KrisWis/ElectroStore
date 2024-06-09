@@ -3,9 +3,10 @@
     flex-direction: column;
     width: 100%;
 
-    // @media (max-width: 1300px) and (min-width: 600px) {
-    //     height: 600px !important;
-    // }
+    &:active {
+        pointer-events: none;
+    }
+
 
     .item_image {
         display: flex;
@@ -76,6 +77,26 @@
             &:hover {
                 color: #FF496A;
             }
+        }
+    }
+}
+
+.ourNewArrivals_widgetItem:active {
+    pointer-events: all;
+}
+
+.BestSellersWidget_item__mobile {
+    pointer-events: none;
+
+    .item_image {
+
+        img {
+            transform: translateY(-20%);
+        }
+
+        .item_add {
+            transform: translateY(-100%);
+            pointer-events: all;
         }
     }
 }

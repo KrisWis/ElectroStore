@@ -20,9 +20,8 @@ const Widget_item: React.FC<WidgetItemProps> = ({ imageURL, id, description, cap
         }
     }
 
-
     return (
-        <div className={styles.widget_item}>
+        <div className={`${styles.widget_item} ${imageHeight == 300 && styles.ourNewArrivals_widgetItem} ${imageHeight == 500 && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && styles.BestSellersWidget_item__mobile}`}>
 
             <div className={styles.item_image} style={{ paddingTop: padding_top }}>
                 <img style={{ height: imageHeight }} src={imageURL} srcSet={imageURL} alt="Изображение предмета" />
