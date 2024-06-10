@@ -7,7 +7,7 @@ import AnimatedNumbers from "react-animated-numbers";
 
 export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.Element => {
 
-    /* TODO: добавить функционал поиска, проверить оптимизацию */
+    /* TODO: сделать в поиске ответы ссылками на страницы, проверить оптимизацию */
 
     const CartItems: CartItemProps[] = useAppSelector((state) => state.cart.CartItemProps);
     const DetailedCartItems: CartItemProps[] = useAppSelector((state) => state.cart.DetailedCartItemProps);
