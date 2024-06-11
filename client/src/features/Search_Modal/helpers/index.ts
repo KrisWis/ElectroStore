@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { gql } from 'graphql-tag';
 import { SearchItemInterface } from '../types';
+import { DocumentNode } from 'graphql/language/ast';
 
 /* Массив с категориями */
 export const categories: string[] = ["Jackets", "T-shirts", "Handbags", "Accessories", "Cosmetics", "Dresses", "Jumpsuits"];
 
 /* Получение данных с апи */
 export const Search_Modal_fetch = (setSearchItemsArray: React.Dispatch<React.SetStateAction<SearchItemInterface[]>>): void => {
-    const query = gql`
+    const query: DocumentNode = gql`
         query {
             goods {
             id

@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { gql } from 'graphql-tag';
 import { WidgetItemProps } from '../../../features/Widget_item/types';
+import { DocumentNode } from 'graphql/language/ast';
 
 /* Получение данных с апи */
 export const Best_Sellers_fetch = (setBestSellers_items_props: React.Dispatch<React.SetStateAction<WidgetItemProps[]>>, setIsLoading: React.Dispatch<React.SetStateAction<boolean>>): void => {
-    const query = gql`
+    const query: DocumentNode = gql`
         query {
             goods {
             id

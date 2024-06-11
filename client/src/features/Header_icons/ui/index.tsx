@@ -4,28 +4,28 @@ import { Adaptive_NavBar } from '../../../entities';
 import { useEffect, useState } from 'react';
 import { Cart } from '../../../widgets';
 import { Cart_fetch } from '../../../widgets/Cart/helpers';
-import { useAppDispatch } from '../../../app/AppStore';
+import { AppDispatch, useAppDispatch } from '../../../app/AppStore';
 import { set_CartItemProps } from '../../../app/slices/CartSlice/CartSlice';
 
 
 export const Header_icons: React.FC = (): React.JSX.Element => {
 
     /* Открытие модалки */
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
     /* Открытие адаптивного попапа с навигацией */
-    const [navBarIsOpen, setNavBarIsOpen] = useState(false);
+    const [navBarIsOpen, setNavBarIsOpen] = useState<boolean>(false);
 
     /* Получение товаров из бд */
 
-    const dispatch = useAppDispatch();
+    const dispatch: AppDispatch = useAppDispatch();
 
     useEffect(() => {
         Cart_fetch(dispatch, set_CartItemProps);
     }, [])
 
     /* Открытие корзины */
-    const [cartIsOpen, setCartIsOpen] = useState(false);
+    const [cartIsOpen, setCartIsOpen] = useState<boolean>(false);
 
     return (
         <>

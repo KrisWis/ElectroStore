@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../app/AppStore';
+import { AppDispatch, useAppDispatch, useAppSelector } from '../../../app/AppStore';
 import { Cart__item } from '../child_components/Cart__item/ui';
 import { CartItemProps, CartProps } from '../types';
 import styles from './styles.module.scss';
@@ -8,10 +8,9 @@ import { increase_CartTotalPrice, set_CartItemProps, set_DetailedCartItemProps }
 
 export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.Element => {
 
-    /* TODO: сделать так, чтобы путь можно было менять сразу в конфиге, а не через роуты
-    проверить адаптив и кроссбраузерность, оптимизацию */
+    /* TODO: проверить адаптив и кроссбраузерность, оптимизацию */
 
-    const dispatch = useAppDispatch();
+    const dispatch: AppDispatch = useAppDispatch();
 
     useEffect(() => {
         if (localStorage.getItem("CartExist")) {

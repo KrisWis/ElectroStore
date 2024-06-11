@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 
 const Loading_animation: React.FC = (): React.JSX.Element => {
 
-    const [load, setLoad] = useState(true);
+    const [load, setLoad] = useState<boolean>(true);
 
     useEffect(() => {
         setTimeout(() => {

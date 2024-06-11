@@ -10,8 +10,8 @@ const Footer: React.FC = (): React.JSX.Element => {
     /* Проверка на то, что секция в области видимости */
     const footer_ref = useRef<HTMLDivElement>(null);
 
-    const [isIntoView, setIsIntoView] = useState(false);
-    const [isAnim, setIsAnim] = useState(false);
+    const [isIntoView, setIsIntoView] = useState<boolean>(false);
+    const [isAnim, setIsAnim] = useState<boolean>(false);
 
     WidgetAppearance(footer_ref, setIsIntoView);
 

@@ -1,6 +1,6 @@
 import ContentLoader from "react-content-loader";
 
-export const OurNewArrivals_Skeleton = (props: any) => (
+export const OurNewArrivals_Skeleton: React.FC<any> = (props) => (
     <ContentLoader
         speed={1}
         width={265}

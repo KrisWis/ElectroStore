@@ -14,9 +14,9 @@ const Our_New_Arrivals: React.FC = (): React.JSX.Element => {
     const OurNewArrivals_ref = useRef<HTMLDivElement>(null);
     const [OurNewArrivals_items_props, setOurNewArrivals_items_props] = useState<WidgetItemProps[]>([]);
 
-    const [isIntoView, setIsIntoView] = useState(false);
-    const [isAnim, setIsAnim] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isIntoView, setIsIntoView] = useState<boolean>(false);
+    const [isAnim, setIsAnim] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     WidgetAppearance(OurNewArrivals_ref, setIsIntoView);
 

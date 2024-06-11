@@ -16,25 +16,25 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
     /* Проверка на то, что секция в области видимости */
     const BestSellers_ref = useRef<HTMLDivElement>(null);
     const [BestSellers_items_props, setBestSellers_items_props] = useState<WidgetItemProps[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
-    const [isIntoView, setIsIntoView] = useState(false);
+    const [isIntoView, setIsIntoView] = useState<boolean>(false);
 
     WidgetAppearance(BestSellers_ref, setIsIntoView);
 
     /* Слайды карусели */
-    const [ActiveSlide, setActiveSlide] = useState(1);
+    const [ActiveSlide, setActiveSlide] = useState<number>(1);
 
     const carousel_items: CarouselItems[] = [];
 
-    const mediaQuery_tablet = window.matchMedia('(max-width: 1000px)')
-    const mediaQuery_mobile = window.matchMedia('(max-width: 700px)')
+    const mediaQuery_tablet: MediaQueryList = window.matchMedia('(max-width: 1000px)')
+    const mediaQuery_mobile: MediaQueryList = window.matchMedia('(max-width: 700px)')
 
 
 
     if (!isLoading) {
         if (carousel_items.length == 0) {
-            for (let index = 0; index < BestSellers_items_props.length; mediaQuery_mobile.matches ? index += 1 : mediaQuery_tablet.matches ? index += 2 : index += 3) {
+            for (let index: number = 0; index < BestSellers_items_props.length; mediaQuery_mobile.matches ? index += 1 : mediaQuery_tablet.matches ? index += 2 : index += 3) {
                 if (carousel_items.length < BestSellers_items_props.length) {
                     carousel_items.push({
                         id: `item-${BestSellers_items_props[index].id}`,
@@ -49,7 +49,7 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
             }
         }
     } else {
-        for (let index = 0; index < 8; mediaQuery_mobile.matches ? index += 1 : mediaQuery_tablet.matches ? index += 2 : index += 3) {
+        for (let index: number = 0; index < 8; mediaQuery_mobile.matches ? index += 1 : mediaQuery_tablet.matches ? index += 2 : index += 3) {
             carousel_items.push({
                 id: `item-${index}`,
                 renderItem:
@@ -68,12 +68,12 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
     })
 
     /* Функции слайдера */
-    const slideToPrevSlide = () => {
+    const slideToPrevSlide = (): void => {
         slideToPrevItem();
         setActiveSlide(ActiveSlide == 1 ? 3 : ActiveSlide - 1)
     }
 
-    const slideToNextSlide = () => {
+    const slideToNextSlide = (): void => {
         slideToNextItem();
         setActiveSlide(ActiveSlide == 3 ? 1 : ActiveSlide + 1)
     }

@@ -10,12 +10,12 @@ import Loading_animation from "../../../features/Loading_animation/ui";
 2 - модальное окно; */
 
 
-const Welcome_block = React.lazy(() => import("../../../widgets/Welcome_block/ui/index"));
-const Our_New_Arrivals = React.lazy(() => import("../../../widgets/Our_New_Arrivals/ui/index"));
-const Best_Sellers = React.lazy(() => import("../../../widgets/Best_Sellers/ui/index"));
-const Background_animation = React.lazy(() => import("../../../features/Background_animation/ui/index"));
-const OurNewsletter = React.lazy(() => import("../../../widgets/OurNewsletter/ui/index"));
-const Footer = React.lazy(() => import("../../../widgets/Footer/ui/index"));
+const Welcome_block: React.LazyExoticComponent<React.FC<{}>> = React.lazy(() => import("../../../widgets/Welcome_block/ui/index"));
+const Our_New_Arrivals: React.LazyExoticComponent<React.FC<{}>> = React.lazy(() => import("../../../widgets/Our_New_Arrivals/ui/index"));
+const Best_Sellers: React.LazyExoticComponent<React.FC<{}>> = React.lazy(() => import("../../../widgets/Best_Sellers/ui/index"));
+const Background_animation: React.LazyExoticComponent<React.FC<{}>> = React.lazy(() => import("../../../features/Background_animation/ui/index"));
+const OurNewsletter: React.LazyExoticComponent<React.FC<{}>> = React.lazy(() => import("../../../widgets/OurNewsletter/ui/index"));
+const Footer: React.LazyExoticComponent<React.FC<{}>> = React.lazy(() => import("../../../widgets/Footer/ui/index"));
 
 // TODO: Сделать анимацию перед заходом на сайт на канвасе (на след.странице)
 

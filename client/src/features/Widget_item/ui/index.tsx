@@ -1,15 +1,15 @@
 import styles from './styles.module.scss';
 import { WidgetItemProps } from '../types';
-import { useAppDispatch, useAppSelector } from '../../../app/AppStore';
+import { AppDispatch, useAppDispatch, useAppSelector } from '../../../app/AppStore';
 import { add_CartItem, increase_CartItemAmount } from '../../../app/slices/CartSlice/CartSlice';
 import { CartItemProps } from '../../../widgets/Cart/types';
 import { getCartItemById } from '../../../app/slices/CartSlice/selectors';
 
 const Widget_item: React.FC<WidgetItemProps> = ({ imageURL, id, description, caption, price, imageHeight, padding_top }): React.JSX.Element => {
 
-    const dispatch = useAppDispatch();
+    const dispatch: AppDispatch = useAppDispatch();
 
-    const CartItem: CartItemProps = useAppSelector((state) => getCartItemById(state, id));
+    const CartItem: CartItemProps | undefined = useAppSelector((state) => getCartItemById(state, id));
 
     const addToCart = () => {
         if (CartItem) {

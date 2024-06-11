@@ -9,9 +9,8 @@ import { Link } from 'react-router-dom';
 export const Search_Modal: React.FC<SearchModalProps> = ({ modalIsOpen, setModalIsOpen }): React.JSX.Element => {
 
     /* Открытие модального окна */
-
-    const [modalIsOpenAnimation, setModalIsOpenAnimation] = useState(false);
-    const [modalIsClosed, setModalIsClosed] = useState(true);
+    const [modalIsOpenAnimation, setModalIsOpenAnimation] = useState<boolean>(false);
+    const [modalIsClosed, setModalIsClosed] = useState<boolean>(true);
 
     useEffect(() => {
         if (modalIsOpen) {
@@ -30,7 +29,7 @@ export const Search_Modal: React.FC<SearchModalProps> = ({ modalIsOpen, setModal
     }, [modalIsOpen])
 
     /* Функционал поиска */
-    const [searchInputValue, setSearchInputValue] = useState("");
+    const [searchInputValue, setSearchInputValue] = useState<string>("");
     const [searchItemsArray, setSearchItemsArray] = useState<SearchItemInterface[]>([]);
 
     useEffect(() => {
@@ -50,7 +49,7 @@ export const Search_Modal: React.FC<SearchModalProps> = ({ modalIsOpen, setModal
 
                         <div className={`${!searchInputValue ? app_styles.opacity_0 : ""} ${styles.search_modal_results}`}>
                             {searchItemsArray.filter((item) => item.caption.toLowerCase().startsWith(searchInputValue.toLowerCase()) && searchInputValue).map((item) => (
-                                <Link to={`/item/:${item.id}`} key={item.id} className={styles.search_modal_result}>{item.caption}</Link>
+                                <Link to={`item/:${item.id}`} key={item.id} className={styles.search_modal_result}>{item.caption}</Link>
                             ))}
                         </div>
 

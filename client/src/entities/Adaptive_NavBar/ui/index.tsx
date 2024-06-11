@@ -8,15 +8,15 @@ import { Nav_DropDown_window } from '../../../features';
 
 export const Adaptive_NavBar: React.FC<AdaptiveNavBarProps> = ({ navBarIsOpen, setNavBarIsOpen }): React.JSX.Element => {
 
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
-    const [activeNavbar, setActiveNavbar] = useState(false);
+    const [activeNavbar, setActiveNavbar] = useState<boolean>(false);
 
     const dropdown_window__text = useRef<HTMLDivElement>(null);
 
     const adaptiveNavbarRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+    useEffect((): void => {
 
         if (adaptiveNavbarRef.current) {
             if (navBarIsOpen) {

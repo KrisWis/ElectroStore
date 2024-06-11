@@ -10,7 +10,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
 
     /* Функционал слайдера */
 
-    const [swiperItemActive, setSwiperItemActive] = useState(1);
+    const [swiperItemActive, setSwiperItemActive] = useState<number>(1);
 
     /* Функционал того, что каждые несколько секунд меняется слайд */
 
@@ -22,7 +22,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
     const [doAnim, setDoAnim] = useState(false);
 
     // Не отображать анимацию загрузки на смартфонах
-    const mediaQuery_mobile = window.matchMedia('(max-width: 600px)')
+    const mediaQuery_mobile: MediaQueryList = window.matchMedia('(max-width: 600px)')
 
     useEffect(() => {
 
@@ -73,7 +73,7 @@ export const Header_Slider: React.FC = (): React.JSX.Element => {
     });
 
     /* Анимация появления после загрузки */
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
     React.useEffect(() => {
         setTimeout(() => {

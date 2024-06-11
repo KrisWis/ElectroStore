@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 export const Header: React.FC = (): React.JSX.Element => {
 
     /* Анимация появления после загрузки */
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         setTimeout(() => {
