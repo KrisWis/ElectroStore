@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { gql } from 'graphql-tag';
 import { CartItemProps } from '../types';
-import { increase_CartTotalPrice } from '../../../app/slices/CartSlice/CartSlice';
+import { increase_CartTotalPrice, set_DetailedCartItemProps } from '../../../app/slices/CartSlice/CartSlice';
 
 /* Получение данных с апи */
 export const Cart_fetch = (dispatch: any, set_CartItemProps: React.Dispatch<React.SetStateAction<CartItemProps[]>>): void => {
@@ -32,6 +32,7 @@ export const Cart_fetch = (dispatch: any, set_CartItemProps: React.Dispatch<Reac
     }).then(response => {
         CartItemProps = response.data;
         dispatch(set_CartItemProps(CartItemProps));
+        dispatch(set_DetailedCartItemProps(CartItemProps));
 
     }).catch(() => {
         // CartItemProps = [{ id: 1, title: "22 Inch Monito12r", description: "ewe1221w", price: 43 },

@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import { Search_Modal_fetch, categories } from '../helpers';
 import { useEffect, useState } from 'react';
 import app_styles from '../../../app/layouts/App.module.scss';
+import { Link } from 'react-router-dom';
 
 
 export const Search_Modal: React.FC<SearchModalProps> = ({ modalIsOpen, setModalIsOpen }): React.JSX.Element => {
@@ -49,7 +50,7 @@ export const Search_Modal: React.FC<SearchModalProps> = ({ modalIsOpen, setModal
 
                         <div className={`${!searchInputValue ? app_styles.opacity_0 : ""} ${styles.search_modal_results}`}>
                             {searchItemsArray.filter((item) => item.caption.toLowerCase().startsWith(searchInputValue.toLowerCase()) && searchInputValue).map((item) => (
-                                <p key={item.id} className={styles.search_modal_result}>{item.caption}</p>
+                                <Link to={`/item/:${item.id}`} key={item.id} className={styles.search_modal_result}>{item.caption}</Link>
                             ))}
                         </div>
 

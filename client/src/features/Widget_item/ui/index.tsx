@@ -30,7 +30,7 @@ const Widget_item: React.FC<WidgetItemProps> = ({ imageURL, id, description, cap
 
             <div className={styles.item_desc}>
                 <h3 className={styles.item_caption}>{caption}</h3>
-                <p className={styles.item_price}>${price}</p>
+                <p className={styles.item_price}>${price.toFixed(2)}</p>
             </div>
 
         </div>

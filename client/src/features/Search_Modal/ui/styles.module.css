@@ -151,6 +151,7 @@
   margin: 0;
   padding: 10px 3px;
   height: 40px;
+  color: #000;
 }
 .search_modal_results .search_modal_result:hover {
   color: #fff;
