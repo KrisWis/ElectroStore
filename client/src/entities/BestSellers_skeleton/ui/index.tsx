@@ -1,7 +1,7 @@
 import ContentLoader from "react-content-loader";
 import styles from '../../../features/Widget_item/ui/styles.module.scss';
 
-export const BestSellers_Skeleton = (props: any) => (
+export const BestSellers_Skeleton: React.FC<any> = (props) => (
     <ContentLoader
         className={styles.widget_item}
         speed={1}

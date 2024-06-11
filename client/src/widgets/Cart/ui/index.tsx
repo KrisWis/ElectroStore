@@ -1,13 +1,26 @@
 import { useEffect } from 'react';
-import { useAppSelector } from '../../../app/AppStore';
+import { AppDispatch, useAppDispatch, useAppSelector } from '../../../app/AppStore';
 import { Cart__item } from '../child_components/Cart__item/ui';
 import { CartItemProps, CartProps } from '../types';
 import styles from './styles.module.scss';
 import AnimatedNumbers from "react-animated-numbers";
+import { increase_CartTotalPrice, set_CartItemProps, set_DetailedCartItemProps } from '../../../app/slices/CartSlice/CartSlice';
 
 export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.Element => {
 
-    /* TODO: добавить функционал поиска, проверить оптимизацию */
+    /* TODO: проверить адаптив и кроссбраузерность, оптимизацию */
+
+    const dispatch: AppDispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (localStorage.getItem("CartExist")) {
+            if (localStorage.getItem("CartExist") == "true") {
+                dispatch(set_CartItemProps(JSON.parse(localStorage.getItem("CartItems")!)));
+                dispatch(set_DetailedCartItemProps(JSON.parse(localStorage.getItem("DetailedCartItems")!)));
+                dispatch(increase_CartTotalPrice(JSON.parse(localStorage.getItem("CartTotalPrice")!)));
+            }
+        }
+    }, [])
 
     const CartItems: CartItemProps[] = useAppSelector((state) => state.cart.CartItemProps);
     const DetailedCartItems: CartItemProps[] = useAppSelector((state) => state.cart.DetailedCartItemProps);
@@ -17,7 +30,13 @@ export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.
         if (CartItems.length == 1) {
             setTimeout(() => {
                 document.querySelector("#cart__header__goods_count div div div")!.textContent = "1";
-            }, 0);
+            }, 1000);
+        }
+
+        if (CartItems.length == 0) {
+            localStorage.setItem("CartExist", JSON.stringify(false));
+        } else {
+            localStorage.setItem("CartExist", JSON.stringify(true));
         }
     }, [CartItems])
 

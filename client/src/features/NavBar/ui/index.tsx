@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 
 export const NavBar: React.FC = (): React.JSX.Element => {
 
-    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
     const dropdown_window = useRef<HTMLUListElement>(null);
 

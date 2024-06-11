@@ -11,8 +11,8 @@ const OurNewsletter: React.FC = (): React.JSX.Element => {
     /* Проверка на то, что секция в области видимости */
     const OurNewsletter_ref = useRef<HTMLDivElement>(null);
 
-    const [isIntoView, setIsIntoView] = useState(false);
-    const [isAnim, setIsAnim] = useState(false);
+    const [isIntoView, setIsIntoView] = useState<boolean>(false);
+    const [isAnim, setIsAnim] = useState<boolean>(false);
 
     WidgetAppearance(OurNewsletter_ref, setIsIntoView);
 

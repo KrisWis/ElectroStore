@@ -10,7 +10,7 @@ export const checkScrollDirectionIsUp = (event: any): boolean => {
 export const isScrolledIntoView = (el: HTMLElement): boolean | void => {
 
     if (el) {
-        let bounds = el.getBoundingClientRect();
+        let bounds: DOMRect = el.getBoundingClientRect();
         return (
             (bounds.top + bounds.height > 0) &&
             (window.innerHeight - bounds.top > 0) &&
@@ -38,7 +38,7 @@ export const is_touch_enabled = (): boolean => {
 }
 
 /* Функционал анимированной иконки */
-const favicon: any = document.getElementById("favicon");
+const favicon: HTMLElement | null = document.getElementById("favicon");
 const favicons_hrefs = ["images/favicons/favicon_1.png", "images/favicons/favicon_2.png", "images/favicons/favicon_1.png", "images/favicons/favicon_3.png",
     "images/favicons/favicon_4.png", "images/favicons/favicon_5.png", "images/favicons/favicon_6.png", "images/favicons/favicon_7.png", "images/favicons/favicon_8.png",
     "images/favicons/favicon_9.png", "images/favicons/favicon_10.png", "images/favicons/favicon_11.png"];
@@ -46,7 +46,7 @@ let favicon_count = 0;
 
 setTimeout(() => {
     setInterval(() => {
-        favicon.href = favicons_hrefs[favicon_count];
+        (favicon as HTMLLinkElement).href = favicons_hrefs[favicon_count];
         favicon_count++;
 
         if (favicon_count == favicons_hrefs.length) {
