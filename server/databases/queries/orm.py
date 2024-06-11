@@ -1,7 +1,3 @@
-import datetime
-import logging
-import random
-
 from sqlalchemy import select
 
 from server.databases.database import Base1, engine, async_session
@@ -28,28 +24,28 @@ class AsyncORM:
                  ("Huawei super ultra pro 5000", 39990.05, "some description", {"vert5": ImageSizes.vertical, "quadro5": ImageSizes.quadrant, "horiz5": ImageSizes.horizontal}),
                  ("Huawei super ultra pro 6000", 39990.06, "some description", {"vert6": ImageSizes.vertical, "quadro6": ImageSizes.quadrant, "horiz6": ImageSizes.horizontal}),
                  ("Huawei super ultra pro 7000", 39990.07, "some description", {"vert7": ImageSizes.vertical, "quadro7": ImageSizes.quadrant, "horiz7": ImageSizes.horizontal}))
-        async with async_session() as session:
-            for good in goods:
-                try:
-                    good_instance = await AsyncORM.add_good(name=good[0], price=good[1], description=good[2])
-                    await AsyncORM.add_images_to_good(good_instance.id, good[3].items())
-                except Exception as e:
-                    print(e)
+        for good in goods:
+            try:
+                good_instance = await AsyncORM.add_good(name=good[0], price=good[1], description=good[2])
+                await AsyncORM.add_images_to_good(good_instance.id, list(good[3].items()))
+            except Exception as e:
+                print(e)
 
     @staticmethod
     async def add_good(name: str, price: float, description: str | None):
         async with async_session() as session:
             good = GoodOrm(name=name, price=price, description=description)
             session.add(good)
-            instance = await session.commit()
-            return instance
+            await session.commit()
+            await session.refresh(good)
+            new_good = good
+            return new_good
 
     @staticmethod
-    async def add_images_to_good(good_id: int, images: tuple[str, ImageSizes]):
+    async def add_images_to_good(good_id: int, images: list[tuple[str, ImageSizes]]):
         async with async_session() as session:
-            good = await session.get(GoodOrm, good_id)
-            links_instances = [ImageGoodOrm(link=image[0], size=image[1]) for image in images]
-            good.images.extend(links_instances)
+            links_instances = [ImageGoodOrm(link=image[0], size=image[1], good_id=good_id) for image in images]
+            session.add_all(links_instances)
             await session.commit()
 
     @staticmethod
