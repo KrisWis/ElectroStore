@@ -11,6 +11,18 @@
   position: relative;
   transition: 0.3s linear opacity;
 }
+@media (min-width: 600px) {
+  .ourNewsletter {
+    right: 10px;
+  }
+}
+@-moz-document url-prefix() {
+  @media (min-width: 600px) {
+    .ourNewsletter {
+      right: 0;
+    }
+  }
+}
 .ourNewsletter img {
   -o-object-fit: cover;
      object-fit: cover;
