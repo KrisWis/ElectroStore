@@ -6,6 +6,7 @@
 }
 .footer_section_caption {
   font-size: 35px;
+  margin-top: 0;
 }
 .footer_section_links {
   display: flex;
