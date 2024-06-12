@@ -13,7 +13,7 @@ app.include_router(router)
 
 
 origins = [
-    "http://localhost:5173/ElectroStore/"
+    "http://localhost:5173"
 ]
 
 app.add_middleware(
