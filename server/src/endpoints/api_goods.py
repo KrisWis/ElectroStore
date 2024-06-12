@@ -13,8 +13,7 @@ router = APIRouter(prefix="/goods", tags=["Goods"])
 @router.get("/best_ones")
 async def best_ones_goods():
     all_goods = await AsyncORM.get_best_goods()
-    best_ones = [random.choice(all_goods) for _ in range(3)]
-    return {'best_goods': best_ones}
+    return {'best_goods': random.sample(all_goods, k=3)}
 
 
 @router.get("/recent")
