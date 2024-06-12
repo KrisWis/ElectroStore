@@ -17,4 +17,9 @@
     flex-direction: column;
     position: relative;
   }
+}
+@media (max-width: 600px) {
+  .slider_downText {
+    width: 100%;
+  }
 }/*# sourceMappingURL=styles.module.css.map */

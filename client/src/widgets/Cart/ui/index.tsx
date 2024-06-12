@@ -8,8 +8,6 @@ import { increase_CartTotalPrice, set_CartItemProps, set_DetailedCartItemProps }
 
 export const Cart: React.FC<CartProps> = ({ isActive, setIsActive }): React.JSX.Element => {
 
-    /* TODO: проверить адаптив и кроссбраузерность, оптимизацию */
-
     const dispatch: AppDispatch = useAppDispatch();
 
     useEffect(() => {

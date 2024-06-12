@@ -10,4 +10,15 @@
 
 .footer_wrapper {
     width: 100vw;
+
+    @media (min-width: 600px) {
+        position: relative;
+        right: 10px;
+    }
+
+    @-moz-document url-prefix() {
+        @media (min-width: 600px) {
+            right: 0;
+        }
+    }
 }

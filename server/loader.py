@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
 from .src.endpoints import router
 
 
@@ -28,4 +27,3 @@ app.add_middleware(
 @app.get("/")
 async def start():
     return "Hey there! You've done some cringe here. It's okay, we're gonna forget about it :)"
-

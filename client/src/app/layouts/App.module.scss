@@ -48,3 +48,14 @@ body {
 .widget_wrapper {
     height: 100%;
 }
+
+@-moz-document url-prefix() {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: #3b2b68 #020202;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}

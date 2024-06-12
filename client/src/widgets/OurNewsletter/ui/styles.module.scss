@@ -11,6 +11,17 @@
     position: relative;
     transition: .3s linear opacity;
 
+    @media (min-width: 600px) {
+        right: 10px;
+    }
+
+    @-moz-document url-prefix() {
+        @media (min-width: 600px) {
+            right: 0;
+        }
+    }
+
+
     img {
         object-fit: cover;
     }
