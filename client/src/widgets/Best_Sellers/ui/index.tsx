@@ -31,7 +31,6 @@ const Best_Sellers: React.FC = (): React.JSX.Element => {
     const mediaQuery_mobile: MediaQueryList = window.matchMedia('(max-width: 700px)')
 
 
-
     if (!isLoading) {
         if (carousel_items.length == 0) {
             for (let index: number = 0; index < BestSellers_items_props.length; mediaQuery_mobile.matches ? index += 1 : mediaQuery_tablet.matches ? index += 2 : index += 3) {
