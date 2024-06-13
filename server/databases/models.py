@@ -38,7 +38,7 @@ class ImageGoodOrm(Base1):
     id: Mapped[intpk]
     link: Mapped[str]
     size: Mapped['ImageSizes']
-    good_id: Mapped[int] = mapped_column(ForeignKey('goods.id'))
+    good_id: Mapped[int] = mapped_column(ForeignKey('goods.id', ondelete='CASCADE'))
 
     good: Mapped['GoodOrm'] = relationship(back_populates='images')
 

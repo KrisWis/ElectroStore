@@ -16,10 +16,10 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^2.2.5",
-    "axios": "^1.6.8",
+    "axios": "^1.7.2",
     "express": "^4.19.2",
     "express-graphql": "^0.12.0",
-    "graphql": "^16.8.1",
+    "graphql": "^16.8.2",
     "graphql-http": "^1.22.1",
     "graphql-tag": "^2.12.6",
     "h3": "^1.11.1",
@@ -60,7 +60,7 @@
     "ignore-styles": "^5.0.1",
     "sass": "^1.70.0",
     "typescript": "^5.2.2",
-    "vite": "^5.2.11"
+    "vite": "^5.2.13"
   },
   "moduleResolution": "node",
   "main": "example.js",

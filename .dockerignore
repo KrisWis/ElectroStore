@@ -7,4 +7,4 @@ __pycache__
 *.pyo
 *.pyd
 .idea
-server/databases/config.py
+server/databases/.env
