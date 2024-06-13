@@ -18,7 +18,7 @@ export const Our_New_Arrivals_fetch = (setOurNewArrivals_items_props: React.Disp
     `;
 
     axios({
-        url: 'http://127.0.0.1:8000/ElectroStore/api/goods',
+        url: 'http://127.0.0.1:8000/ElectroStore/api/goods/recent',
         method: 'post',
         data: {
             query: query
