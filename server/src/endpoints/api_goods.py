@@ -4,19 +4,32 @@ from typing import Union
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 from server.config import settings
+from server.databases.models import GoodOrm
 from server.databases.queries.orm import AsyncORM
-from server.src.validation import *
+from server.src.schemas import *
 
 router = APIRouter(prefix="/goods", tags=["Goods"])
 
 
-@router.get("/best_ones")
-async def best_ones_goods():
-    all_goods = await AsyncORM.get_best_goods()
-    return {'best_goods': random.sample(all_goods, k=3)}
+@router.get("/best_ones", response_model=list[GoodDTO])
+async def best_three_goods():
+    all_goods = await AsyncORM.get_all_goods()
+    return random.sample(all_goods, k=3)
 
 
-@router.get("/recent")
-async def recent_goods():
+@router.get("/recent", response_model=list[GoodDTO])
+async def recent_five_goods():
     all_goods = await AsyncORM.get_recent_goods()
-    return {'recent_goods': all_goods}
+    return all_goods
+
+
+@router.post("/add", response_model=int)
+async def add_good(good: GoodAddDTO):
+    instance = await AsyncORM.add_good(**good.dict())
+    return instance.id
+
+
+@router.delete("/delete", response_model=int | None)
+async def delete_good(good_id: int):
+    deleted_id = await AsyncORM.delete_instance_by_id(GoodOrm, good_id)
+    return deleted_id

@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, delete
 
 from server.databases.database import Base1, engine, async_session
 from server.databases.models import GoodOrm, ImageGoodOrm, ImageSizes
@@ -33,13 +33,18 @@ class AsyncORM:
 
     @staticmethod
     async def add_good(name: str, price: float, description: str | None):
-        async with async_session() as session:
+        async with async_session(expire_on_commit=False) as session:
             good = GoodOrm(name=name, price=price, description=description)
             session.add(good)
             await session.commit()
-            await session.refresh(good)
-            new_good = good
-            return new_good
+            return good
+
+    @staticmethod
+    async def delete_instance_by_id(model, good_id: int) -> int | None:
+        async with async_session(expire_on_commit=False) as session:
+            smt = await session.execute(delete(model).filter_by(id=good_id).returning(model.id))
+            await session.commit()
+            return smt.scalar_one_or_none()
 
     @staticmethod
     async def add_images_to_good(good_id: int, images: list[tuple[str, ImageSizes]]):
@@ -49,13 +54,14 @@ class AsyncORM:
             await session.commit()
 
     @staticmethod
-    async def get_best_goods():
+    async def get_all_goods():
         async with async_session() as session:
             res = await session.scalars(select(GoodOrm))
             return res.all()
 
     @staticmethod
     async def get_recent_goods():
+        """5 last added goods"""
         async with async_session() as session:
-            res = await session.scalars(select(GoodOrm).order_by(GoodOrm.created_at).limit(5))
+            res = await session.scalars(select(GoodOrm).order_by(GoodOrm.created_at.desc()).limit(5))
             return res.all()

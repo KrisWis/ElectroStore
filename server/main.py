@@ -1,9 +1,12 @@
-from .databases.queries.orm import AsyncORM
+import asyncio
+
+from server.databases.models import GoodOrm
+from server.databases.queries.orm import AsyncORM
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
-from .src.endpoints import router
+from server.src.endpoints import router
 
 
 @asynccontextmanager
@@ -33,7 +36,6 @@ app.add_middleware(
 )
 
 
-@app.get("/")
+@app.get("/", tags=['Cringe page'])
 async def start():
     return "Hey there! You've done some cringe here. It's okay, we're gonna forget about it :)"
-
