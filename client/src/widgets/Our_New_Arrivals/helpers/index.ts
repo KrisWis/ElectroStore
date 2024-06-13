@@ -2,9 +2,12 @@ import axios from 'axios';
 import { gql } from 'graphql-tag';
 import { WidgetItemProps } from '../../../features/Widget_item/types';
 import { DocumentNode } from 'graphql/language/ast';
+import { SERVER_PORT, goods_URL } from '../../../app/appConfig';
 
 /* Получение данных с апи */
 export const Our_New_Arrivals_fetch = (setOurNewArrivals_items_props: React.Dispatch<React.SetStateAction<WidgetItemProps[]>>, setIsLoading: React.Dispatch<React.SetStateAction<boolean>>): void => {
+
+    const endpoint_url: goods_URL = `http://${SERVER_PORT}/goods/recent`;
 
     const query: DocumentNode = gql`
         query {
@@ -18,14 +21,14 @@ export const Our_New_Arrivals_fetch = (setOurNewArrivals_items_props: React.Disp
     `;
 
     axios({
-        url: 'http://127.0.0.1:8000/ElectroStore/api/goods/recent',
-        method: 'post',
+        url: endpoint_url,
+        method: 'get',
         data: {
             query: query
         }
 
     }).then(response => {
-        setOurNewArrivals_items_props(response.data);
+        setOurNewArrivals_items_props(response.data.recent_goods);
         setIsLoading(false);
 
     }).catch(() => {

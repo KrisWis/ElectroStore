@@ -2,9 +2,13 @@ import axios from 'axios';
 import { gql } from 'graphql-tag';
 import { WidgetItemProps } from '../../../features/Widget_item/types';
 import { DocumentNode } from 'graphql/language/ast';
+import { SERVER_PORT, goods_URL } from '../../../app/appConfig';
 
 /* Получение данных с апи */
 export const Best_Sellers_fetch = (setBestSellers_items_props: React.Dispatch<React.SetStateAction<WidgetItemProps[]>>, setIsLoading: React.Dispatch<React.SetStateAction<boolean>>): void => {
+
+    const endpoint_url: goods_URL = `http://${SERVER_PORT}/goods/best_ones`;
+
     const query: DocumentNode = gql`
         query {
             goods {
@@ -17,14 +21,14 @@ export const Best_Sellers_fetch = (setBestSellers_items_props: React.Dispatch<Re
     `;
 
     axios({
-        url: 'http://127.0.0.1:8000/ElectroStore/api/goods/best_ones',
-        method: 'post',
+        url: endpoint_url,
+        method: 'get',
         data: {
             query: query
         }
 
     }).then(response => {
-        setBestSellers_items_props(response.data);
+        setBestSellers_items_props(response.data.best_goods);
         setIsLoading(false);
 
     }).catch(() => {
