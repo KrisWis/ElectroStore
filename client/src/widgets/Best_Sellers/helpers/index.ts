@@ -17,7 +17,7 @@ export const Best_Sellers_fetch = (setBestSellers_items_props: React.Dispatch<Re
     `;
 
     axios({
-        url: 'http://127.0.0.1:8000/ElectroStore/api/goods',
+        url: 'http://127.0.0.1:8000/ElectroStore/api/goods/best_ones',
         method: 'post',
         data: {
             query: query
