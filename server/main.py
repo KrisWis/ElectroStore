@@ -1,4 +1,5 @@
 import asyncio
+import uvicorn
 
 from server.databases.models import GoodOrm
 from server.databases.queries.orm import AsyncORM
@@ -39,3 +40,7 @@ app.add_middleware(
 @app.get("/", tags=['Cringe page'])
 async def start():
     return "Hey there! You've done some cringe here. It's okay, we're gonna forget about it :)"
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=8000)
