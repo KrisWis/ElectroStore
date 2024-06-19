@@ -15,7 +15,7 @@ export const Our_New_Arrivals_fetch = (setOurNewArrivals_items_props: React.Disp
             id
             name
             price
-            imageURL
+            link
             }
         }
     `;

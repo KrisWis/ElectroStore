@@ -15,7 +15,7 @@ export const Best_Sellers_fetch = (setBestSellers_items_props: React.Dispatch<Re
             id
             name
             price
-            imageURL
+            link
             }
         }
     `;

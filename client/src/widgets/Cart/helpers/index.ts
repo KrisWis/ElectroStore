@@ -4,12 +4,12 @@ import { CartItemProps } from '../types';
 import { increase_CartTotalPrice, set_DetailedCartItemProps } from '../../../app/slices/CartSlice/CartSlice';
 import { AppDispatch } from '../../../app/AppStore';
 import { DocumentNode } from 'graphql/language/ast';
-import { URL } from '../../../app/appConfig';
+import { goods_URL } from '../../../app/appConfig';
 
 /* Получение данных с апи */
 export const Cart_fetch = (dispatch: AppDispatch, set_CartItemProps: any) => {
 
-    const url: URL = 'http://127.0.0.1:8000/ElectroStore/api/cart_goods';
+    const url: goods_URL = 'http://127.0.0.1:8000/goods/cart_goods';
 
     const query: DocumentNode = gql`
         query {
