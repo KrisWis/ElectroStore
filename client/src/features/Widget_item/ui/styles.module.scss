@@ -30,6 +30,7 @@
             transition: transform linear .3s;
             cursor: pointer;
             object-fit: cover;
+            object-position: center center;
 
             &:hover {
                 transform: translateY(-20%);

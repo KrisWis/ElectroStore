@@ -25,6 +25,8 @@
   cursor: pointer;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
 }
 .widget_item .item_image img:hover {
   transform: translateY(-20%);
