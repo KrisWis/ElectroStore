@@ -6,8 +6,8 @@ from server.databases.models import ImageSizes
 
 
 class GoodAddDTO(BaseModel):
-    name: str = Field(max_length=64)
-    price: Decimal = Field(ge=0)
+    name: str = Field(max_length=128)
+    price: float = Field(ge=0)
     description: str | None
 
 

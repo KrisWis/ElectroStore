@@ -70,14 +70,14 @@ class AsyncORM:
     @staticmethod
     async def get_all_goods():
         async with async_session() as session:
-            res = await session.scalars(select(GoodOrm))
+            res = await session.scalars(select(GoodOrm).options(selectinload(GoodOrm.images)))
             return res.all()
 
     @staticmethod
     async def get_recent_goods():
         """5 last added goods"""
         async with async_session() as session:
-            res = await session.scalars(select(GoodOrm).order_by(GoodOrm.created_at.desc()).limit(5))
+            res = await session.scalars(select(GoodOrm).options(selectinload(GoodOrm.images)).order_by(GoodOrm.created_at.desc()).limit(5))
             return res.all()
 
     @staticmethod

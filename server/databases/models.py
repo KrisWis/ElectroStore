@@ -18,7 +18,7 @@ class GoodOrm(Base1):
 
     id: Mapped[intpk]
     name: Mapped[str]
-    price: Mapped[int] = mapped_column(Numeric())
+    price: Mapped[float]
     description: Mapped[str | None]
     created_at: Mapped[created_at]
     updated_at: Mapped[updated_at]
