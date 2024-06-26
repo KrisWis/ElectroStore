@@ -9,7 +9,7 @@ from sqlalchemy.sql import func
 intpk = Annotated[int, mapped_column(primary_key=True, autoincrement=True)]
 created_at = Annotated[datetime.datetime, mapped_column(server_default=text("TIMEZONE('utc', now())"))]
 updated_at = Annotated[datetime.datetime, mapped_column(server_default=text("TIMEZONE('utc', now())"),
-                                                        onupdate=datetime.datetime.now(datetime.UTC))]
+                                                        onupdate=datetime.datetime.now())]
 
 
 class GoodOrm(Base1):

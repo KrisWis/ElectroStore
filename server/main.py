@@ -1,7 +1,5 @@
-import asyncio
 import uvicorn
 
-from server.databases.models import GoodOrm
 from server.databases.queries.orm import AsyncORM
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,8 +10,8 @@ from server.src.endpoints import router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # await AsyncORM.create_tables()
-    # await AsyncORM.add_initial_goods()
+    await AsyncORM.create_tables()
+    await AsyncORM.add_initial_goods()
     yield
 
 app = FastAPI(

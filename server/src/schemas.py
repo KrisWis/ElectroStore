@@ -1,5 +1,4 @@
 import datetime
-from decimal import Decimal
 
 from pydantic import BaseModel, Field
 from server.databases.models import ImageSizes
@@ -9,6 +8,12 @@ class GoodAddDTO(BaseModel):
     name: str = Field(max_length=128)
     price: float = Field(ge=0)
     description: str | None
+
+
+class GoodUpdateDTO(BaseModel):
+    name: str | None = Field(max_length=128, default=None)
+    price: float | None = Field(ge=0, default=None)
+    description: str | None = None
 
 
 class GoodDTO(GoodAddDTO):

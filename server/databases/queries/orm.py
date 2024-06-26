@@ -83,8 +83,9 @@ class AsyncORM:
     @staticmethod
     async def edit_model_params(model, model_id: int, **params):
         async with async_session(expire_on_commit=False) as session:
-            updated = await session.execute(update(model).filter_by(id=model_id).values(**params).returning(model.id))
-            return updated
+            new_model = await session.execute(update(model).filter_by(id=model_id).values(**params).returning(model))
+            await session.commit()
+            return new_model.scalar_one_or_none()
 
     @staticmethod
     async def add_images_to_good(good_id: int, images: list[tuple[str, ImageSizes]]) -> list[int]:
@@ -93,3 +94,9 @@ class AsyncORM:
             session.add_all(links_instances)
             await session.commit()
             return [i.id for i in links_instances]
+
+    @staticmethod
+    async def get_smt_by_id(model, id: int):
+        async with async_session() as session:
+            return await session.scalar(select(model).filter_by(id=id))
+
